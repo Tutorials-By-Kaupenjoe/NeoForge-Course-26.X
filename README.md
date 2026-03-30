@@ -1,5 +1,3 @@
-![NeoForge-Course-26-1-Main-Image]()
-
 [![NeoForge-Main-Course-Image](https://github.com/user-attachments/assets/3d267a19-15d9-4ae3-9e6f-2941cc9b72e2)](https://courses.kaupenjoe.net/p/modding-by-kaupenjoe-neoforge-modding-for-minecraft-26-x)
 # Modding By Kaupenjoe: NEOFORGE MODDING COURSE 26.X
 
