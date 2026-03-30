@@ -1,6 +1,9 @@
 package net.kaupenjoe.mccourse;
 
 import com.mojang.logging.LogUtils;
+import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
+import net.kaupenjoe.mccourse.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -25,6 +28,9 @@ public class MCCourse {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
 
 
         NeoForge.EVENT_BUS.register(this);
@@ -40,9 +46,11 @@ public class MCCourse {
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.ZIRCON);
+            event.accept(ModItems.RAW_ZIRCON);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
