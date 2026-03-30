@@ -1,0 +1,13 @@
+{
+  "itemGroup.mccourse": "Example Mod Tab",
+  "block.mccourse.example_block": "Example Block",
+  "item.mccourse.example_item": "Example Item",
+
+  "mccourse.configuration.title": "MCCourse Configs",
+  "mccourse.configuration.section.mccourse.common.toml": "MCCourse Configs",
+  "mccourse.configuration.section.mccourse.common.toml.title": "MCCourse Configs",
+  "mccourse.configuration.items": "Item List",
+  "mccourse.configuration.logDirtBlock": "Log Dirt Block",
+  "mccourse.configuration.magicNumberIntroduction": "Magic Number Text",
+  "mccourse.configuration.magicNumber": "Magic Number"
+}
