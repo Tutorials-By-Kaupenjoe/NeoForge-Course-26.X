@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAW_ZIRCON);
                         output.accept(ModItems.CHISEL);
                         output.accept(ModItems.RADISH);
+                        output.accept(ModItems.FROSTFIRE_ICE);
 
                     }).build());
 

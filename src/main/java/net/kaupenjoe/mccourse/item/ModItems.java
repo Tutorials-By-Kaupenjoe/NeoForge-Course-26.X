@@ -21,6 +21,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
             properties -> new Item(properties.food(ModFoodProperties.RADISH, ModFoodProperties.RADISH_EFFECT)));
+    public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice", Item::new);
 
 
     public static void register(IEventBus eventBus) {
