@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse;
 import net.kaupenjoe.mccourse.datagen.ModBlockLootTableProvider;
 import net.kaupenjoe.mccourse.datagen.ModBlockTagProvider;
 import net.kaupenjoe.mccourse.datagen.ModModelProvider;
+import net.kaupenjoe.mccourse.datagen.ModRecipeProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
@@ -26,5 +27,6 @@ public class MCCourseDataGenerators {
         generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
         generator.addProvider(true, new ModBlockTagProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
     }
 }
