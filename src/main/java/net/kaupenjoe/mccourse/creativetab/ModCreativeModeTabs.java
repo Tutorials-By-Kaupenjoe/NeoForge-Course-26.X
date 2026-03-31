@@ -22,6 +22,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ZIRCON);
                         output.accept(ModItems.RAW_ZIRCON);
+                        output.accept(ModItems.CHISEL);
 
                     }).build());
 

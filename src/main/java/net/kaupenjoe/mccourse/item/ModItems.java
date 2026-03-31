@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.item;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.item.custom.ChiselItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -13,6 +14,9 @@ public class ModItems {
             properties -> properties);
     public static final DeferredItem<Item> RAW_ZIRCON = ITEMS.registerSimpleItem("raw_zircon",
             properties -> properties);
+
+    public static final DeferredItem<Item> CHISEL = ITEMS.registerItem("chisel",
+            properties -> new ChiselItem(properties.durability(32)));
 
 
     public static void register(IEventBus eventBus) {
