@@ -1,0 +1,10 @@
+{
+  "values": [
+    "mccourse:zircon_block",
+    "mccourse:raw_zircon_block",
+    "mccourse:zircon_ore",
+    "mccourse:zircon_deepslate_ore",
+    "mccourse:zircon_nether_ore",
+    "mccourse:zircon_end_ore"
+  ]
+}
