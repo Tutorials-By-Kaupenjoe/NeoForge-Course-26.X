@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.block.custom;
 
 import net.kaupenjoe.mccourse.item.ModItems;
+import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -47,6 +48,6 @@ public class MagicBlock extends Block {
     }
 
     private boolean isValidItem(ItemStack item) {
-        return item.is(ModItems.ZIRCON) || item.is(Items.RAW_IRON);
+        return item.is(ModTags.Items.TRANSFORMABLE_ITEMS);
     }
 }
