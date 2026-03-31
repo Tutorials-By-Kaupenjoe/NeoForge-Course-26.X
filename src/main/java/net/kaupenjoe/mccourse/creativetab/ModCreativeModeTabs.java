@@ -38,6 +38,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ZIRCON_NETHER_ORE);
                         output.accept(ModBlocks.ZIRCON_END_ORE);
 
+                        output.accept(ModBlocks.MAGIC_BLOCK);
+
                     }).build());
 
 

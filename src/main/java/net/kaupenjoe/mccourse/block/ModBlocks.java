@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.block.custom.MagicBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -37,6 +38,11 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ZIRCON_END_ORE = registerBlock("zircon_end_ore",
             properties -> new DropExperienceBlock(UniformInt.of(7, 9),
                     properties.strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
+            properties -> new MagicBlock(properties.strength(2f)
+                    .noLootTable().sound(SoundType.AMETHYST)));
 
 
 

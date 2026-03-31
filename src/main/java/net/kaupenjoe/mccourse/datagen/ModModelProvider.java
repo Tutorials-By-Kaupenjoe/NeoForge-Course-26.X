@@ -30,5 +30,6 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.ZIRCON_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.ZIRCON_NETHER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.ZIRCON_END_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.MAGIC_BLOCK.get());
     }
 }
