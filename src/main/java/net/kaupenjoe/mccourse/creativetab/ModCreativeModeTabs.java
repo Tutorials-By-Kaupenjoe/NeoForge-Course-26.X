@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.creativetab;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -21,6 +22,20 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ZIRCON);
                         output.accept(ModItems.RAW_ZIRCON);
+
+                    }).build());
+
+    public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.ZIRCON_BLOCK))
+                    .title(Component.translatable("creativetab.mccourse.zircon_blocks"))
+                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModBlocks.ZIRCON_BLOCK);
+                        output.accept(ModBlocks.RAW_ZIRCON_BLOCK);
+
+                        output.accept(ModBlocks.ZIRCON_ORE);
+                        output.accept(ModBlocks.ZIRCON_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.ZIRCON_NETHER_ORE);
+                        output.accept(ModBlocks.ZIRCON_END_ORE);
 
                     }).build());
 

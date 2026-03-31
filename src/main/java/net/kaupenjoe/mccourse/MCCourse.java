@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse;
 
 import com.mojang.logging.LogUtils;
+import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -31,6 +32,7 @@ public class MCCourse {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
 
         NeoForge.EVENT_BUS.register(this);

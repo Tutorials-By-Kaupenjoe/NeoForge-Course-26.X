@@ -3,8 +3,17 @@
   "item.mccourse.raw_zircon": "Raw Zircon",
 
 
+  "block.mccourse.zircon_block": "Block of Zircon",
+  "block.mccourse.raw_zircon_block": "Block of Raw Zircon",
+  "block.mccourse.zircon_ore": "Zircon Ore",
+  "block.mccourse.zircon_deepslate_ore": "Zircon Deepslate Ore",
+  "block.mccourse.zircon_nether_ore": "Zircon Nether Ore",
+  "block.mccourse.zircon_end_ore": "Zircon End Ore",
 
 
 
-  "creativetab.mccourse.zircon_items": "Zircon Course Items"
+
+
+  "creativetab.mccourse.zircon_items": "Zircon Course Items",
+  "creativetab.mccourse.zircon_blocks": "Zircon Course Blocks"
 }
