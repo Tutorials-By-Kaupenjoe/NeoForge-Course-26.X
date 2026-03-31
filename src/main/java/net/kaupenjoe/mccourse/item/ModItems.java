@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.item;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -17,6 +18,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> CHISEL = ITEMS.registerItem("chisel",
             properties -> new ChiselItem(properties.durability(32)));
+
+    public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
+            properties -> new Item(properties.food(ModFoodProperties.RADISH, ModFoodProperties.RADISH_EFFECT)));
 
 
     public static void register(IEventBus eventBus) {

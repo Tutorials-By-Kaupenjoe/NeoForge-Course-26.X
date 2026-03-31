@@ -23,6 +23,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ZIRCON);
                         output.accept(ModItems.RAW_ZIRCON);
                         output.accept(ModItems.CHISEL);
+                        output.accept(ModItems.RADISH);
 
                     }).build());
 
