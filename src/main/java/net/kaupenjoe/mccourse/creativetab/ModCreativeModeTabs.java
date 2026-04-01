@@ -42,6 +42,9 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.MAGIC_BLOCK);
 
+                        output.accept(ModBlocks.ZIRCON_STAIRS);
+                        output.accept(ModBlocks.ZIRCON_SLAB);
+
                     }).build());
 
 

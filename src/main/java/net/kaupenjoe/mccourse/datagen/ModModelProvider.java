@@ -26,12 +26,17 @@ public class ModModelProvider extends ModelProvider {
 
 
         /* BLOCKS */
-        blockModels.createTrivialCube(ModBlocks.ZIRCON_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.ZIRCON_ORE.get());
         blockModels.createTrivialCube(ModBlocks.ZIRCON_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.ZIRCON_NETHER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.ZIRCON_END_ORE.get());
         blockModels.createTrivialCube(ModBlocks.MAGIC_BLOCK.get());
+
+        blockModels.family(ModBlocks.ZIRCON_BLOCK.get())
+                .stairs(ModBlocks.ZIRCON_STAIRS.get())
+                .slab(ModBlocks.ZIRCON_SLAB.get());
+
+
     }
 }

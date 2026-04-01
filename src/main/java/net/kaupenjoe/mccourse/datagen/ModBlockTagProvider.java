@@ -29,5 +29,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ZIRCON_END_ORE.get());
+
+        tag(BlockTags.STAIRS)
+                .add(ModBlocks.ZIRCON_STAIRS.get());
+        tag(BlockTags.SLABS)
+                .add(ModBlocks.ZIRCON_SLAB.get());
     }
 }

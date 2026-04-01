@@ -33,6 +33,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.ZIRCON_DEEPSLATE_ORE.get(), block -> createMultipleOreDrops(block, ModItems.RAW_ZIRCON.get(), 2, 5));
         add(ModBlocks.ZIRCON_NETHER_ORE.get(), block -> createMultipleOreDrops(block, ModItems.RAW_ZIRCON.get(), 4, 6));
         add(ModBlocks.ZIRCON_END_ORE.get(), block -> createMultipleOreDrops(block, ModItems.RAW_ZIRCON.get(), 5, 9));
+
+        dropSelf(ModBlocks.ZIRCON_STAIRS.get());
+        add(ModBlocks.ZIRCON_SLAB.get(), this::createSlabItemTable);
+
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

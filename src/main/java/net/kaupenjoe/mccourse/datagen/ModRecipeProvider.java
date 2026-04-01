@@ -50,6 +50,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.RAW_ZIRCON_BLOCK.get()), has(ModBlocks.RAW_ZIRCON_BLOCK.get()))
                 .save(output, MCCourse.MOD_ID + ":" + "zircon_from_ore_and_raw_block");
 
+        stairBuilder(ModBlocks.ZIRCON_STAIRS.get(), Ingredient.of(ModBlocks.ZIRCON_BLOCK.get()))
+                .group("zircon")
+                .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
+                .save(output);
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_SLAB.get(), ModItems.ZIRCON.get());
+
+
     }
 
     @Override

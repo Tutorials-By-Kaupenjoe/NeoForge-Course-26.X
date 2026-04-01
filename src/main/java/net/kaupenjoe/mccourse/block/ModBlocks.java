@@ -5,9 +5,7 @@ import net.kaupenjoe.mccourse.block.custom.MagicBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -43,6 +41,12 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
             properties -> new MagicBlock(properties.strength(2f)
                     .noLootTable().sound(SoundType.AMETHYST)));
+
+    public static final DeferredBlock<Block> ZIRCON_STAIRS = registerBlock("zircon_stairs",
+            properties -> new StairBlock(ModBlocks.ZIRCON_BLOCK.get().defaultBlockState(),
+                    properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> ZIRCON_SLAB = registerBlock("zircon_slab",
+            properties -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
 
 
