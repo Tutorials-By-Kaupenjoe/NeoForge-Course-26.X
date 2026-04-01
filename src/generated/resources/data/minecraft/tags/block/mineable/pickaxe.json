@@ -12,6 +12,8 @@
     "mccourse:zircon_button",
     "mccourse:zircon_fence",
     "mccourse:zircon_fence_gate",
-    "mccourse:zircon_wall"
+    "mccourse:zircon_wall",
+    "mccourse:zircon_door",
+    "mccourse:zircon_trapdoor"
   ]
 }

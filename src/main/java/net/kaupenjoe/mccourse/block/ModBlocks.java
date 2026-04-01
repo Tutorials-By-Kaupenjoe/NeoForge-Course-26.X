@@ -65,6 +65,14 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ZIRCON_WALL = registerBlock("zircon_wall",
             properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
 
+    public static final DeferredBlock<Block> ZIRCON_DOOR = registerBlock("zircon_door",
+            properties -> new DoorBlock(BlockSetType.IRON, properties.strength(2f)
+                    .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> ZIRCON_TRAPDOOR = registerBlock("zircon_trapdoor",
+            properties -> new TrapDoorBlock(BlockSetType.IRON, properties.strength(2f)
+                    .requiresCorrectToolForDrops().noOcclusion().isValidSpawn(Blocks::never)));
+
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);

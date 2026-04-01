@@ -29,7 +29,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ZIRCON_BUTTON.get())
                 .add(ModBlocks.ZIRCON_FENCE.get())
                 .add(ModBlocks.ZIRCON_FENCE_GATE.get())
-                .add(ModBlocks.ZIRCON_WALL.get());
+                .add(ModBlocks.ZIRCON_WALL.get())
+                .add(ModBlocks.ZIRCON_DOOR.get())
+                .add(ModBlocks.ZIRCON_TRAPDOOR.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ZIRCON_DEEPSLATE_ORE.get());
@@ -53,6 +55,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ZIRCON_FENCE_GATE.get());
         tag(BlockTags.WALLS)
                 .add(ModBlocks.ZIRCON_WALL.get());
+
+        tag(BlockTags.DOORS)
+                .add(ModBlocks.ZIRCON_DOOR.get());
+        tag(BlockTags.TRAPDOORS)
+                .add(ModBlocks.ZIRCON_TRAPDOOR.get());
 
     }
 }

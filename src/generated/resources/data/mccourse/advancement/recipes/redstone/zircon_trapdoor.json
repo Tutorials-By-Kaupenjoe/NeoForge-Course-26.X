@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mccourse:zircon_trapdoor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zircon_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccourse:zircon_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_zircon_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mccourse:zircon_trapdoor"
+    ]
+  }
+}

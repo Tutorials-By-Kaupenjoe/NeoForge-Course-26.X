@@ -71,8 +71,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
                 .save(output);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_WALL.get(), ModItems.ZIRCON.get());
-        // Trapdoor needs to be Blocks!
 
+        doorBuilder(ModBlocks.ZIRCON_DOOR.get(), Ingredient.of(ModItems.ZIRCON.get()))
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        trapdoorBuilder(ModBlocks.ZIRCON_TRAPDOOR.get(), Ingredient.of(ModBlocks.ZIRCON_BLOCK.get()))
+                .group("zircon")
+                .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
+                .save(output);
+
+        
     }
 
     @Override

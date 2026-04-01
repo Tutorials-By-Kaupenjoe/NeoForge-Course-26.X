@@ -20,6 +20,8 @@
   "block.mccourse.zircon_fence": "Zircon Fence",
   "block.mccourse.zircon_fence_gate": "Zircon Fence Gate",
   "block.mccourse.zircon_wall": "Zircon Wall",
+  "block.mccourse.zircon_door": "Zircon Door",
+  "block.mccourse.zircon_trapdoor": "Zircon Trapdoor",
 
 
   "tooltip.mccourse.radish": "Tastes amazing!",

@@ -43,6 +43,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ZIRCON_FENCE.get());
         dropSelf(ModBlocks.ZIRCON_FENCE_GATE.get());
         dropSelf(ModBlocks.ZIRCON_WALL.get());
+
+        dropSelf(ModBlocks.ZIRCON_TRAPDOOR.get());
+        add(ModBlocks.ZIRCON_DOOR.get(), this::createDoorTable);
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

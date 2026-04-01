@@ -40,7 +40,9 @@ public class ModModelProvider extends ModelProvider {
                 .button(ModBlocks.ZIRCON_BUTTON.get())
                 .fence(ModBlocks.ZIRCON_FENCE.get())
                 .fenceGate(ModBlocks.ZIRCON_FENCE_GATE.get())
-                .wall(ModBlocks.ZIRCON_WALL.get());
+                .wall(ModBlocks.ZIRCON_WALL.get())
+                .door(ModBlocks.ZIRCON_DOOR.get())
+                .trapdoor(ModBlocks.ZIRCON_TRAPDOOR.get());
 
 
     }
