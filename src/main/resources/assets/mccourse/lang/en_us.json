@@ -5,6 +5,13 @@
   "item.mccourse.radish": "Radish",
   "item.mccourse.frostfire_ice": "Frostfire Ice",
 
+  "item.mccourse.zircon_sword": "Zircon Sword",
+  "item.mccourse.zircon_pickaxe": "Zircon Pickaxe",
+  "item.mccourse.zircon_shovel": "Zircon Shovel",
+  "item.mccourse.zircon_axe": "Zircon Axe",
+  "item.mccourse.zircon_hoe": "Zircon Hoe",
+
+
 
   "block.mccourse.zircon_block": "Block of Zircon",
   "block.mccourse.raw_zircon_block": "Block of Raw Zircon",

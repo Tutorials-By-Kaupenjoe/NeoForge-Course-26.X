@@ -26,6 +26,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RADISH);
                         output.accept(ModItems.FROSTFIRE_ICE);
 
+                        output.accept(ModItems.ZIRCON_SWORD);
+                        output.accept(ModItems.ZIRCON_PICKAXE);
+                        output.accept(ModItems.ZIRCON_SHOVEL);
+                        output.accept(ModItems.ZIRCON_AXE);
+                        output.accept(ModItems.ZIRCON_HOE);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",

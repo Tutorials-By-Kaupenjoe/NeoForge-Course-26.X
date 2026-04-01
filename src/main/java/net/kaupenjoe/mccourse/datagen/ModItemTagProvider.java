@@ -5,6 +5,7 @@ import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
@@ -21,5 +22,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ZIRCON.get())
                 .add(Items.RAW_IRON)
                 .add(Items.COPPER_BLOCK);
+
+        tag(ModTags.Items.ZIRCON_REPAIRABLES)
+                .add(ModItems.ZIRCON.get());
+
+        tag(ItemTags.SWORDS).add(ModItems.ZIRCON_SWORD.get());
+        tag(ItemTags.PICKAXES).add(ModItems.ZIRCON_PICKAXE.get());
+        tag(ItemTags.SHOVELS).add(ModItems.ZIRCON_SHOVEL.get());
+        tag(ItemTags.AXES).add(ModItems.ZIRCON_AXE.get());
+        tag(ItemTags.HOES).add(ModItems.ZIRCON_HOE.get());
+
     }
 }

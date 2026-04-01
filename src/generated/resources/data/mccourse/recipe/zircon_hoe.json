@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "zircon",
+  "key": {
+    "S": "minecraft:stick",
+    "Z": "mccourse:zircon"
+  },
+  "pattern": [
+    "ZZ",
+    " S",
+    " S"
+  ],
+  "result": {
+    "id": "mccourse:zircon_hoe"
+  }
+}

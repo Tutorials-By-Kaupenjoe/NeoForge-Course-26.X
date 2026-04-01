@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -81,7 +82,52 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
                 .save(output);
 
-        
+        shaped(RecipeCategory.COMBAT, ModItems.ZIRCON_SWORD.get())
+                .pattern("Z")
+                .pattern("Z")
+                .pattern("S")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('S', Items.STICK)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_PICKAXE.get())
+                .pattern("ZZZ")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('S', Items.STICK)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_SHOVEL.get())
+                .pattern("Z")
+                .pattern("S")
+                .pattern("S")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('S', Items.STICK)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_AXE.get())
+                .pattern("ZZ")
+                .pattern("ZS")
+                .pattern(" S")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('S', Items.STICK)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HOE.get())
+                .pattern("ZZ")
+                .pattern(" S")
+                .pattern(" S")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('S', Items.STICK)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+
     }
 
     @Override

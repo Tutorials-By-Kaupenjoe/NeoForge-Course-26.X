@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -60,6 +61,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ZIRCON_DOOR.get());
         tag(BlockTags.TRAPDOORS)
                 .add(ModBlocks.ZIRCON_TRAPDOOR.get());
+
+        tag(ModTags.Blocks.NEEDS_ZIRCON_TOOL)
+                .add(ModBlocks.ZIRCON_NETHER_ORE.get())
+                .addTag(BlockTags.NEEDS_IRON_TOOL);
+        tag(ModTags.Blocks.INCORRECT_FOR_ZIRCON_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+                .remove(ModTags.Blocks.NEEDS_ZIRCON_TOOL);
+
 
     }
 }
