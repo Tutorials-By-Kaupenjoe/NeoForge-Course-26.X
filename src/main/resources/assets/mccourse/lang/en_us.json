@@ -17,6 +17,9 @@
   "block.mccourse.zircon_slab": "Zircon Slab",
   "block.mccourse.zircon_button": "Zircon Button",
   "block.mccourse.zircon_pressure_plate": "Zircon Pressure Plate",
+  "block.mccourse.zircon_fence": "Zircon Fence",
+  "block.mccourse.zircon_fence_gate": "Zircon Fence Gate",
+  "block.mccourse.zircon_wall": "Zircon Wall",
 
 
   "tooltip.mccourse.radish": "Tastes amazing!",

@@ -48,6 +48,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ZIRCON_PRESSURE_PLATE);
                         output.accept(ModBlocks.ZIRCON_BUTTON);
 
+                        output.accept(ModBlocks.ZIRCON_FENCE);
+                        output.accept(ModBlocks.ZIRCON_FENCE_GATE);
+                        output.accept(ModBlocks.ZIRCON_WALL);
+
                     }).build());
 
 

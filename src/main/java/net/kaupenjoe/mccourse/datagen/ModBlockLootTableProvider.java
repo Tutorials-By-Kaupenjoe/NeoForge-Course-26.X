@@ -39,6 +39,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.ZIRCON_PRESSURE_PLATE.get());
         dropSelf(ModBlocks.ZIRCON_BUTTON.get());
+
+        dropSelf(ModBlocks.ZIRCON_FENCE.get());
+        dropSelf(ModBlocks.ZIRCON_FENCE_GATE.get());
+        dropSelf(ModBlocks.ZIRCON_WALL.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

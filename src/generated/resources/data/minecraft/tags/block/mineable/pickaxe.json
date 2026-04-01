@@ -5,6 +5,13 @@
     "mccourse:zircon_ore",
     "mccourse:zircon_deepslate_ore",
     "mccourse:zircon_nether_ore",
-    "mccourse:zircon_end_ore"
+    "mccourse:zircon_end_ore",
+    "mccourse:zircon_stairs",
+    "mccourse:zircon_slab",
+    "mccourse:zircon_pressure_plate",
+    "mccourse:zircon_button",
+    "mccourse:zircon_fence",
+    "mccourse:zircon_fence_gate",
+    "mccourse:zircon_wall"
   ]
 }

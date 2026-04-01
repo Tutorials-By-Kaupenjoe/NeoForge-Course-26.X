@@ -62,6 +62,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
         pressurePlate(ModBlocks.ZIRCON_PRESSURE_PLATE.get(), ModItems.ZIRCON.get());
 
+        fenceBuilder(ModBlocks.ZIRCON_FENCE.get(), Ingredient.of(ModItems.ZIRCON.get()))
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        fenceGateBuilder(ModBlocks.ZIRCON_FENCE_GATE.get(), Ingredient.of(ModItems.ZIRCON.get()))
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_WALL.get(), ModItems.ZIRCON.get());
+        // Trapdoor needs to be Blocks!
+
     }
 
     @Override

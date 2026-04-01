@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "zircon",
+  "key": {
+    "#": "minecraft:stick",
+    "W": "mccourse:zircon"
+  },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "result": {
+    "id": "mccourse:zircon_fence_gate"
+  }
+}

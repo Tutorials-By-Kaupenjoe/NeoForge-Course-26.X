@@ -8,6 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -57,6 +58,12 @@ public class ModBlocks {
             properties -> new ButtonBlock(BlockSetType.IRON, 20,
                     properties.strength(2f).requiresCorrectToolForDrops().noCollision().pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> ZIRCON_FENCE = registerBlock("zircon_fence",
+            properties -> new FenceBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> ZIRCON_FENCE_GATE = registerBlock("zircon_fence_gate",
+            properties -> new FenceGateBlock(WoodType.ACACIA, properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> ZIRCON_WALL = registerBlock("zircon_wall",
+            properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
