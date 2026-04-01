@@ -37,7 +37,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ZIRCON_STAIRS.get());
         add(ModBlocks.ZIRCON_SLAB.get(), this::createSlabItemTable);
 
-
+        dropSelf(ModBlocks.ZIRCON_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.ZIRCON_BUTTON.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

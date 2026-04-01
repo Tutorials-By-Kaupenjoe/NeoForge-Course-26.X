@@ -56,6 +56,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_SLAB.get(), ModItems.ZIRCON.get());
 
+        buttonBuilder(ModBlocks.ZIRCON_BUTTON.get(), Ingredient.of(ModItems.ZIRCON))
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        pressurePlate(ModBlocks.ZIRCON_PRESSURE_PLATE.get(), ModItems.ZIRCON.get());
 
     }
 

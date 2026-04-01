@@ -35,7 +35,9 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.family(ModBlocks.ZIRCON_BLOCK.get())
                 .stairs(ModBlocks.ZIRCON_STAIRS.get())
-                .slab(ModBlocks.ZIRCON_SLAB.get());
+                .slab(ModBlocks.ZIRCON_SLAB.get())
+                .pressurePlate(ModBlocks.ZIRCON_PRESSURE_PLATE.get())
+                .button(ModBlocks.ZIRCON_BUTTON.get());
 
 
     }

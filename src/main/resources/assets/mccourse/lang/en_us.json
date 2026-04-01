@@ -15,7 +15,8 @@
   "block.mccourse.magic_block": "Magic Block",
   "block.mccourse.zircon_stairs": "Zircon Stairs",
   "block.mccourse.zircon_slab": "Zircon Slab",
-
+  "block.mccourse.zircon_button": "Zircon Button",
+  "block.mccourse.zircon_pressure_plate": "Zircon Pressure Plate",
 
 
   "tooltip.mccourse.radish": "Tastes amazing!",

@@ -34,5 +34,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ZIRCON_STAIRS.get());
         tag(BlockTags.SLABS)
                 .add(ModBlocks.ZIRCON_SLAB.get());
+
+        tag(BlockTags.PRESSURE_PLATES)
+                .add(ModBlocks.ZIRCON_PRESSURE_PLATE.get());
+        tag(BlockTags.BUTTONS)
+                .add(ModBlocks.ZIRCON_BUTTON.get());
+
     }
 }

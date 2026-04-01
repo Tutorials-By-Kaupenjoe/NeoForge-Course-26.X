@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "zircon",
+  "ingredients": [
+    "mccourse:zircon"
+  ],
+  "result": {
+    "id": "mccourse:zircon_button"
+  }
+}

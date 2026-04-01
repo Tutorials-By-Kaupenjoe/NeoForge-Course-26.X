@@ -45,6 +45,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ZIRCON_STAIRS);
                         output.accept(ModBlocks.ZIRCON_SLAB);
 
+                        output.accept(ModBlocks.ZIRCON_PRESSURE_PLATE);
+                        output.accept(ModBlocks.ZIRCON_BUTTON);
+
                     }).build());
 
 
