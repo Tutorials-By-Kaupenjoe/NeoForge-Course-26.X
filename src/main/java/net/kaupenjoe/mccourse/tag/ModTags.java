@@ -13,6 +13,8 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_ZIRCON_TOOL = createTag("needs_zircon_tool");
         public static final TagKey<Block> INCORRECT_FOR_ZIRCON_TOOL = createTag("incorrect_for_zircon_tool");
 
+        public static final TagKey<Block> PAXEL_MINEABLE = createTag("mineable/paxel");
+
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, name));
         }

@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.item;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
+import net.kaupenjoe.mccourse.item.custom.PaxelItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
@@ -43,6 +44,9 @@ public class ModItems {
             properties -> new AxeItem(ModToolMaterials.ZIRCON, 6f, -3.2f, properties));
     public static final DeferredItem<Item> ZIRCON_HOE = ITEMS.registerItem("zircon_hoe",
             properties -> new HoeItem(ModToolMaterials.ZIRCON, 0f, -3f, properties));
+
+    public static final DeferredItem<Item> ZIRCON_PAXEL = ITEMS.registerItem("zircon_paxel",
+            properties -> new PaxelItem(ModToolMaterials.ZIRCON, 4f, -2.6f, properties));
 
 
     public static void register(IEventBus eventBus) {

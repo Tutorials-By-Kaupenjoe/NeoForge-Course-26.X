@@ -128,6 +128,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
                 .save(output);
 
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_PAXEL.get())
+                .pattern("PAS")
+                .define('P', ModItems.ZIRCON_PICKAXE.get())
+                .define('A', ModItems.ZIRCON_AXE.get())
+                .define('S', ModItems.ZIRCON_SHOVEL.get())
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON_PICKAXE.get()), has(ModItems.ZIRCON_PICKAXE.get()))
+                .unlockedBy(getHasName(ModItems.ZIRCON_AXE.get()), has(ModItems.ZIRCON_AXE.get()))
+                .unlockedBy(getHasName(ModItems.ZIRCON_SHOVEL.get()), has(ModItems.ZIRCON_SHOVEL.get()))
+                .save(output);
+
     }
 
     @Override

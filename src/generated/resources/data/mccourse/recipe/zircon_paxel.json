@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "zircon",
+  "key": {
+    "A": "mccourse:zircon_axe",
+    "P": "mccourse:zircon_pickaxe",
+    "S": "mccourse:zircon_shovel"
+  },
+  "pattern": [
+    "PAS"
+  ],
+  "result": {
+    "id": "mccourse:zircon_paxel"
+  }
+}
