@@ -180,6 +180,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
                 .save(output);
 
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HORSE_ARMOR.get())
+                .pattern("ZLZ")
+                .pattern("Z Z")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('L', Items.LEATHER)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+
 
     }
 

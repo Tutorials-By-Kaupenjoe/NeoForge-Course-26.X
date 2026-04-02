@@ -12,6 +12,7 @@ import net.minecraft.world.item.equipment.EquipmentAsset;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
@@ -25,7 +26,8 @@ public class ModEquipmentAsset implements DataProvider {
     private static void bootstrap(BiConsumer<ResourceKey<EquipmentAsset>, EquipmentClientInfo> output) {
         output.accept(ModArmorMaterials.ZIRCON_KEY, EquipmentClientInfo.builder()
                         .addHumanoidLayers(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "zircon"), false)
-                .build());
+                        .addLayers(EquipmentClientInfo.LayerType.HORSE_BODY,
+                                new EquipmentClientInfo.Layer(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "zircon"))).build());
     }
 
     @Override

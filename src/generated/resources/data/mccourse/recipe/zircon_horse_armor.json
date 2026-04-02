@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "zircon",
+  "key": {
+    "L": "minecraft:leather",
+    "Z": "mccourse:zircon"
+  },
+  "pattern": [
+    "ZLZ",
+    "Z Z"
+  ],
+  "result": {
+    "id": "mccourse:zircon_horse_armor"
+  }
+}

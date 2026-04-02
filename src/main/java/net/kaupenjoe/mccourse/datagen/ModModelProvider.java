@@ -37,6 +37,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateTrimmableItem(ModItems.ZIRCON_LEGGINGS.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
         itemModels.generateTrimmableItem(ModItems.ZIRCON_BOOTS.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
+        itemModels.generateFlatItem(ModItems.ZIRCON_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
 
         /* BLOCKS */
