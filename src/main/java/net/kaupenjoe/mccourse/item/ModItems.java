@@ -4,6 +4,7 @@ import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
 import net.kaupenjoe.mccourse.item.custom.HammerItem;
+import net.kaupenjoe.mccourse.item.custom.ModArmorItem;
 import net.kaupenjoe.mccourse.item.custom.PaxelItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
@@ -54,7 +55,7 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> ZIRCON_HELMET = ITEMS.registerItem("zircon_helmet",
-            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.HELMET)));
+            properties -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.HELMET)));
     public static final DeferredItem<Item> ZIRCON_CHESTPLATE = ITEMS.registerItem("zircon_chestplate",
             properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
     public static final DeferredItem<Item> ZIRCON_LEGGINGS = ITEMS.registerItem("zircon_leggings",
