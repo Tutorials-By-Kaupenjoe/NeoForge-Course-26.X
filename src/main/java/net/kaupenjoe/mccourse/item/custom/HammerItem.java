@@ -3,6 +3,8 @@ package net.kaupenjoe.mccourse.item.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -82,5 +84,12 @@ public class HammerItem extends Item {
         }
 
         return positions;
+    }
+
+    @Override
+    public void postHurtEnemy(ItemStack itemStack, LivingEntity mob, LivingEntity attacker) {
+        mob.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 300), attacker);
+
+        super.postHurtEnemy(itemStack, mob, attacker);
     }
 }
