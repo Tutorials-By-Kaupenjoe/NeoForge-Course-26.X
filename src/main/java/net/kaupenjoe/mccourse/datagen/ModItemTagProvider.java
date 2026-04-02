@@ -27,7 +27,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ZIRCON.get());
 
         tag(ItemTags.SWORDS).add(ModItems.ZIRCON_SWORD.get());
-        tag(ItemTags.PICKAXES).add(ModItems.ZIRCON_PICKAXE.get()).add(ModItems.ZIRCON_PAXEL.get());
+        tag(ItemTags.PICKAXES).add(ModItems.ZIRCON_PICKAXE.get()).add(ModItems.ZIRCON_PAXEL.get()).add(ModItems.ZIRCON_HAMMER.get());
         tag(ItemTags.SHOVELS).add(ModItems.ZIRCON_SHOVEL.get()).add(ModItems.ZIRCON_PAXEL.get());
         tag(ItemTags.AXES).add(ModItems.ZIRCON_AXE.get()).add(ModItems.ZIRCON_PAXEL.get());
         tag(ItemTags.HOES).add(ModItems.ZIRCON_HOE.get());

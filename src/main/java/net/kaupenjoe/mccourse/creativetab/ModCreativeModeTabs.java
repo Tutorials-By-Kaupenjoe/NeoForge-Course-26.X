@@ -32,6 +32,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ZIRCON_AXE);
                         output.accept(ModItems.ZIRCON_HOE);
                         output.accept(ModItems.ZIRCON_PAXEL);
+                        output.accept(ModItems.ZIRCON_HAMMER);
 
                     }).build());
 

@@ -139,6 +139,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.ZIRCON_SHOVEL.get()), has(ModItems.ZIRCON_SHOVEL.get()))
                 .save(output);
 
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HAMMER.get())
+                .pattern("ZZZ")
+                .pattern("ZSZ")
+                .pattern(" S ")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('S', Items.STICK)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+
     }
 
     @Override

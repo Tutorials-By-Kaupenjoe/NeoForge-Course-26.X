@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.item;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
+import net.kaupenjoe.mccourse.item.custom.HammerItem;
 import net.kaupenjoe.mccourse.item.custom.PaxelItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
@@ -47,7 +48,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> ZIRCON_PAXEL = ITEMS.registerItem("zircon_paxel",
             properties -> new PaxelItem(ModToolMaterials.ZIRCON, 4f, -2.6f, properties));
-
+    public static final DeferredItem<Item> ZIRCON_HAMMER = ITEMS.registerItem("zircon_hammer",
+            properties -> new HammerItem(properties.pickaxe(ModToolMaterials.ZIRCON, 7f, -3.4f)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
