@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.item.ModArmorMaterials;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -30,6 +31,11 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.ZIRCON_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.ZIRCON_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.ZIRCON_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+
+        itemModels.generateTrimmableItem(ModItems.ZIRCON_HELMET.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        itemModels.generateTrimmableItem(ModItems.ZIRCON_CHESTPLATE.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        itemModels.generateTrimmableItem(ModItems.ZIRCON_LEGGINGS.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        itemModels.generateTrimmableItem(ModItems.ZIRCON_BOOTS.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
 
 

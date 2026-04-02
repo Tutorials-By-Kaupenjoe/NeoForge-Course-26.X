@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "mccourse:zircon"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "mccourse:zircon"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "mccourse:zircon"
+      }
+    ]
+  }
+}

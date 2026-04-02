@@ -8,6 +8,7 @@ import net.kaupenjoe.mccourse.item.custom.PaxelItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -50,6 +51,17 @@ public class ModItems {
             properties -> new PaxelItem(ModToolMaterials.ZIRCON, 4f, -2.6f, properties));
     public static final DeferredItem<Item> ZIRCON_HAMMER = ITEMS.registerItem("zircon_hammer",
             properties -> new HammerItem(properties.pickaxe(ModToolMaterials.ZIRCON, 7f, -3.4f)));
+
+
+    public static final DeferredItem<Item> ZIRCON_HELMET = ITEMS.registerItem("zircon_helmet",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.HELMET)));
+    public static final DeferredItem<Item> ZIRCON_CHESTPLATE = ITEMS.registerItem("zircon_chestplate",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+    public static final DeferredItem<Item> ZIRCON_LEGGINGS = ITEMS.registerItem("zircon_leggings",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+    public static final DeferredItem<Item> ZIRCON_BOOTS = ITEMS.registerItem("zircon_boots",
+            properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL, ArmorType.BOOTS)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

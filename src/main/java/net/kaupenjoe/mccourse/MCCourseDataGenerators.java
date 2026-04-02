@@ -27,5 +27,7 @@ public class MCCourseDataGenerators {
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
         generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModItemTagProvider(packOutput, lookupProvider));
+
+        generator.addProvider(true, new ModEquipmentAsset(packOutput));
     }
 }

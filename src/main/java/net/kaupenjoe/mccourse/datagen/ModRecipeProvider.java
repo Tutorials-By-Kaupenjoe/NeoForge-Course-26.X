@@ -149,6 +149,38 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
                 .save(output);
 
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HELMET.get())
+                .pattern("ZZZ")
+                .pattern("Z Z")
+                .define('Z', ModItems.ZIRCON.get())
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_CHESTPLATE.get())
+                .pattern(" Z ")
+                .pattern("ZZZ")
+                .pattern("ZZZ")
+                .define('Z', ModItems.ZIRCON.get())
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_LEGGINGS.get())
+                .pattern("ZZZ")
+                .pattern("Z Z")
+                .pattern("Z Z")
+                .define('Z', ModItems.ZIRCON.get())
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+        shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_BOOTS.get())
+                .pattern("Z Z")
+                .pattern("Z Z")
+                .define('Z', ModItems.ZIRCON.get())
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .save(output);
+
+
     }
 
     @Override

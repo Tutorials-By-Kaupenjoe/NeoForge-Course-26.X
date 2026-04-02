@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mccourse:zircon_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zircon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccourse:zircon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_zircon"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mccourse:zircon_helmet"
+    ]
+  }
+}

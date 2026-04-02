@@ -32,5 +32,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.AXES).add(ModItems.ZIRCON_AXE.get()).add(ModItems.ZIRCON_PAXEL.get());
         tag(ItemTags.HOES).add(ModItems.ZIRCON_HOE.get());
 
+        tag(ItemTags.HEAD_ARMOR).add(ModItems.ZIRCON_HELMET.get());
+        tag(ItemTags.CHEST_ARMOR).add(ModItems.ZIRCON_CHESTPLATE.get());
+        tag(ItemTags.LEG_ARMOR).add(ModItems.ZIRCON_LEGGINGS.get());
+        tag(ItemTags.FOOT_ARMOR).add(ModItems.ZIRCON_BOOTS.get());
     }
 }

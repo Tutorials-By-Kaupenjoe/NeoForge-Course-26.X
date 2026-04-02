@@ -34,6 +34,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ZIRCON_PAXEL);
                         output.accept(ModItems.ZIRCON_HAMMER);
 
+                        output.accept(ModItems.ZIRCON_HELMET);
+                        output.accept(ModItems.ZIRCON_CHESTPLATE);
+                        output.accept(ModItems.ZIRCON_LEGGINGS);
+                        output.accept(ModItems.ZIRCON_BOOTS);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",
