@@ -2,12 +2,17 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
 import net.kaupenjoe.mccourse.item.ModArmorMaterials;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.data.PackOutput;
 
 public class ModModelProvider extends ModelProvider {
@@ -58,6 +63,13 @@ public class ModModelProvider extends ModelProvider {
                 .wall(ModBlocks.ZIRCON_WALL.get())
                 .door(ModBlocks.ZIRCON_DOOR.get())
                 .trapdoor(ModBlocks.ZIRCON_TRAPDOOR.get());
+
+        blockModels.blockStateOutput.accept(
+                MultiVariantGenerator.dispatch(ModBlocks.ZIRCON_LAMP.get())
+                        .with(BlockModelGenerators.createBooleanModelDispatch(ZirconLampBlock.CLICKED,
+                                BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(ModBlocks.ZIRCON_LAMP.get(), "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)),
+                                BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.ZIRCON_LAMP.get(), blockModels.modelOutput)))));
+
 
 
     }

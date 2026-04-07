@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "zircon",
+  "key": {
+    "R": "minecraft:redstone",
+    "Z": "mccourse:zircon"
+  },
+  "pattern": [
+    "ZZZ",
+    "ZRZ",
+    "ZZZ"
+  ],
+  "result": {
+    "id": "mccourse:zircon_lamp"
+  }
+}

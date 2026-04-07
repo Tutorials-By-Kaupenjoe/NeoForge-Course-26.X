@@ -70,6 +70,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ZIRCON_DOOR);
                         output.accept(ModBlocks.ZIRCON_TRAPDOOR);
 
+                        output.accept(ModBlocks.ZIRCON_LAMP);
+
                     }).build());
 
 

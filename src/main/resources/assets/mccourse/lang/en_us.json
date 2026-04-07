@@ -37,6 +37,8 @@
   "block.mccourse.zircon_door": "Zircon Door",
   "block.mccourse.zircon_trapdoor": "Zircon Trapdoor",
 
+  "block.mccourse.zircon_lamp": "Zircon Lamp",
+
 
   "tooltip.mccourse.radish": "Tastes amazing!",
   "tooltip.mccourse.chisel.shift_down": "This Item can chisel Blocks into Bricks!",

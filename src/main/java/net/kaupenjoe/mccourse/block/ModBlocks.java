@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.custom.MagicBlock;
+import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -71,6 +72,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ZIRCON_TRAPDOOR = registerBlock("zircon_trapdoor",
             properties -> new TrapDoorBlock(BlockSetType.IRON, properties.strength(2f)
                     .requiresCorrectToolForDrops().noOcclusion().isValidSpawn(Blocks::never)));
+
+    public static final DeferredBlock<Block> ZIRCON_LAMP = registerBlock("zircon_lamp",
+            properties -> new ZirconLampBlock(properties.strength(2f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(ZirconLampBlock.CLICKED) ? 15 : 0)));
 
 
 

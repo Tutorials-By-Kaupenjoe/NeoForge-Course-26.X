@@ -189,6 +189,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
                 .save(output);
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ZIRCON_LAMP.get())
+                .pattern("ZZZ")
+                .pattern("ZRZ")
+                .pattern("ZZZ")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('R', Items.REDSTONE)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
+                .save(output);
+
 
     }
 

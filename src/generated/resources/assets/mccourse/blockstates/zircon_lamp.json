@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "mccourse:block/zircon_lamp"
+    },
+    "clicked=true": {
+      "model": "mccourse:block/zircon_lamp_on"
+    }
+  }
+}
