@@ -1,11 +1,14 @@
 package net.kaupenjoe.mccourse;
 
+import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,6 +18,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -57,10 +61,31 @@ public class MCCourseClient {
 
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {
-        while(ModKeyMappings.PRESS_KAUPEN_KEY.get().consumeClick()) {
+        while (ModKeyMappings.PRESS_KAUPEN_KEY.get().consumeClick()) {
             // IN HERE: WE ARE ON THE CLIENT!
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("I have "  + Minecraft.getInstance().player.getData(ModAttachmentTypes.MANA) + " Mana"));
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("I have " + Minecraft.getInstance().player.getData(ModAttachmentTypes.MANA) + " Mana"));
             ClientPacketDistributor.sendToServer(new TestPacketC2S("Kaupenjoe", 67));
         }
+    }
+
+    @SubscribeEvent
+    public static void registerHUD(RegisterGuiLayersEvent event) {
+        event.registerAboveAll(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "mana_bar"), (guiGraphics, deltaTracker) -> {
+            int x = guiGraphics.guiWidth() / 2;
+            int y = guiGraphics.guiHeight();
+
+            if (!Minecraft.getInstance().player.isCreative() && !Minecraft.getInstance().player.isSpectator()
+                    && Minecraft.getInstance().player.hasData(ModAttachmentTypes.MANA)) {
+                for (int i = 0; i < 5; i++) {
+                    guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "mana_icon_bg"),
+                            16, 16, 0, 0, x - 95 + i * 18, y - 55, 16, 16);
+                }
+
+                for (int i = 0; i < Minecraft.getInstance().player.getData(ModAttachmentTypes.MANA); i++) {
+                    guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "mana_icon"),
+                            16, 16, 0, 0, x - 95 + i * 18, y - 55, 16, 16);
+                }
+            }
+        });
     }
 }
