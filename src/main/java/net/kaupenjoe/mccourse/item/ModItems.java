@@ -65,6 +65,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> ZIRCON_HORSE_ARMOR = ITEMS.registerItem("zircon_horse_armor",
             properties -> new Item(properties.horseArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL)));
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
+            properties -> new BowItem(properties.durability(500)));
 
 
     public static void register(IEventBus eventBus) {

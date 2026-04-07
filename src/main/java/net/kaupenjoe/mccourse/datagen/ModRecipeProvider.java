@@ -200,6 +200,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
                 .save(output);
 
+        shaped(RecipeCategory.COMBAT, ModItems.KAUPEN_BOW.get())
+                .pattern("S# ")
+                .pattern("S Z")
+                .pattern("S# ")
+                .define('Z', ModItems.ZIRCON.get())
+                .define('#', Items.STICK)
+                .define('S', Items.STRING)
+                .group("zircon")
+                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .save(output);
+
 
     }
 

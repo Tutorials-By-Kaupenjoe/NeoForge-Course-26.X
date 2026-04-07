@@ -54,6 +54,9 @@ public class ModModelProvider extends ModelProvider {
                 new ClientItem(new ConditionalItemModel.Unbaked(Optional.empty(), new HasComponent(ModDataComponentTypes.COORDINATES.get(), false),
                         unbakedUsedChisel, unbakedChisel), new ClientItem.Properties(false, false, 1f)));
 
+        itemModels.createFlatItemModel(ModItems.KAUPEN_BOW.get(), ModelTemplates.BOW);
+        itemModels.generateBow(ModItems.KAUPEN_BOW.get());
+
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());

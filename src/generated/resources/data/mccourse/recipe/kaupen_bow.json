@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "zircon",
+  "key": {
+    "#": "minecraft:stick",
+    "S": "minecraft:string",
+    "Z": "mccourse:zircon"
+  },
+  "pattern": [
+    "S# ",
+    "S Z",
+    "S# "
+  ],
+  "result": {
+    "id": "mccourse:kaupen_bow"
+  }
+}

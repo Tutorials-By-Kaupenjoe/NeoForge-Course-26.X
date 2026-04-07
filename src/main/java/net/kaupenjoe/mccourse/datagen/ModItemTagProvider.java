@@ -36,5 +36,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.CHEST_ARMOR).add(ModItems.ZIRCON_CHESTPLATE.get());
         tag(ItemTags.LEG_ARMOR).add(ModItems.ZIRCON_LEGGINGS.get());
         tag(ItemTags.FOOT_ARMOR).add(ModItems.ZIRCON_BOOTS.get());
+
+        tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
     }
 }

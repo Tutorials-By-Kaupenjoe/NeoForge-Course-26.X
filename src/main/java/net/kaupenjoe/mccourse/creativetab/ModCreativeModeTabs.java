@@ -40,6 +40,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ZIRCON_BOOTS);
 
                         output.accept(ModItems.ZIRCON_HORSE_ARMOR);
+                        output.accept(ModItems.KAUPEN_BOW);
 
                     }).build());
 
