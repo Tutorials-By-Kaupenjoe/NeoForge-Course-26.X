@@ -1,11 +1,13 @@
 package net.kaupenjoe.mccourse.item.custom;
 
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
+import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -40,19 +42,18 @@ public class ChiselItem extends Item {
         Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
         Player player = context.getPlayer();
 
-        if(player.hasData(ModAttachmentTypes.MANA) && player.getData(ModAttachmentTypes.MANA) <= 0) {
+        if(!ManaHandler.hasPlayerOneManaLeft(player)) {
             player.sendSystemMessage(Component.literal("Not enough Mana to do this!"));
         }
 
-        if(CHISEL_MAP.containsKey(clickedBlock) && !level.isClientSide() && player.hasData(ModAttachmentTypes.MANA)
-            && player.getData(ModAttachmentTypes.MANA) > 0) {
+        if(CHISEL_MAP.containsKey(clickedBlock) && !level.isClientSide() && ManaHandler.hasPlayerOneManaLeft(player)) {
             level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get(clickedBlock).defaultBlockState());
 
             context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), context.getPlayer(),
                     item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
             context.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), context.getClickedPos());
-            player.setData(ModAttachmentTypes.MANA, player.getData(ModAttachmentTypes.MANA) - 1);
+            ManaHandler.removeMana(((ServerPlayer) player), 1);
         }
 
         return InteractionResult.SUCCESS;

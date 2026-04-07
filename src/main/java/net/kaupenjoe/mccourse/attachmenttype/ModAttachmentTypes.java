@@ -15,7 +15,7 @@ public class ModAttachmentTypes {
             DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, MCCourse.MOD_ID);
 
     public static final Supplier<AttachmentType<Integer>> MANA = ATTACHMENT_TYPES.register("mana",
-            () -> AttachmentType.builder(() -> 0) //.sync(ByteBufCodecs.INT) // this auto-syncs HOWEVER, I wanna teach Networking!
+            () -> AttachmentType.builder(() -> 0).sync(ByteBufCodecs.INT) // this auto-syncs HOWEVER, I wanna teach Networking!
                     .serialize(Codec.INT.fieldOf("mana")).build());
 
 
