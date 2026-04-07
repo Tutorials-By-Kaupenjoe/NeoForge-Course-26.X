@@ -1,5 +1,6 @@
 package net.kaupenjoe.mccourse;
 
+import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
@@ -58,7 +59,7 @@ public class MCCourseClient {
     public static void onClientTick(ClientTickEvent.Post event) {
         while(ModKeyMappings.PRESS_KAUPEN_KEY.get().consumeClick()) {
             // IN HERE: WE ARE ON THE CLIENT!
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("I just pressed the Kaupen Key!"));
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("I have "  + Minecraft.getInstance().player.getData(ModAttachmentTypes.MANA) + " Mana"));
             ClientPacketDistributor.sendToServer(new TestPacketC2S("Kaupenjoe", 67));
         }
     }

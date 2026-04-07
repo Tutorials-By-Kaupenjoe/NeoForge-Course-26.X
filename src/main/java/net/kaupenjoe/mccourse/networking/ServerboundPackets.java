@@ -1,5 +1,6 @@
 package net.kaupenjoe.mccourse.networking;
 
+import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -14,6 +15,6 @@ public class ServerboundPackets {
         Player player = context.player();
         ServerLevel level = ((ServerLevel) player.level());
         EntityType.COW.spawn(level, player.getOnPos(), EntitySpawnReason.TRIGGERED);
-        player.sendSystemMessage(Component.literal(testPacket.name() + " has just said " + testPacket.value()));
+        player.sendSystemMessage(Component.literal(testPacket.name() + " has " + player.getData(ModAttachmentTypes.MANA) + " Mana"));
     }
 }
