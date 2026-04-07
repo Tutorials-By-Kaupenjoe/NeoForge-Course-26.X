@@ -1,6 +1,16 @@
 {
+  "hand_animation_on_swap": false,
   "model": {
-    "type": "minecraft:model",
-    "model": "mccourse:item/chisel"
+    "type": "minecraft:condition",
+    "component": "mccourse:coordinates",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "mccourse:item/chisel"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "mccourse:item/chisel_used"
+    },
+    "property": "minecraft:has_component"
   }
 }

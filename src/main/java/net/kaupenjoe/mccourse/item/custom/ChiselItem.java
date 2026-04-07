@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.item.custom;
 
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -41,6 +42,8 @@ public class ChiselItem extends Item {
 
             context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), context.getPlayer(),
                     item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
+
+            context.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), context.getClickedPos());
         }
 
         return InteractionResult.SUCCESS;
@@ -52,6 +55,10 @@ public class ChiselItem extends Item {
             builder.accept(Component.translatable("tooltip.mccourse.chisel.shift_down"));
         } else {
             builder.accept(Component.translatable("tooltip.mccourse.chisel"));
+        }
+
+        if(itemStack.get(ModDataComponentTypes.COORDINATES) != null) {
+            builder.accept(Component.literal("Last Block changed at " + itemStack.get(ModDataComponentTypes.COORDINATES)));
         }
 
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
