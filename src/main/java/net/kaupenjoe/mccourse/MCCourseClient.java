@@ -1,12 +1,15 @@
 package net.kaupenjoe.mccourse;
 
+import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.Mth;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -25,5 +28,16 @@ public class MCCourseClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void onComputeFovModifierEvent(ComputeFovModifierEvent event) {
+        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().getItem() == ModItems.KAUPEN_BOW.get()) {
+            float fovModifier = 1f;
+            int ticksUsingItem = event.getPlayer().getTicksUsingItem();
+            float scale = Math.min(ticksUsingItem / 20.0F, 1.0F);
+            fovModifier *= 1.0F - Mth.square(scale) * 0.15F;
+            event.setNewFovModifier(Mth.lerp(Minecraft.getInstance().options.fovEffectScale().get().floatValue(), 1.0F, fovModifier));
+        }
     }
 }
