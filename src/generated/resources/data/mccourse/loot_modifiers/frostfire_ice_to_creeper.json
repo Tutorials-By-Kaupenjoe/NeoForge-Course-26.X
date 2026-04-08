@@ -1,0 +1,12 @@
+{
+  "type": "mccourse:add_itemstack",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/creeper"
+    }
+  ],
+  "stack": {
+    "id": "mccourse:frostfire_ice"
+  }
+}

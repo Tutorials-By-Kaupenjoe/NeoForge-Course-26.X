@@ -29,5 +29,6 @@ public class MCCourseDataGenerators {
         generator.addProvider(true, new ModItemTagProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new ModEquipmentAsset(packOutput));
+        generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "mccourse:add_itemstack",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chets/jungle_temple"
+    }
+  ],
+  "stack": {
+    "id": "mccourse:chisel"
+  }
+}
