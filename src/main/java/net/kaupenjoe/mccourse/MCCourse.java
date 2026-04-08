@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
+import net.kaupenjoe.mccourse.consumeffect.ModConsumeEffects;
 import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -38,6 +39,8 @@ public class MCCourse {
 
         ModDataComponentTypes.register(modEventBus);
         ModAttachmentTypes.register(modEventBus);
+
+        ModConsumeEffects.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
