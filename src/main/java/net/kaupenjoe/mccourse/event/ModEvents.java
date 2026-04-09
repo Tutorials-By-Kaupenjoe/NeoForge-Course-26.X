@@ -7,10 +7,16 @@ import net.kaupenjoe.mccourse.networking.ClientboundPackets;
 import net.kaupenjoe.mccourse.networking.ServerboundPackets;
 import net.kaupenjoe.mccourse.networking.packet.ManaPacketS2C;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
@@ -51,5 +57,16 @@ public class ModEvents {
     public static void setPlayersManaOnRespawn(PlayerEvent.PlayerRespawnEvent event) {
         Player player = event.getEntity();
         ManaHandler.setMana(((ServerPlayer) player), player.getData(ModAttachmentTypes.MANA));
+    }
+
+    @SubscribeEvent
+    public static void livingDamage(LivingDamageEvent.Pre event) {
+        if(event.getEntity() instanceof Sheep sheep && event.getSource().getDirectEntity() instanceof Player player) {
+            if(player.getMainHandItem().getItem() == Items.END_ROD) {
+                player.sendSystemMessage(Component.literal(player.getName().getString() + " just hit this sheep with an End Rod? YOU SICK FRICK!"));
+                player.getMainHandItem().shrink(1);
+                sheep.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 6));
+            }
+        }
     }
 }
