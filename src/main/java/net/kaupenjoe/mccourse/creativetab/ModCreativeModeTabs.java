@@ -75,6 +75,9 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.ZIRCON_LAMP);
                         output.accept(ModBlocks.CATMINT);
+                        output.accept(ModBlocks.COLORED_LEAVES);
+
+
 
                     }).build());
 

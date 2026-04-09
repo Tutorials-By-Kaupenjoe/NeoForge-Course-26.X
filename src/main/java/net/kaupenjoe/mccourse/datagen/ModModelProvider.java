@@ -86,5 +86,7 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createCropBlock(ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
         blockModels.createPlantWithDefaultItem(ModBlocks.CATMINT.get(), ModBlocks.POTTED_CATMINT.get(), BlockModelGenerators.PlantType.TINTED);
+
+        blockModels.createTintedLeaves(ModBlocks.COLORED_LEAVES.get(), TexturedModel.LEAVES, -12012264);
     }
 }

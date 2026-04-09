@@ -92,6 +92,12 @@ public class ModBlocks {
             properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CATMINT, properties.noOcclusion()
                     .instabreak().pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> COLORED_LEAVES = registerBlock("colored_leaves",
+            properties -> new TintedParticleLeavesBlock(0.1f, properties.mapColor(MapColor.PLANT)
+                    .strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion()
+                    .isValidSpawn(Blocks::ocelotOrParrot).isSuffocating((_, _, _) -> false)
+                    .isViewBlocking((_, _, _) -> false)
+                    .ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((_, _, _) -> false)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);

@@ -2,10 +2,12 @@ package net.kaupenjoe.mccourse;
 
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
+import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -16,13 +18,12 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
-import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
-import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
+
+import java.util.List;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = MCCourse.MOD_ID, dist = Dist.CLIENT)
@@ -87,5 +88,10 @@ public class MCCourseClient {
                 }
             }
         });
+    }
+
+    @SubscribeEvent
+    public static void registerColoredBlocks(RegisterColorHandlersEvent.BlockTintSources event) {
+        event.register(List.of(BlockTintSources.foliage()), ModBlocks.COLORED_LEAVES.get());
     }
 }
