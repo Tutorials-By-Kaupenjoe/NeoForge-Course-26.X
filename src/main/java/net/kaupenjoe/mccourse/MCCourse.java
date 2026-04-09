@@ -9,6 +9,8 @@ import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.loot.ModLootModifiers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -54,7 +56,10 @@ public class MCCourse {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
 
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

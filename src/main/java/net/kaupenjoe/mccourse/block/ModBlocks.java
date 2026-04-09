@@ -6,6 +6,7 @@ import net.kaupenjoe.mccourse.block.custom.RadishCropBlock;
 import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -83,6 +84,13 @@ public class ModBlocks {
             properties -> new RadishCropBlock(properties.mapColor(MapColor.PLANT)
                     .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> CATMINT = registerBlock("catmint",
+            properties -> new FlowerBlock(MobEffects.SLOW_FALLING, 10,
+                    properties.mapColor(MapColor.PLANT).noCollision().instabreak()
+                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> POTTED_CATMINT = BLOCKS.registerBlock("potted_catmint",
+            properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CATMINT, properties.noOcclusion()
+                    .instabreak().pushReaction(PushReaction.DESTROY)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {

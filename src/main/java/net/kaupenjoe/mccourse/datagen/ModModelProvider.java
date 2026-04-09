@@ -85,7 +85,6 @@ public class ModModelProvider extends ModelProvider {
                                 BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.ZIRCON_LAMP.get(), blockModels.modelOutput)))));
 
         blockModels.createCropBlock(ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
-
-
+        blockModels.createPlantWithDefaultItem(ModBlocks.CATMINT.get(), ModBlocks.POTTED_CATMINT.get(), BlockModelGenerators.PlantType.TINTED);
     }
 }

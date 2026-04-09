@@ -80,5 +80,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MAINTAINS_FARMLAND)
                 .add(ModBlocks.RADISH_CROP.get());
 
+        tag(BlockTags.FLOWER_POTS)
+                .add(ModBlocks.POTTED_CATMINT.get());
+        tag(BlockTags.FLOWERS)
+                .add(ModBlocks.CATMINT.get());
     }
 }
