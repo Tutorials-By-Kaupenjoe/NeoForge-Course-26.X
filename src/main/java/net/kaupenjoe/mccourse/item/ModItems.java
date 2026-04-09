@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.item;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
 import net.kaupenjoe.mccourse.item.custom.HammerItem;
@@ -67,6 +68,9 @@ public class ModItems {
             properties -> new Item(properties.horseArmor(ModArmorMaterials.ZIRCON_ARMOR_MATERIAL)));
     public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
             properties -> new BowItem(properties.durability(500)));
+
+    public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
+            properties -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties.useItemDescriptionPrefix()));
 
 
     public static void register(IEventBus eventBus) {

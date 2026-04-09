@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.block.custom.RadishCropBlock;
 import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
 import net.kaupenjoe.mccourse.item.ModArmorMaterials;
@@ -83,6 +84,7 @@ public class ModModelProvider extends ModelProvider {
                                 BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(ModBlocks.ZIRCON_LAMP.get(), "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)),
                                 BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.ZIRCON_LAMP.get(), blockModels.modelOutput)))));
 
+        blockModels.createCropBlock(ModBlocks.RADISH_CROP.get(), RadishCropBlock.AGE, 0, 1, 2, 3);
 
 
     }

@@ -20,6 +20,8 @@
   "item.mccourse.zircon_horse_armor": "Zircon Horse Armor",
   "item.mccourse.kaupen_bow": "Kaupen Bow",
 
+  "item.mccourse.radish_seeds": "Radish Seeds",
+
 
   "block.mccourse.zircon_block": "Block of Zircon",
   "block.mccourse.raw_zircon_block": "Block of Raw Zircon",
@@ -39,6 +41,8 @@
   "block.mccourse.zircon_trapdoor": "Zircon Trapdoor",
 
   "block.mccourse.zircon_lamp": "Zircon Lamp",
+  "block.mccourse.radish_crop": "Radish Crop",
+
 
   "key.mccourse.kaupen_key": "Kaupen Key",
 

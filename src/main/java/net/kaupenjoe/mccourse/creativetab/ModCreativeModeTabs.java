@@ -42,6 +42,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ZIRCON_HORSE_ARMOR);
                         output.accept(ModItems.KAUPEN_BOW);
 
+                        output.accept(ModItems.RADISH_SEEDS);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",

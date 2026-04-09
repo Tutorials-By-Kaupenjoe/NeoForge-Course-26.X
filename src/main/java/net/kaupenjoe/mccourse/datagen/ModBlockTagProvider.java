@@ -75,6 +75,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.MINEABLE_WITH_AXE)
                 .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
 
+        tag(BlockTags.CROPS)
+                .add(ModBlocks.RADISH_CROP.get());
+        tag(BlockTags.MAINTAINS_FARMLAND)
+                .add(ModBlocks.RADISH_CROP.get());
 
     }
 }

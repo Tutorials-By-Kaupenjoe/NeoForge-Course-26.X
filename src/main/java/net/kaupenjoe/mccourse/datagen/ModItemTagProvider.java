@@ -38,5 +38,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.FOOT_ARMOR).add(ModItems.ZIRCON_BOOTS.get());
 
         tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
+        tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ModItems.RADISH_SEEDS.get());
     }
 }
