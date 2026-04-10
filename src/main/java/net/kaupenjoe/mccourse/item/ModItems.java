@@ -73,6 +73,8 @@ public class ModItems {
             properties -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties.useItemDescriptionPrefix()));
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
             properties -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(), properties.useItemDescriptionPrefix().food(ModFoodProperties.GOJI_BERRIES)));
+    public static final DeferredItem<Item> RICE_SHOOT = ITEMS.registerItem("rice_shoot",
+            properties -> new PlaceOnWaterBlockItem(ModBlocks.RICE_CROP.get(), properties.useItemDescriptionPrefix()));
 
 
     public static void register(IEventBus eventBus) {

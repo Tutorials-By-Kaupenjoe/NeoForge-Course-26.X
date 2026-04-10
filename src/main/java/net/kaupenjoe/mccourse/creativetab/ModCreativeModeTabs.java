@@ -44,6 +44,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.RADISH_SEEDS);
                         output.accept(ModItems.GOJI_BERRIES);
+                        output.accept(ModItems.RICE_SHOOT);
 
                     }).build());
 

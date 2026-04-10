@@ -1,10 +1,7 @@
 package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourse;
-import net.kaupenjoe.mccourse.block.custom.GojiBerryBushBlock;
-import net.kaupenjoe.mccourse.block.custom.MagicBlock;
-import net.kaupenjoe.mccourse.block.custom.RadishCropBlock;
-import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
+import net.kaupenjoe.mccourse.block.custom.*;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
@@ -104,6 +101,9 @@ public class ModBlocks {
             properties -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT).randomTicks()
                     .noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> RICE_CROP = BLOCKS.registerBlock("rice_crop",
+            properties -> new RiceCropBlock(properties.mapColor(MapColor.PLANT)
+                    .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
