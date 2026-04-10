@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.block.custom.GojiBerryBushBlock;
 import net.kaupenjoe.mccourse.block.custom.RadishCropBlock;
 import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
@@ -88,5 +89,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createPlantWithDefaultItem(ModBlocks.CATMINT.get(), ModBlocks.POTTED_CATMINT.get(), BlockModelGenerators.PlantType.TINTED);
 
         blockModels.createTintedLeaves(ModBlocks.COLORED_LEAVES.get(), TexturedModel.LEAVES, -12012264);
+
+        blockModels.createCropBlock(ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE, 0, 1, 2, 3);
     }
 }

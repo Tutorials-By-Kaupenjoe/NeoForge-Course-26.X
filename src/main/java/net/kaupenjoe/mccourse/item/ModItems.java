@@ -71,6 +71,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
             properties -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties.useItemDescriptionPrefix()));
+    public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
+            properties -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(), properties.useItemDescriptionPrefix().food(ModFoodProperties.GOJI_BERRIES)));
 
 
     public static void register(IEventBus eventBus) {

@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.block.custom.GojiBerryBushBlock;
 import net.kaupenjoe.mccourse.block.custom.MagicBlock;
 import net.kaupenjoe.mccourse.block.custom.RadishCropBlock;
 import net.kaupenjoe.mccourse.block.custom.ZirconLampBlock;
@@ -98,6 +99,11 @@ public class ModBlocks {
                     .isValidSpawn(Blocks::ocelotOrParrot).isSuffocating((_, _, _) -> false)
                     .isViewBlocking((_, _, _) -> false)
                     .ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((_, _, _) -> false)));
+
+    public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.registerBlock("goji_berry_bush",
+            properties -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT).randomTicks()
+                    .noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
