@@ -1,4 +1,13 @@
 {
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "mccourse:bar_brawl",
+        "stream": true
+      }
+    ],
+    "subtitle": "sounds.mccourse.bar_brawl"
+  },
   "chisel_use": {
     "sounds": [
       "mccourse:chisel_use"

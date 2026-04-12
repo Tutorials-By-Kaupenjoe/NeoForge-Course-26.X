@@ -32,5 +32,6 @@ public class MCCourseDataGenerators {
         generator.addProvider(true, new ModGlobalLootModifierProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new ModSoundsProvider(packOutput));
+        generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
     }
 }

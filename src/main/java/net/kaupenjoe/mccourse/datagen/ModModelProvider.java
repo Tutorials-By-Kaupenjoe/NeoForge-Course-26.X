@@ -60,6 +60,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.createFlatItemModel(ModItems.KAUPEN_BOW.get(), ModelTemplates.BOW);
         itemModels.generateBow(ModItems.KAUPEN_BOW.get());
 
+        itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
+
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());

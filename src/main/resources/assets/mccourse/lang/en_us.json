@@ -24,6 +24,8 @@
   "item.mccourse.goji_berries": "Goji Berries",
   "item.mccourse.rice_shoot": "Rice Shoot",
 
+  "item.mccourse.bar_brawl_music_disc": "Bar Brawl Music Disc",
+
 
   "block.mccourse.zircon_block": "Block of Zircon",
   "block.mccourse.raw_zircon_block": "Block of Raw Zircon",
@@ -51,12 +53,15 @@
   "block.mccourse.goji_berry_bush": "Goji Berry Bush",
   "block.mccourse.rice_crop": "Rice Crop",
 
+  "jukebox_song.mccourse.bar_brawl": "Bryan Tech - Bar Brawl (CC0)",
+
   "sounds.mccourse.chisel_use": "Chiseled a Block",
   "sounds.mccourse.magic_block_break": "Breaking Magic Block",
   "sounds.mccourse.magic_block_fall": "Falling on Magic Block",
   "sounds.mccourse.magic_block_hit": "Hitting Magic Block",
   "sounds.mccourse.magic_block_place": "Placing Magic Block",
   "sounds.mccourse.magic_block_step": "Stepping on Magic Block",
+  "sounds.mccourse.bar_brawl": "Playing Bar Brawl Music Disc",
 
   "key.mccourse.kaupen_key": "Kaupen Key",
 

@@ -39,5 +39,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.KAUPEN_BOW.get());
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ModItems.RADISH_SEEDS.get());
+
+        tag(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(ModItems.BAR_BRAWL_MUSIC_DISC.get());
     }
 }

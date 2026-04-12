@@ -27,5 +27,8 @@ public class ModSoundsProvider extends SoundDefinitionsProvider {
         add(ModSounds.MAGIC_BLOCK_FALL.get(), definition().subtitle("sounds.mccourse.magic_block_fall")
                 .with(sound(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "magic_block_fall"))));
 
+        add(ModSounds.BAR_BRAWL.get(), definition().subtitle("sounds.mccourse.bar_brawl")
+                .with(sound(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "bar_brawl")).stream()));
+
     }
 }
