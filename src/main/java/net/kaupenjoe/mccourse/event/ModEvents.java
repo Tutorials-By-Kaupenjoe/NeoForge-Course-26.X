@@ -49,18 +49,21 @@ public class ModEvents {
     public static void setPlayersManaOnClone(PlayerEvent.Clone event) {
         Player newPlayer = event.getEntity();
         ManaHandler.setMana(((ServerPlayer) newPlayer), event.getOriginal().getData(ModAttachmentTypes.MANA));
+        newPlayer.setData(ModAttachmentTypes.HOME_POS, event.getOriginal().getData(ModAttachmentTypes.HOME_POS));
     }
 
     @SubscribeEvent
     public static void setPlayersManaOnDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event) {
         Player player = event.getEntity();
         ManaHandler.setMana(((ServerPlayer) player), player.getData(ModAttachmentTypes.MANA));
+        player.setData(ModAttachmentTypes.HOME_POS, player.getData(ModAttachmentTypes.HOME_POS));
     }
 
     @SubscribeEvent
     public static void setPlayersManaOnRespawn(PlayerEvent.PlayerRespawnEvent event) {
         Player player = event.getEntity();
         ManaHandler.setMana(((ServerPlayer) player), player.getData(ModAttachmentTypes.MANA));
+        player.setData(ModAttachmentTypes.HOME_POS, player.getData(ModAttachmentTypes.HOME_POS));
     }
 
     @SubscribeEvent
