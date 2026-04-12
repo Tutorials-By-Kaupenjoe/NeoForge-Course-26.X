@@ -75,6 +75,10 @@
   "sounds.mccourse.magic_block_step": "Stepping on Magic Block",
   "sounds.mccourse.bar_brawl": "Playing Bar Brawl Music Disc",
 
+  "death.attack.stinky": "%s was stinkied to death!",
+  "death.attack.stinky.player": "%s was stinkied to death trying to outrun %s",
+
+
   "key.mccourse.kaupen_key": "Kaupen Key",
 
   "tooltip.mccourse.radish": "Tastes amazing!",

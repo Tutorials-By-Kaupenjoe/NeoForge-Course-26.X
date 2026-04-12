@@ -1,5 +1,6 @@
 package net.kaupenjoe.mccourse.effect;
 
+import net.kaupenjoe.mccourse.datagen.ModDamageTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -21,7 +22,7 @@ public class StinkyEffect extends MobEffect {
 
         for(Entity entity : entities) {
             if(entity instanceof LivingEntity livingEntity) {
-                livingEntity.hurtServer(serverLevel, livingEntity.damageSources().magic(), 0.25f * (amplification + 1));
+                livingEntity.hurtServer(serverLevel, ModDamageTypes.create(serverLevel, ModDamageTypes.STINKY_KEY), 0.25f * (amplification + 1));
             }
         }
 
