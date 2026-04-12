@@ -6,6 +6,7 @@ import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
 import net.kaupenjoe.mccourse.consumeffect.ModConsumeEffects;
 import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
+import net.kaupenjoe.mccourse.effect.ModEffects;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.loot.ModLootModifiers;
 import net.kaupenjoe.mccourse.sound.ModSounds;
@@ -48,6 +49,7 @@ public class MCCourse {
         ModLootModifiers.register(modEventBus);
 
         ModSounds.register(modEventBus);
+        ModEffects.register(modEventBus);
 
 
         NeoForge.EVENT_BUS.register(this);

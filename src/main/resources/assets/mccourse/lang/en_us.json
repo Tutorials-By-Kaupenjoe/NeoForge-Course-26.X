@@ -60,6 +60,9 @@
 
   "jukebox_song.mccourse.bar_brawl": "Bryan Tech - Bar Brawl (CC0)",
 
+  "effect.mccourse.stinky": "Stinky",
+  "effect.mccourse.stinky.description": "Causes entities around you to take damage",
+
   "sounds.mccourse.chisel_use": "Chiseled a Block",
   "sounds.mccourse.magic_block_break": "Breaking Magic Block",
   "sounds.mccourse.magic_block_fall": "Falling on Magic Block",
