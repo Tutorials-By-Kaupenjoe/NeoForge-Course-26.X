@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.block;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.custom.*;
 import net.kaupenjoe.mccourse.item.ModItems;
+import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -45,7 +46,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
             properties -> new MagicBlock(properties.strength(2f)
-                    .noLootTable().sound(SoundType.AMETHYST)));
+                    .noLootTable().sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     public static final DeferredBlock<Block> ZIRCON_STAIRS = registerBlock("zircon_stairs",
             properties -> new StairBlock(ModBlocks.ZIRCON_BLOCK.get().defaultBlockState(),

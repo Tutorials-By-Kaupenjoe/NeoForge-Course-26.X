@@ -52,6 +52,11 @@
   "block.mccourse.rice_crop": "Rice Crop",
 
   "sounds.mccourse.chisel_use": "Chiseled a Block",
+  "sounds.mccourse.magic_block_break": "Breaking Magic Block",
+  "sounds.mccourse.magic_block_fall": "Falling on Magic Block",
+  "sounds.mccourse.magic_block_hit": "Hitting Magic Block",
+  "sounds.mccourse.magic_block_place": "Placing Magic Block",
+  "sounds.mccourse.magic_block_step": "Stepping on Magic Block",
 
   "key.mccourse.kaupen_key": "Kaupen Key",
 
