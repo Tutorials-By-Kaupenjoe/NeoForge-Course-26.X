@@ -3,6 +3,8 @@ package net.kaupenjoe.mccourse.event;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
+import net.kaupenjoe.mccourse.command.ReturnHomeCommand;
+import net.kaupenjoe.mccourse.command.SetHomeCommand;
 import net.kaupenjoe.mccourse.networking.ClientboundPackets;
 import net.kaupenjoe.mccourse.networking.ServerboundPackets;
 import net.kaupenjoe.mccourse.networking.packet.ManaPacketS2C;
@@ -16,10 +18,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.server.command.ConfigCommand;
 
 @EventBusSubscriber(modid = MCCourse.MOD_ID)
 public class ModEvents {
@@ -68,5 +72,11 @@ public class ModEvents {
                 sheep.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 6));
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onCommandsRegister(RegisterCommandsEvent event) {
+        SetHomeCommand.register(event.getDispatcher());
+        ReturnHomeCommand.register(event.getDispatcher());
     }
 }

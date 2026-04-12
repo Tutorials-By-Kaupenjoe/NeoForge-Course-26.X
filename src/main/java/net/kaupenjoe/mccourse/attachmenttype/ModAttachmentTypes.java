@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.attachmenttype;
 
 import com.mojang.serialization.Codec;
 import net.kaupenjoe.mccourse.MCCourse;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
@@ -17,6 +18,9 @@ public class ModAttachmentTypes {
     public static final Supplier<AttachmentType<Integer>> MANA = ATTACHMENT_TYPES.register("mana",
             () -> AttachmentType.builder(() -> 0).sync(ByteBufCodecs.INT) // this auto-syncs HOWEVER, I wanna teach Networking!
                     .serialize(Codec.INT.fieldOf("mana")).build());
+    public static final Supplier<AttachmentType<BlockPos>> HOME_POS = ATTACHMENT_TYPES.register("home_pos",
+            () -> AttachmentType.builder(() -> BlockPos.ZERO).serialize(BlockPos.CODEC.fieldOf("home_pos"))
+                    .sync(BlockPos.STREAM_CODEC).build());
 
 
     public static void register(IEventBus eventBus) {
