@@ -80,6 +80,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
             properties -> new Item(properties.jukeboxPlayable(ModJukeboxSongs.BAR_BRAWL_KEY).stacksTo(1).rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
+            properties -> new Item(properties.stacksTo(1).rarity(Rarity.RARE)));
+
 
 
     public static void register(IEventBus eventBus) {

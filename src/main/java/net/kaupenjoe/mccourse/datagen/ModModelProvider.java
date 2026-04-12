@@ -63,6 +63,8 @@ public class ModModelProvider extends ModelProvider {
 
         itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
 
+        itemModels.declareCustomModelItem(ModItems.RADIATION_STAFF.get());
+
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());

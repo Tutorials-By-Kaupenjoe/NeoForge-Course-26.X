@@ -47,6 +47,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RICE_SHOOT);
 
                         output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
+                        output.accept(ModItems.RADIATION_STAFF);
 
                     }).build());
 
