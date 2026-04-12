@@ -27,6 +27,10 @@
   "item.mccourse.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.mccourse.radiation_staff": "Radiation Staff",
 
+  "item.minecraft.potion.effect.stinky_potion": "Stinky Potion",
+  "item.minecraft.splash_potion.effect.stinky_potion": "Stinky Splash Potion",
+  "item.minecraft.lingering_potion.effect.stinky_potion": "Stinky Lingering Potion",
+
 
   "block.mccourse.zircon_block": "Block of Zircon",
   "block.mccourse.raw_zircon_block": "Block of Raw Zircon",
