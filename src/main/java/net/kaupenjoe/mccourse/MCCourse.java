@@ -8,6 +8,7 @@ import net.kaupenjoe.mccourse.consumeffect.ModConsumeEffects;
 import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.loot.ModLootModifiers;
+import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -45,6 +46,9 @@ public class MCCourse {
 
         ModConsumeEffects.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+
+        ModSounds.register(modEventBus);
+
 
         NeoForge.EVENT_BUS.register(this);
 

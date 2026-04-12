@@ -1,0 +1,8 @@
+{
+  "chisel_use": {
+    "sounds": [
+      "mccourse:chisel_use"
+    ],
+    "subtitle": "sounds.mccourse.chisel_use"
+  }
+}
