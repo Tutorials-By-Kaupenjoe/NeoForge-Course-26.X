@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "mccourse:radiation_staff"
+  },
+  "max_uses": 3.0,
+  "reputation_discount": 0.07,
+  "wants": {
+    "count": 3.0,
+    "id": "minecraft:diamond"
+  },
+  "xp": 15.0
+}

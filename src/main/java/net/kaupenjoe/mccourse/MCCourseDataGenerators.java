@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse;
 
 import net.kaupenjoe.mccourse.datagen.*;
+import net.kaupenjoe.mccourse.datagen.villager.ModPOITags;
 import net.kaupenjoe.mccourse.datagen.villager.ModVillagerTradeTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -36,5 +37,6 @@ public class MCCourseDataGenerators {
         generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new ModVillagerTradeTags(packOutput, lookupProvider));
+        generator.addProvider(true, new ModPOITags(packOutput, lookupProvider));
     }
 }

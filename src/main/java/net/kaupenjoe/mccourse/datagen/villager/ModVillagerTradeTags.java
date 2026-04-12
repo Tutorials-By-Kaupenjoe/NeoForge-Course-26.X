@@ -1,5 +1,6 @@
 package net.kaupenjoe.mccourse.datagen.villager;
 
+import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VillagerTradesTagsProvider;
@@ -27,5 +28,12 @@ public class ModVillagerTradeTags extends VillagerTradesTagsProvider {
 
         getOrCreateRawBuilder(VillagerTradeTags.LIBRARIAN_LEVEL_1)
                 .add(TagEntry.element(ModVillagerTrades.LIBRARIAN_1_ZIRCON_ENCHANTED_ZIRCON_SWORD.identifier()));
+
+        getOrCreateRawBuilder(ModTags.Trades.KAUPENGER_LEVEL_1)
+                .add(TagEntry.element(ModVillagerTrades.KAUPENGER_1_EMERALD_CHISEL.identifier()))
+                .add(TagEntry.element(ModVillagerTrades.KAUPENGER_1_EMERALD_RAW_ZIRCON.identifier()));
+        getOrCreateRawBuilder(ModTags.Trades.KAUPENGER_LEVEL_2)
+                .add(TagEntry.element(ModVillagerTrades.KAUPENGER_2_ZIRCON_MAGIC_BLOCK.identifier()))
+                .add(TagEntry.element(ModVillagerTrades.KAUPENGER_2_DIAMOND_RADIATION_STAFF.identifier()));
     }
 }

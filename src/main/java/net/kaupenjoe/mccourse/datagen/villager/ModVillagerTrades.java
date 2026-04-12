@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.datagen.villager;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -24,6 +25,14 @@ public class ModVillagerTrades {
 
     public static final ResourceKey<VillagerTrade> MASON_1_ZIRCON_CHISEL = createKey("mason/1/zircon_chisel");
     public static final ResourceKey<VillagerTrade> LIBRARIAN_1_ZIRCON_ENCHANTED_ZIRCON_SWORD = createKey("librarian/1/zircon_enchanted_zircon_sword");
+
+
+    public static final ResourceKey<VillagerTrade> KAUPENGER_1_EMERALD_CHISEL = createKey("kaupenger/1/emerald_chisel");
+    public static final ResourceKey<VillagerTrade> KAUPENGER_1_EMERALD_RAW_ZIRCON = createKey("kaupenger/1/emerald_raw_zircon");
+
+    public static final ResourceKey<VillagerTrade> KAUPENGER_2_ZIRCON_MAGIC_BLOCK = createKey("kaupenger/2/zircon_magic_block");
+    public static final ResourceKey<VillagerTrade> KAUPENGER_2_DIAMOND_RADIATION_STAFF = createKey("kaupenger/2/diamond_radiation_staff");
+
 
     public static void bootstrap(BootstrapContext<VillagerTrade> context) {
         var items = context.lookup(Registries.ITEM);
@@ -53,6 +62,24 @@ public class ModVillagerTrades {
                 new ItemStackTemplate(ModItems.ZIRCON_SWORD, 1),
                 3, 15, 0.07f, Optional.empty(),
                 VillagerTrades.enchantedItem(items, enchantments.getOrThrow(Enchantments.SHARPNESS), 1, ModItems.ZIRCON_SWORD.asItem())));
+
+        register(context, KAUPENGER_1_EMERALD_CHISEL, new VillagerTrade(
+                new TradeCost(Items.EMERALD, 12),
+                new ItemStackTemplate(ModItems.CHISEL, 1),
+                12, 15, 0.07f, Optional.empty(), List.of()));
+        register(context, KAUPENGER_1_EMERALD_RAW_ZIRCON, new VillagerTrade(
+                new TradeCost(Items.EMERALD, 3),
+                new ItemStackTemplate(ModItems.RAW_ZIRCON, 15),
+                12, 15, 0.07f, Optional.empty(), List.of()));
+
+        register(context, KAUPENGER_2_DIAMOND_RADIATION_STAFF, new VillagerTrade(
+                new TradeCost(Items.DIAMOND, 3),
+                new ItemStackTemplate(ModItems.RADIATION_STAFF, 1),
+                3, 15, 0.07f, Optional.empty(), List.of()));
+        register(context, KAUPENGER_2_ZIRCON_MAGIC_BLOCK, new VillagerTrade(
+                new TradeCost(ModItems.ZIRCON, 3),
+                new ItemStackTemplate(ModBlocks.MAGIC_BLOCK.asItem(), 1),
+                3, 15, 0.07f, Optional.empty(), List.of()));
 
     }
 
