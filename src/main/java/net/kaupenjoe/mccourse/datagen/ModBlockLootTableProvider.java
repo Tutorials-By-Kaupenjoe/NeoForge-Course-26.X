@@ -87,6 +87,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 ModItems.RICE_SHOOT.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RICE_CROP.get())
                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RiceCropBlock.AGE, 7))));
 
+        dropSelf(ModBlocks.CHAIR.get());
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

@@ -106,6 +106,11 @@ public class ModBlocks {
             properties -> new RiceCropBlock(properties.mapColor(MapColor.PLANT)
                     .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
+            properties -> new ChairBlock(properties.sound(SoundType.WOOD).strength(1.25f)
+                    .pushReaction(PushReaction.DESTROY)));
+
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);

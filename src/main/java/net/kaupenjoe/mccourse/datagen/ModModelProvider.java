@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
 
 import java.util.Optional;
 
@@ -95,5 +96,9 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createCropBlock(ModBlocks.GOJI_BERRY_BUSH.get(), GojiBerryBushBlock.AGE, 0, 1, 2, 3);
         blockModels.createCropBlock(ModBlocks.RICE_CROP.get(), RiceCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.CHAIR.get(),
+                BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/chair")))
+                .with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
     }
 }

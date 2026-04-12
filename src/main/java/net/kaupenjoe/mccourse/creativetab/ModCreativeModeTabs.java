@@ -81,6 +81,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CATMINT);
                         output.accept(ModBlocks.COLORED_LEAVES);
 
+                        output.accept(ModBlocks.CHAIR);
+
 
 
                     }).build());

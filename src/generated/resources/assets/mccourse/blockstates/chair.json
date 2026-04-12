@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mccourse:block/chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mccourse:block/chair"
+    },
+    "facing=south": {
+      "model": "mccourse:block/chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mccourse:block/chair",
+      "y": 270
+    }
+  }
+}

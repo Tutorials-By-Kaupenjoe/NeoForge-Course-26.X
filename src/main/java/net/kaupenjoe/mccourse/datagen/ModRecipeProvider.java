@@ -213,6 +213,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
                 .save(output);
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHAIR.get())
+                .pattern("PPP")
+                .pattern("# #")
+                .pattern("# #")
+                .define('#', Items.STICK)
+                .define('P', Items.OAK_PLANKS)
+                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.OAK_PLANKS))
+                .save(output);
+
 
     }
 
