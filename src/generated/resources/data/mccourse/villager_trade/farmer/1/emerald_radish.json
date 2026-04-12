@@ -1,0 +1,13 @@
+{
+  "gives": {
+    "count": 2,
+    "id": "mccourse:radish"
+  },
+  "max_uses": 12.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 4.0,
+    "id": "minecraft:emerald"
+  },
+  "xp": 12.0
+}
