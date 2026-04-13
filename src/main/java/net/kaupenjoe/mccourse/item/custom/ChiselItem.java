@@ -1,5 +1,6 @@
 package net.kaupenjoe.mccourse.item.custom;
 
+import net.kaupenjoe.mccourse.MCConfig;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
 import net.kaupenjoe.mccourse.block.ModBlocks;
@@ -63,7 +64,7 @@ public class ChiselItem extends Item {
 
             context.getPlayer().awardStat(ModStats.CHISEL_USED_STAT.get(), 1);
             context.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), context.getClickedPos());
-            ManaHandler.removeMana(((ServerPlayer) player), 1);
+            ManaHandler.removeMana(((ServerPlayer) player), MCConfig.CHISEL_MANA_USAGE.get());
         }
 
         return InteractionResult.SUCCESS;
@@ -71,6 +72,11 @@ public class ChiselItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        if(!MCConfig.CHISEL_SHOW_TOOLTIP.get()) {
+            super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+            return;
+        }
+
         if(Minecraft.getInstance().hasShiftDown()) {
             builder.accept(Component.translatable("tooltip.mccourse.chisel.shift_down"));
         } else {

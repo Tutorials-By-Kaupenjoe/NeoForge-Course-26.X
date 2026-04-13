@@ -91,6 +91,8 @@
   "advancements.mccourse.be_stinky.title": "What's that smell?",
   "advancements.mccourse.be_stinky.description": "You are stinky! Go take a shower!",
 
+  "mccourse.configuration.showChiselTooltip": "Show Chisel Tooltips",
+  "mccourse.configuration.chiselManaUsage": "Chisel Mana Usage",
 
   "effect.mccourse.stinky": "Stinky",
   "effect.mccourse.stinky.description": "Causes entities around you to take damage",

@@ -9,7 +9,6 @@ import net.kaupenjoe.mccourse.item.custom.ChiselItem;
 import net.kaupenjoe.mccourse.item.custom.HammerItem;
 import net.kaupenjoe.mccourse.item.custom.ModArmorItem;
 import net.kaupenjoe.mccourse.item.custom.PaxelItem;
-import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
