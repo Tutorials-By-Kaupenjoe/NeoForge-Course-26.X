@@ -14,7 +14,9 @@ import net.kaupenjoe.mccourse.loot.ModLootModifiers;
 import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.potion.ModPotions;
 import net.kaupenjoe.mccourse.sound.ModSounds;
+import net.kaupenjoe.mccourse.stat.ModStats;
 import net.kaupenjoe.mccourse.villager.ModVillagers;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -62,6 +64,9 @@ public class MCCourse {
         ModParticles.register(modEventBus);
         ModEnchantmentEffects.register(modEventBus);
 
+        ModStats.register(modEventBus);
+
+
         NeoForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
@@ -75,6 +80,7 @@ public class MCCourse {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
 
+            Stats.CUSTOM.get(ModStats.MANA_USED_TOTAL_STAT.get(), value -> value + " Mana");
         });
     }
 

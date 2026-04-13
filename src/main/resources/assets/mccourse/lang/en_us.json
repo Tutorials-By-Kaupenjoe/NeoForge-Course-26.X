@@ -103,6 +103,8 @@
   "death.attack.stinky": "%s was stinkied to death!",
   "death.attack.stinky.player": "%s was stinkied to death trying to outrun %s",
 
+  "stat.mccourse.chisel_used": "Chisel Used",
+  "stat.mccourse.mana_used_total": "Total Mana Used",
 
   "key.mccourse.kaupen_key": "Kaupen Key",
 
