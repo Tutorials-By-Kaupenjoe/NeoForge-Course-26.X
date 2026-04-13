@@ -63,7 +63,7 @@ public class ModModelProvider extends ModelProvider {
 
         itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
 
-        itemModels.declareCustomModelItem(ModItems.RADIATION_STAFF.get());
+        itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
 
         /* BLOCKS */
