@@ -38,5 +38,6 @@ public class MCCourseDataGenerators {
 
         generator.addProvider(true, new ModVillagerTradeTags(packOutput, lookupProvider));
         generator.addProvider(true, new ModPOITags(packOutput, lookupProvider));
+        generator.addProvider(true, new ModPaintingTagsProvider(packOutput, lookupProvider));
     }
 }

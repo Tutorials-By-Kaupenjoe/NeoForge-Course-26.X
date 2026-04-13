@@ -1,0 +1,13 @@
+{
+  "asset_id": "mccourse:world",
+  "author": {
+    "color": "gray",
+    "translate": "painting.mccourse.world.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.mccourse.world.title"
+  },
+  "width": 2
+}

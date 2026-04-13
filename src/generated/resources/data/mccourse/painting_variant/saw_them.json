@@ -1,0 +1,13 @@
+{
+  "asset_id": "mccourse:saw_them",
+  "author": {
+    "color": "gray",
+    "translate": "painting.mccourse.saw_them.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.mccourse.saw_them.title"
+  },
+  "width": 2
+}
