@@ -1,0 +1,13 @@
+{
+  "asset_id": "mccourse:wanderer",
+  "author": {
+    "color": "gray",
+    "translate": "painting.mccourse.wanderer.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.mccourse.wanderer.title"
+  },
+  "width": 1
+}

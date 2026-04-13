@@ -11,6 +11,10 @@
     {
       "id": "mccourse:world",
       "required": false
+    },
+    {
+      "id": "mccourse:wanderer",
+      "required": false
     }
   ]
 }
