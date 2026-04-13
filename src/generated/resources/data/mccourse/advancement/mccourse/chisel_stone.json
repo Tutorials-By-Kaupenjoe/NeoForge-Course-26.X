@@ -1,0 +1,43 @@
+{
+  "parent": "mccourse:mccourse/root",
+  "criteria": {
+    "chisel_stone": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "minecraft:stone"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "mccourse:chisel"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mccourse.chisel_stone.description"
+    },
+    "icon": {
+      "id": "mccourse:chisel"
+    },
+    "title": {
+      "translate": "advancements.mccourse.chisel_stone.title"
+    }
+  },
+  "requirements": [
+    [
+      "chisel_stone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "mccourse:mccourse/chisel_stone",
+  "criteria": {
+    "be_stinky": {
+      "conditions": {
+        "effects": {
+          "mccourse:stinky": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mccourse.be_stinky.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:dirt"
+    },
+    "title": {
+      "translate": "advancements.mccourse.be_stinky.title"
+    }
+  },
+  "requirements": [
+    [
+      "be_stinky"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,57 @@
+{
+  "parent": "mccourse:mccourse/root",
+  "criteria": {
+    "berries": {
+      "conditions": {
+        "location": [
+          {
+            "block": "mccourse:goji_berry_bush",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "radish": {
+      "conditions": {
+        "location": [
+          {
+            "block": "mccourse:radish_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "rice": {
+      "conditions": {
+        "location": [
+          {
+            "block": "mccourse:rice_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mccourse.plant_custom.description"
+    },
+    "icon": {
+      "id": "mccourse:rice_shoot"
+    },
+    "title": {
+      "translate": "advancements.mccourse.plant_custom.title"
+    }
+  },
+  "requirements": [
+    [
+      "berries",
+      "rice",
+      "radish"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

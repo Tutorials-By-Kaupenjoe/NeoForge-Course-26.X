@@ -76,6 +76,18 @@
 
   "enchantment.mccourse.lightning_striker": "Lightning Striker",
 
+  "advancements.mccourse.root.title": "MC Course Advancements",
+  "advancements.mccourse.root.description": "MC Course Advancements Pretty Cool!",
+
+  "advancements.mccourse.plant_custom.title": "Plant a Custom Plant",
+  "advancements.mccourse.plant_custom.description": "Planting these custom plants is pretty neat!",
+
+  "advancements.mccourse.chisel_stone.title": "Chiseled in History!",
+  "advancements.mccourse.chisel_stone.description": "You used a chisel on Stone. Awesome!",
+
+  "advancements.mccourse.be_stinky.title": "What's that smell?",
+  "advancements.mccourse.be_stinky.description": "You are stinky! Go take a shower!",
+
 
   "effect.mccourse.stinky": "Stinky",
   "effect.mccourse.stinky.description": "Causes entities around you to take damage",
