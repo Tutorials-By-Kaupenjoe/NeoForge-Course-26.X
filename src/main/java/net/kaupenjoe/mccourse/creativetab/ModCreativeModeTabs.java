@@ -49,6 +49,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
                         output.accept(ModItems.RADIATION_STAFF);
 
+                        output.accept(ModItems.ZIRCON_WATER_BUCKET);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",

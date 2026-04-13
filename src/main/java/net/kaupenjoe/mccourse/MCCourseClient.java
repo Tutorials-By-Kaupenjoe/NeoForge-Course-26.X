@@ -3,6 +3,8 @@ package net.kaupenjoe.mccourse;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
+import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
@@ -11,6 +13,8 @@ import net.kaupenjoe.mccourse.particle.ZirconParticle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.block.FluidModel;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
@@ -21,6 +25,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
@@ -100,5 +105,22 @@ public class MCCourseClient {
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.ZIRCON_PARTICLES.get(), ZirconParticle.Provider::new);
+    }
+
+    @SubscribeEvent
+    public static void registerOnClientExtensions(RegisterClientExtensionsEvent event) {
+        event.registerFluidType(ModFluidTypes.ZIRCON_WATER_EXTENSION, ModFluidTypes.ZIRCON_WATER_FLUID_TYPE.get());
+    }
+
+    @SubscribeEvent
+    public static void registerFluidModelsEvent(RegisterFluidModelsEvent event) {
+        FluidModel.Unbaked zirconWaterModel = new FluidModel.Unbaked(
+                new Material(Identifier.withDefaultNamespace("block/water_still")),
+                new Material(Identifier.withDefaultNamespace("block/water_flow")),
+                new Material(Identifier.withDefaultNamespace("block/water_overlay")),
+                state -> 0xA1eb1734);
+
+        event.register(zirconWaterModel, ModFluids.ZIRCON_WATER_SOURCE.get());
+        event.register(zirconWaterModel, ModFluids.ZIRCON_WATER_FLOWING.get());
     }
 }

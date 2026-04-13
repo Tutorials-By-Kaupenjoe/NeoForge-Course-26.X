@@ -31,6 +31,8 @@
   "item.minecraft.splash_potion.effect.stinky_potion": "Stinky Splash Potion",
   "item.minecraft.lingering_potion.effect.stinky_potion": "Stinky Lingering Potion",
 
+  "item.mccourse.zircon_water_bucket": "Zircon Water Bucket",
+
 
   "block.mccourse.zircon_block": "Block of Zircon",
   "block.mccourse.raw_zircon_block": "Block of Raw Zircon",
@@ -60,6 +62,7 @@
 
   "block.mccourse.chair": "Chair",
 
+  "fluid_type.mccourse.zircon_water_fluid_type": "Zircon Water",
 
   "entity.minecraft.villager.mccourse.kaupenger": "Kaupenger",
 

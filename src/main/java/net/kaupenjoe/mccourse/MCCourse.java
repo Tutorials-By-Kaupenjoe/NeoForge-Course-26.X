@@ -9,6 +9,8 @@ import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.effect.ModEffects;
 import net.kaupenjoe.mccourse.enchantment.ModEnchantmentEffects;
 import net.kaupenjoe.mccourse.enchantment.ModEnchantments;
+import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
+import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.loot.ModLootModifiers;
 import net.kaupenjoe.mccourse.particle.ModParticles;
@@ -65,7 +67,9 @@ public class MCCourse {
         ModEnchantmentEffects.register(modEventBus);
 
         ModStats.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
 
+        ModFluids.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

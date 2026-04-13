@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.custom.*;
+import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -109,6 +110,11 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
             properties -> new ChairBlock(properties.sound(SoundType.WOOD).strength(1.25f)
                     .pushReaction(PushReaction.DESTROY)));
+
+    public static final DeferredBlock<LiquidBlock> ZIRCON_WATER_LIQUID_BLOCK = BLOCKS.registerBlock("zircon_water_liquid_block",
+            properties -> new LiquidBlock(ModFluids.ZIRCON_WATER_SOURCE.get(), properties
+                    .mapColor(MapColor.WATER).replaceable().noCollision().strength(100.0F)
+                    .pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {

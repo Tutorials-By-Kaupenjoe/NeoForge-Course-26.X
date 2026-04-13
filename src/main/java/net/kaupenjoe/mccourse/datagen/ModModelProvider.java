@@ -64,6 +64,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.ZIRCON_WATER_BUCKET.get(), ModelTemplates.FLAT_ITEM);
 
 
         /* BLOCKS */
@@ -102,5 +103,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.CHAIR.get(),
                 BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/chair")))
                 .with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
+
+        blockModels.createNonTemplateModelBlock(ModBlocks.ZIRCON_WATER_LIQUID_BLOCK.get());
     }
 }

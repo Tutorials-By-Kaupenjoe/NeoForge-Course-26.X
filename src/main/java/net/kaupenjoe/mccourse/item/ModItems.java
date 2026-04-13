@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.item;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.datagen.ModJukeboxSongs;
+import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
 import net.kaupenjoe.mccourse.item.custom.HammerItem;
@@ -82,6 +83,9 @@ public class ModItems {
             properties -> new Item(properties.jukeboxPlayable(ModJukeboxSongs.BAR_BRAWL_KEY).stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
             properties -> new Item(properties.stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final DeferredItem<Item> ZIRCON_WATER_BUCKET = ITEMS.registerItem("zircon_water_bucket",
+            properties -> new BucketItem(ModFluids.ZIRCON_WATER_SOURCE.get(), properties.stacksTo(1).craftRemainder(Items.BUCKET)));
 
 
 
