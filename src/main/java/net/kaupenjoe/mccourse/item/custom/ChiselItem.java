@@ -4,6 +4,7 @@ import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
+import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -55,8 +56,12 @@ public class ChiselItem extends Item {
                     item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
             level.playSound(null, context.getClickedPos(), ModSounds.CHISEL_USE.get(), SoundSource.BLOCKS, 2f, 1f);
 
+            ((ServerLevel) level).sendParticles(ModParticles.ZIRCON_PARTICLES.get(),
+                    context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1.5,
+                    context.getClickedPos().getZ() + 0.5, 10, 0, 0.5, 0, 1.5);
+
             context.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), context.getClickedPos());
-            ManaHandler.removeMana(((ServerPlayer) player), 1);
+            // ManaHandler.removeMana(((ServerPlayer) player), 1);
         }
 
         return InteractionResult.SUCCESS;

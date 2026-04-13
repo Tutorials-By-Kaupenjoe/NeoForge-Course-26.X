@@ -9,6 +9,7 @@ import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.effect.ModEffects;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.loot.ModLootModifiers;
+import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.potion.ModPotions;
 import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.kaupenjoe.mccourse.villager.ModVillagers;
@@ -55,6 +56,8 @@ public class MCCourse {
 
         ModPotions.register(modEventBus);
         ModVillagers.register(modEventBus);
+
+        ModParticles.register(modEventBus);
 
 
         NeoForge.EVENT_BUS.register(this);

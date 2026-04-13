@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.block.custom;
 
 import net.kaupenjoe.mccourse.item.ModItems;
+import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -27,6 +28,14 @@ public class MagicBlock extends Block {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                Player player, BlockHitResult hitResult) {
         level.playSound(player, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, 2f, 1f);
+
+        if(level.isClientSide()) {
+            for(int i = 0; i < 15; i++) {
+                level.addParticle(ModParticles.ZIRCON_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 1.25,
+                        pos.getZ() + 0.5, 0, 0.75, 0);
+            }
+        }
+
         return InteractionResult.SUCCESS;
     }
 

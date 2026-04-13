@@ -6,6 +6,8 @@ import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
+import net.kaupenjoe.mccourse.particle.ModParticles;
+import net.kaupenjoe.mccourse.particle.ZirconParticle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -93,5 +95,10 @@ public class MCCourseClient {
     @SubscribeEvent
     public static void registerColoredBlocks(RegisterColorHandlersEvent.BlockTintSources event) {
         event.register(List.of(BlockTintSources.foliage()), ModBlocks.COLORED_LEAVES.get());
+    }
+
+    @SubscribeEvent
+    public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModParticles.ZIRCON_PARTICLES.get(), ZirconParticle.Provider::new);
     }
 }
