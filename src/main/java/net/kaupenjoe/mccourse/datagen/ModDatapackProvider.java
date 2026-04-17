@@ -4,6 +4,8 @@ import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.datagen.villager.ModTradeSets;
 import net.kaupenjoe.mccourse.datagen.villager.ModVillagerTrades;
 import net.kaupenjoe.mccourse.enchantment.ModEnchantments;
+import net.kaupenjoe.mccourse.worldgen.ModConfiguredFeatures;
+import net.kaupenjoe.mccourse.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -20,7 +22,10 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.VILLAGER_TRADE, ModVillagerTrades::bootstrap)
             .add(Registries.TRADE_SET, ModTradeSets::bootstrap)
             .add(Registries.PAINTING_VARIANT, ModPaintings::bootstrap)
-            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap);
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap)
+
+            .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
+            .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 
     public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(MCCourse.MOD_ID));
