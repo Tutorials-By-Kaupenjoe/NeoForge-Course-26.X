@@ -21,8 +21,10 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_EBONY_TREE = registerKey("add_ebony_tree");
 
     public static final ResourceKey<BiomeModifier> ADD_CATMINT_FLOWER = registerKey("add_catmint_flower");
-
     public static final ResourceKey<BiomeModifier> ADD_GOJI_BERRY_BUSH = registerKey("add_goji_berry_bush");
+
+    public static final ResourceKey<BiomeModifier> ADD_ZIRCON_GEODE = registerKey("add_zircon_geode");
+
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -63,6 +65,12 @@ public class ModBiomeModifiers {
                 HolderSet.direct(biomes.getOrThrow(Biomes.CHERRY_GROVE), biomes.getOrThrow(Biomes.FOREST)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.GOJI_BERRY_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_ZIRCON_GEODE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ZIRCON_GEODE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
     }
 
 

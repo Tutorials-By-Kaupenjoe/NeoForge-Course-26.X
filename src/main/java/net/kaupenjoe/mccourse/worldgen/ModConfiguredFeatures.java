@@ -10,8 +10,12 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.levelgen.GeodeBlockSettings;
+import net.minecraft.world.level.levelgen.GeodeCrackSettings;
+import net.minecraft.world.level.levelgen.GeodeLayerSettings;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -36,8 +40,9 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE_KEY = registerKey("ebony_tree_key");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CATMINT_FLOWER_KEY = registerKey("catmint_flower");
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOJI_BERRY_BUSH_KEY = registerKey("goji_berry_bush");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ZIRCON_GEODE_KEY = registerKey("zircon_geode");
 
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -81,6 +86,33 @@ public class ModConfiguredFeatures {
                                 RandomOffsetPlacement.ofTriangle(6, 3),
                                 BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)))));
 
+        register(context, ZIRCON_GEODE_KEY, Feature.GEODE,
+                new GeodeConfiguration(new GeodeBlockSettings(
+                                BlockStateProvider.simple(Blocks.AIR),
+                                BlockStateProvider.simple(Blocks.DEEPSLATE),
+                                BlockStateProvider.simple(ModBlocks.RAW_ZIRCON_BLOCK.get()),
+                                BlockStateProvider.simple(Blocks.EMERALD_BLOCK),
+                                BlockStateProvider.simple(Blocks.DIRT),
+                                List.of(
+                                        ModBlocks.ZIRCON_BLOCK.get().defaultBlockState(),
+                                        ModBlocks.ZIRCON_ORE.get().defaultBlockState(),
+                                        ModBlocks.MAGIC_BLOCK.get().defaultBlockState()
+                                ),
+                                BlockTags.FEATURES_CANNOT_REPLACE,
+                                BlockTags.GEODE_INVALID_BLOCKS
+                        ),
+                        new GeodeLayerSettings(1.7, 2.2, 3.2, 4.2),
+                        new GeodeCrackSettings(0.95, 2.0, 2),
+                        0.35,
+                        0.083,
+                        true,
+                        UniformInt.of(4, 6),
+                        UniformInt.of(3, 4),
+                        UniformInt.of(1, 2),
+                        -16,
+                        16,
+                        0.05,
+                        1));
 
 
     }

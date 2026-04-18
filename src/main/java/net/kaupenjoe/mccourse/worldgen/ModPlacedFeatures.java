@@ -23,8 +23,9 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> EBONY_TREE_PLACED_KEY = registerKey("ebony_tree_placed");
 
     public static final ResourceKey<PlacedFeature> CATMINT_FLOWER_PLACED_KEY = registerKey("catmint_flower_placed");
-
     public static final ResourceKey<PlacedFeature> GOJI_BERRY_BUSH_PLACED_KEY = registerKey("goji_berry_bush_placed");
+
+    public static final ResourceKey<PlacedFeature> ZIRCON_GEODE_PLACED_KEY = registerKey("zircon_geode_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -48,6 +49,11 @@ public class ModPlacedFeatures {
 
         register(context, GOJI_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.GOJI_BERRY_BUSH_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+
+        register(context, ZIRCON_GEODE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ZIRCON_GEODE_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(50), InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(5), VerticalAnchor.absolute(50)), BiomeFilter.biome()));
+
 
     }
 
