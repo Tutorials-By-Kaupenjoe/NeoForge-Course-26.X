@@ -49,7 +49,9 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(ModBlocks.EBONY_LEAVES.get()),
                 new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1)),
 
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 2))
+                .belowTrunkProvider(BlockStateProvider.simple(Blocks.STONE))
+                .build());
 
 
     }

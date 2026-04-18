@@ -46,7 +46,7 @@ public class ModBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_EBONY_TREE, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
+                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.STONY_SHORE)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.EBONY_TREE_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }

@@ -180,8 +180,8 @@ public class ModBlocks {
             });
 
     public static final DeferredBlock<Block> EBONY_SAPLING = registerBlock("ebony_sapling",
-            properties -> new SaplingBlock(ModTreeGrowers.EBONY, properties.mapColor(MapColor.PLANT).noCollision()
-                    .randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
+            properties -> new ModSaplingBlock(ModTreeGrowers.EBONY, properties.mapColor(MapColor.PLANT).noCollision()
+                    .randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY), () -> Blocks.STONE));
     public static final DeferredBlock<Block> POTTED_EBONY_SAPLING = BLOCKS.registerBlock("potted_ebony_sapling",
             properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EBONY_SAPLING,
                     properties.noOcclusion().instabreak().pushReaction(PushReaction.DESTROY)));
