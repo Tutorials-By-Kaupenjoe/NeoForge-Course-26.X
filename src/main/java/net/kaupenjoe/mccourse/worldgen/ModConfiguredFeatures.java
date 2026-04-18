@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -35,6 +36,8 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE_KEY = registerKey("ebony_tree_key");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CATMINT_FLOWER_KEY = registerKey("catmint_flower");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOJI_BERRY_BUSH_KEY = registerKey("goji_berry_bush");
 
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -67,6 +70,17 @@ public class ModConfiguredFeatures {
                                 CountPlacement.of(32),
                                 RandomOffsetPlacement.ofTriangle(6, 3),
                                 BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)))));
+
+        register(context, GOJI_BERRY_BUSH_KEY, Feature.SIMPLE_RANDOM_SELECTOR,
+                new SimpleRandomFeatureConfiguration(
+                        HolderSet.direct(PlacementUtils.inlinePlaced(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.GOJI_BERRY_BUSH.get()
+                                        .defaultBlockState().setValue(SweetBerryBushBlock.AGE, 3))),
+                                CountPlacement.of(32),
+                                RandomOffsetPlacement.ofTriangle(6, 3),
+                                BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)))));
+
 
 
     }
