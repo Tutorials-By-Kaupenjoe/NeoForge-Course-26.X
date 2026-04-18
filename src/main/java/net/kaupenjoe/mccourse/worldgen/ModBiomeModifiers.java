@@ -7,6 +7,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
@@ -16,6 +17,8 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_ZIRCON_OVERWORLD_ORES = registerKey("add_zircon_overworld_ores");
     public static final ResourceKey<BiomeModifier> ADD_ZIRCON_NETHER_ORES = registerKey("add_zircon_nether_ores");
     public static final ResourceKey<BiomeModifier> ADD_ZIRCON_END_ORES = registerKey("add_zircon_end_ores");
+
+    public static final ResourceKey<BiomeModifier> ADD_EBONY_TREE = registerKey("add_ebony_tree");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -41,6 +44,11 @@ public class ModBiomeModifiers {
                 biomes.getOrThrow(BiomeTags.IS_END),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ZIRCON_END_ORES_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_EBONY_TREE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.EBONY_TREE_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
     }
 
 

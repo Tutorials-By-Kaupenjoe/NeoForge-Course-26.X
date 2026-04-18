@@ -89,6 +89,18 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.CHAIR.get());
 
+        dropSelf(ModBlocks.EBONY_LOG.get());
+        dropSelf(ModBlocks.EBONY_WOOD.get());
+        dropSelf(ModBlocks.STRIPPED_EBONY_LOG.get());
+        dropSelf(ModBlocks.STRIPPED_EBONY_WOOD.get());
+
+        dropSelf(ModBlocks.EBONY_PLANKS.get());
+        dropSelf(ModBlocks.EBONY_SAPLING.get());
+
+        add(ModBlocks.POTTED_EBONY_SAPLING.get(), createPotFlowerItemTable(ModBlocks.EBONY_SAPLING.get()));
+        add(ModBlocks.EBONY_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.EBONY_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

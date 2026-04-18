@@ -82,8 +82,25 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.RADISH_CROP.get());
 
         tag(BlockTags.FLOWER_POTS)
-                .add(ModBlocks.POTTED_CATMINT.get());
+                .add(ModBlocks.POTTED_CATMINT.get())
+                .add(ModBlocks.POTTED_EBONY_SAPLING.get());
         tag(BlockTags.FLOWERS)
                 .add(ModBlocks.CATMINT.get());
+
+        tag(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.EBONY_LOG.get())
+                .add(ModBlocks.EBONY_WOOD.get())
+                .add(ModBlocks.STRIPPED_EBONY_LOG.get())
+                .add(ModBlocks.STRIPPED_EBONY_WOOD.get());
+
+        tag(BlockTags.LEAVES)
+                .add(ModBlocks.EBONY_LEAVES.get());
+
+        tag(BlockTags.SAPLINGS)
+                .add(ModBlocks.EBONY_SAPLING.get());
+
+        tag(BlockTags.PLANKS)
+                .add(ModBlocks.EBONY_PLANKS.get());
+
     }
 }

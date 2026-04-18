@@ -26,6 +26,8 @@ public class ModTags {
         public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
         public static final TagKey<Item> ZIRCON_REPAIRABLES = createTag("zircon_repairables");
 
+        public static final TagKey<Item> EBONY_LOGS = createTag("ebony_logs");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, name));
         }

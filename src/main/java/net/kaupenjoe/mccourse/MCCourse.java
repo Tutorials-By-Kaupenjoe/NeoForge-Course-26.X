@@ -82,6 +82,7 @@ public class MCCourse {
     private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.EBONY_SAPLING.getId(), ModBlocks.POTTED_EBONY_SAPLING);
 
             Stats.CUSTOM.get(ModStats.MANA_USED_TOTAL_STAT.get(), value -> value + " Mana");
         });

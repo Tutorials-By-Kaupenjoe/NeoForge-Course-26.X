@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -41,5 +42,22 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ModItems.RADISH_SEEDS.get());
 
         tag(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+
+        tag(ItemTags.PLANKS)
+                .add(ModBlocks.EBONY_PLANKS.asItem());
+
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.EBONY_LOG.asItem())
+                .add(ModBlocks.EBONY_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_EBONY_LOG.asItem())
+                .add(ModBlocks.STRIPPED_EBONY_WOOD.asItem());
+
+        tag(ModTags.Items.EBONY_LOGS)
+                .add(ModBlocks.EBONY_LOG.asItem())
+                .add(ModBlocks.EBONY_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_EBONY_LOG.asItem())
+                .add(ModBlocks.STRIPPED_EBONY_WOOD.asItem());
+
+
     }
 }

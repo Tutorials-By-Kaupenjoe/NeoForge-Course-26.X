@@ -86,6 +86,17 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.CHAIR);
 
+                        output.accept(ModBlocks.EBONY_LOG);
+                        output.accept(ModBlocks.EBONY_WOOD);
+                        output.accept(ModBlocks.STRIPPED_EBONY_LOG);
+                        output.accept(ModBlocks.STRIPPED_EBONY_WOOD);
+
+                        output.accept(ModBlocks.EBONY_PLANKS);
+                        output.accept(ModBlocks.EBONY_LEAVES);
+
+                        output.accept(ModBlocks.EBONY_SAPLING);
+
+
 
 
                     }).build());

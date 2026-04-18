@@ -5,11 +5,17 @@ import net.kaupenjoe.mccourse.block.custom.*;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.sound.ModSounds;
+import net.kaupenjoe.mccourse.worldgen.tree.ModTreeGrowers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -115,6 +121,70 @@ public class ModBlocks {
             properties -> new LiquidBlock(ModFluids.ZIRCON_WATER_SOURCE.get(), properties
                     .mapColor(MapColor.WATER).replaceable().noCollision().strength(100.0F)
                     .pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
+
+
+    public static final DeferredBlock<Block> EBONY_LOG = registerBlock("ebony_log",
+            properties -> new ModFlammableRotatedPillarBlock(properties.sound(SoundType.WOOD).strength(2f)
+                    .ignitedByLava()));
+    public static final DeferredBlock<Block> EBONY_WOOD = registerBlock("ebony_wood",
+            properties -> new ModFlammableRotatedPillarBlock(properties.sound(SoundType.WOOD).strength(2f)
+                    .ignitedByLava()));
+    public static final DeferredBlock<Block> STRIPPED_EBONY_LOG = registerBlock("stripped_ebony_log",
+            properties -> new ModFlammableRotatedPillarBlock(properties.sound(SoundType.WOOD).strength(2f)
+                    .ignitedByLava()));
+    public static final DeferredBlock<Block> STRIPPED_EBONY_WOOD = registerBlock("stripped_ebony_wood",
+            properties -> new ModFlammableRotatedPillarBlock(properties.sound(SoundType.WOOD).strength(2f)
+                    .ignitedByLava()));
+
+    public static final DeferredBlock<Block> EBONY_PLANKS = registerBlock("ebony_planks",
+            properties -> new Block(properties.sound(SoundType.WOOD).strength(2f).ignitedByLava()) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+
+    public static final DeferredBlock<Block> EBONY_LEAVES = registerBlock("ebony_leaves",
+            properties -> new UntintedParticleLeavesBlock(0f, ParticleTypes.CHERRY_LEAVES,
+                    properties.mapColor(MapColor.PLANT).strength(0.2F)
+                            .randomTicks().sound(SoundType.CHERRY_LEAVES)
+                            .noOcclusion().isValidSpawn(Blocks::ocelotOrParrot)
+                            .isSuffocating((state, level, pos) -> false)
+                            .isViewBlocking((state, level, pos) -> false)
+                            .ignitedByLava().pushReaction(PushReaction.DESTROY)
+                            .isRedstoneConductor((state, level, pos) -> false)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+
+    public static final DeferredBlock<Block> EBONY_SAPLING = registerBlock("ebony_sapling",
+            properties -> new SaplingBlock(ModTreeGrowers.EBONY, properties.mapColor(MapColor.PLANT).noCollision()
+                    .randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> POTTED_EBONY_SAPLING = BLOCKS.registerBlock("potted_ebony_sapling",
+            properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EBONY_SAPLING,
+                    properties.noOcclusion().instabreak().pushReaction(PushReaction.DESTROY)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {

@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.datagen;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
+import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -223,6 +224,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.OAK_PLANKS))
                 .save(output);
 
+        woodFromLogs(ModBlocks.EBONY_WOOD, ModBlocks.EBONY_LOG);
+        woodFromLogs(ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG);
+        planksFromLogs(ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOGS, 4);
 
     }
 

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_flower_pot_cross",
+  "textures": {
+    "plant": "mccourse:block/ebony_sapling"
+  }
+}

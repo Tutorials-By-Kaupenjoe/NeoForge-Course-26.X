@@ -105,5 +105,12 @@ public class ModModelProvider extends ModelProvider {
                 .with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
 
         blockModels.createNonTemplateModelBlock(ModBlocks.ZIRCON_WATER_LIQUID_BLOCK.get());
+
+        blockModels.createTrivialCube(ModBlocks.EBONY_PLANKS.get());
+        blockModels.woodProvider(ModBlocks.EBONY_LOG.get()).logWithHorizontal(ModBlocks.EBONY_LOG.get()).wood(ModBlocks.EBONY_WOOD.get());
+        blockModels.woodProvider(ModBlocks.STRIPPED_EBONY_LOG.get()).logWithHorizontal(ModBlocks.STRIPPED_EBONY_LOG.get()).wood(ModBlocks.STRIPPED_EBONY_WOOD.get());
+
+        blockModels.createTintedLeaves(ModBlocks.EBONY_LEAVES.get(), TexturedModel.LEAVES, -12012255);
+        blockModels.createPlantWithDefaultItem(ModBlocks.EBONY_SAPLING.get(), ModBlocks.POTTED_EBONY_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
     }
 }

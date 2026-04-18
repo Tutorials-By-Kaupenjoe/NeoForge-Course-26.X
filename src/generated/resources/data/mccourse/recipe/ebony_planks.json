@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#mccourse:ebony_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "mccourse:ebony_planks"
+  }
+}
