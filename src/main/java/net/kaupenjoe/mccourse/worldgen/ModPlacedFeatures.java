@@ -11,9 +11,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
@@ -23,6 +21,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ZIRCON_END_ORES_PLACED_KEY = registerKey("zircon_end_ores_placed");
 
     public static final ResourceKey<PlacedFeature> EBONY_TREE_PLACED_KEY = registerKey("ebony_tree_placed");
+
+    public static final ResourceKey<PlacedFeature> CATMINT_FLOWER_PLACED_KEY = registerKey("catmint_flower_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -40,6 +40,9 @@ public class ModPlacedFeatures {
         register(context, EBONY_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.EBONY_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
                         ModBlocks.EBONY_SAPLING.get()));
+
+        register(context, CATMINT_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CATMINT_FLOWER_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
     }
 
