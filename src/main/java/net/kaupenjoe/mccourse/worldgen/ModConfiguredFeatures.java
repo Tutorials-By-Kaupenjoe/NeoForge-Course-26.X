@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.worldgen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.worldgen.tree.SpiralTrunkPlacer;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -58,7 +59,7 @@ public class ModConfiguredFeatures {
 
         register(context, EBONY_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.EBONY_LOG.get()),
-                new BendingTrunkPlacer(3, 3, 5, 3, ConstantInt.of(2)),
+                new SpiralTrunkPlacer(4, 3, 5),
 
                 BlockStateProvider.simple(ModBlocks.EBONY_LEAVES.get()),
                 new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1)),
