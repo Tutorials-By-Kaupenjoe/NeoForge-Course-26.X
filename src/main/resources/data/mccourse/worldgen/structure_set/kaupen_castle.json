@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "mccourse:kaupen_castle",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 9281875,
+    "spacing": 12,
+    "separation": 6
+  }
+}
