@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.worldgen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.worldgen.tree.InvertedPyramidFoliagePlacer;
 import net.kaupenjoe.mccourse.worldgen.tree.SpiralTrunkPlacer;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -62,7 +63,7 @@ public class ModConfiguredFeatures {
                 new SpiralTrunkPlacer(4, 3, 5),
 
                 BlockStateProvider.simple(ModBlocks.EBONY_LEAVES.get()),
-                new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1)),
+                new InvertedPyramidFoliagePlacer(ConstantInt.of(1), ConstantInt.of(1), 3),
 
                 new TwoLayersFeatureSize(1, 0, 2))
                 .belowTrunkProvider(BlockStateProvider.simple(Blocks.STONE))

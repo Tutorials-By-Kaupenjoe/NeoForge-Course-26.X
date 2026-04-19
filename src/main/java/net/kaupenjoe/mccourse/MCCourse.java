@@ -17,6 +17,7 @@ import net.kaupenjoe.mccourse.potion.ModPotions;
 import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.kaupenjoe.mccourse.stat.ModStats;
 import net.kaupenjoe.mccourse.villager.ModVillagers;
+import net.kaupenjoe.mccourse.worldgen.tree.ModFoliagePlacers;
 import net.kaupenjoe.mccourse.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -72,6 +73,7 @@ public class MCCourse {
         ModFluids.register(modEventBus);
         ModTrunkPlacerTypes.register(modEventBus);
 
+        ModFoliagePlacers.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
