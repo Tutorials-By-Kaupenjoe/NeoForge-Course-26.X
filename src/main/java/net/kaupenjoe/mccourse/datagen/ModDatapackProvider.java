@@ -7,6 +7,7 @@ import net.kaupenjoe.mccourse.enchantment.ModEnchantments;
 import net.kaupenjoe.mccourse.worldgen.ModBiomeModifiers;
 import net.kaupenjoe.mccourse.worldgen.ModConfiguredFeatures;
 import net.kaupenjoe.mccourse.worldgen.ModPlacedFeatures;
+import net.kaupenjoe.mccourse.worldgen.dimension.ModDimensions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -29,7 +30,10 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
 
-            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
+
+            .add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType)
+            .add(Registries.LEVEL_STEM, ModDimensions::bootstrapStem);
 
     public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(MCCourse.MOD_ID));

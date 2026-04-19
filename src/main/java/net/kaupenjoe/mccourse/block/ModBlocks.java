@@ -187,6 +187,11 @@ public class ModBlocks {
                     properties.noOcclusion().instabreak().pushReaction(PushReaction.DESTROY)));
 
 
+    public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",
+            properties -> new KaupenPortalBlock(properties.strength(2f)));
+
+
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);

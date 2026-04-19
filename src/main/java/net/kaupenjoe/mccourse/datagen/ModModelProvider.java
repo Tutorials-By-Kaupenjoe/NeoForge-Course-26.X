@@ -112,5 +112,7 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTintedLeaves(ModBlocks.EBONY_LEAVES.get(), TexturedModel.LEAVES, -12012255);
         blockModels.createPlantWithDefaultItem(ModBlocks.EBONY_SAPLING.get(), ModBlocks.POTTED_EBONY_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
+
+        blockModels.createTrivialCube(ModBlocks.KAUPEN_PORTAL.get());
     }
 }

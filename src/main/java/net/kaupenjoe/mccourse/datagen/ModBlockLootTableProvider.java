@@ -100,6 +100,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.POTTED_EBONY_SAPLING.get(), createPotFlowerItemTable(ModBlocks.EBONY_SAPLING.get()));
         add(ModBlocks.EBONY_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.EBONY_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
+        dropSelf(ModBlocks.KAUPEN_PORTAL.get());
 
     }
 
