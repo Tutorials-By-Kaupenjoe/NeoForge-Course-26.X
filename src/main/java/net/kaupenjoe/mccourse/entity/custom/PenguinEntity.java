@@ -4,9 +4,12 @@ import net.kaupenjoe.mccourse.entity.variant.PenguinVariant;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Util;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -107,5 +110,22 @@ public class PenguinEntity extends PathfinderMob {
         PenguinVariant variant = Util.getRandom(PenguinVariant.values(), this.random);
         this.setVariant(variant);
         return super.finalizeSpawn(level, difficulty, spawnReason, groupData);
+    }
+
+    /* SOUNDS */
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.GLOW_SQUID_AMBIENT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.FROG_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.BAT_DEATH;
     }
 }
