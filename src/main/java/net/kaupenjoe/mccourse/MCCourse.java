@@ -8,6 +8,7 @@ import net.kaupenjoe.mccourse.consumeffect.ModConsumeEffects;
 import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.effect.ModEffects;
 import net.kaupenjoe.mccourse.enchantment.ModEnchantmentEffects;
+import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
@@ -18,6 +19,7 @@ import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.kaupenjoe.mccourse.stat.ModStats;
 import net.kaupenjoe.mccourse.villager.ModVillagers;
 import net.kaupenjoe.mccourse.worldgen.biome.ModBiomes;
+import net.kaupenjoe.mccourse.worldgen.biome.ModEndBiomes;
 import net.kaupenjoe.mccourse.worldgen.biome.ModSurfaceRules;
 import net.kaupenjoe.mccourse.worldgen.tree.ModFoliagePlacers;
 import net.kaupenjoe.mccourse.worldgen.tree.ModTrunkPlacerTypes;
@@ -77,6 +79,7 @@ public class MCCourse {
         ModTrunkPlacerTypes.register(modEventBus);
 
         ModFoliagePlacers.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

@@ -5,6 +5,8 @@ import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
 import net.kaupenjoe.mccourse.command.ReturnHomeCommand;
 import net.kaupenjoe.mccourse.command.SetHomeCommand;
+import net.kaupenjoe.mccourse.entity.ModEntities;
+import net.kaupenjoe.mccourse.entity.custom.PenguinEntity;
 import net.kaupenjoe.mccourse.networking.ClientboundPackets;
 import net.kaupenjoe.mccourse.networking.ServerboundPackets;
 import net.kaupenjoe.mccourse.networking.packet.ManaPacketS2C;
@@ -23,6 +25,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -91,4 +94,10 @@ public class ModEvents {
     public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
         event.getBuilder().addMix(Potions.AWKWARD, Blocks.DIRT.asItem(), ModPotions.STINKY_POTION);
     }
+
+    @SubscribeEvent
+    public static void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.PENGUIN.get(), PenguinEntity.createPenguinAttributes().build());
+    }
+
 }

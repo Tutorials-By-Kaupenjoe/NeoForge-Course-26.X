@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.item;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.datagen.ModJukeboxSongs;
+import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
 import net.kaupenjoe.mccourse.item.custom.ChiselItem;
@@ -85,6 +86,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> ZIRCON_WATER_BUCKET = ITEMS.registerItem("zircon_water_bucket",
             properties -> new BucketItem(ModFluids.ZIRCON_WATER_SOURCE.get(), properties.stacksTo(1).craftRemainder(Items.BUCKET)));
+
+    public static final DeferredItem<Item> PENGUIN_SPAWN_EGG = ITEMS.registerItem("penguin_spawn_egg",
+            properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.PENGUIN.get())));
 
 
 

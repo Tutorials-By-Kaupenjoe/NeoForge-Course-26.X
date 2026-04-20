@@ -3,6 +3,10 @@ package net.kaupenjoe.mccourse;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.entity.ModEntities;
+import net.kaupenjoe.mccourse.entity.client.ModModelLayerLocations;
+import net.kaupenjoe.mccourse.entity.client.PenguinModel;
+import net.kaupenjoe.mccourse.entity.client.PenguinRenderer;
 import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
@@ -14,6 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.block.FluidModel;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -48,7 +53,13 @@ public class MCCourseClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
+        EntityRenderers.register(ModEntities.PENGUIN.get(), PenguinRenderer::new);
 
+    }
+
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(ModModelLayerLocations.PENGUIN, PenguinModel::createBodyLayer);
     }
 
     @SubscribeEvent

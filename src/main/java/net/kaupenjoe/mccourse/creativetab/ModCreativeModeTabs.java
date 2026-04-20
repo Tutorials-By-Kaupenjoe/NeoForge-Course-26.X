@@ -51,6 +51,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.ZIRCON_WATER_BUCKET);
 
+                        output.accept(ModItems.PENGUIN_SPAWN_EGG);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",

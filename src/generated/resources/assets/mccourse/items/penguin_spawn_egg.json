@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "mccourse:item/penguin_spawn_egg"
+  }
+}
