@@ -4,6 +4,7 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.entity.ModEntities;
+import net.kaupenjoe.mccourse.entity.client.ChairRenderer;
 import net.kaupenjoe.mccourse.entity.client.ModModelLayerLocations;
 import net.kaupenjoe.mccourse.entity.client.PenguinModel;
 import net.kaupenjoe.mccourse.entity.client.PenguinRenderer;
@@ -54,6 +55,8 @@ public class MCCourseClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntities.PENGUIN.get(), PenguinRenderer::new);
+
+        EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
 
     }
 
