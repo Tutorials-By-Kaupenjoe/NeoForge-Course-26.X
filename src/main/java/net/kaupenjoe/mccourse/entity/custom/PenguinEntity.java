@@ -2,14 +2,18 @@ package net.kaupenjoe.mccourse.entity.custom;
 
 import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.kaupenjoe.mccourse.entity.variant.PenguinVariant;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Util;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -29,6 +33,9 @@ import org.jspecify.annotations.Nullable;
 public class PenguinEntity extends Animal {
     private static final EntityDataAccessor<Integer> VARIANT =
             SynchedEntityData.defineId(PenguinEntity.class, EntityDataSerializers.INT);
+
+    private final ServerBossEvent bossEvent =
+            new ServerBossEvent(this.uuid, Component.literal("The Powerful Penguin"), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.NOTCHED_10);
 
     // Idle Animations
     public final AnimationState idleAnimationState = new AnimationState();
@@ -150,5 +157,24 @@ public class PenguinEntity extends Animal {
     @Override
     public boolean isFood(ItemStack itemStack) {
         return itemStack.is(Tags.Items.FOODS_RAW_FISH);
+    }
+
+    /* BOSS BAR */
+    @Override
+    public void startSeenByPlayer(ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        this.bossEvent.addPlayer(player);
+    }
+
+    @Override
+    public void stopSeenByPlayer(ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        this.bossEvent.removePlayer(player);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
     }
 }
