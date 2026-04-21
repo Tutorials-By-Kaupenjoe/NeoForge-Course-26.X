@@ -43,6 +43,9 @@
   "item.mccourse.netherite_warturtle_armor": "Netherite Warturtle Armor",
   "item.mccourse.zircon_warturtle_armor": "Zircon Warturtle Armor",
 
+  "item.mccourse.ebony_boat": "Ebony Boat",
+  "item.mccourse.ebony_chest_boat": "Ebony Chest Boat",
+
 
   "block.mccourse.zircon_block": "Block of Zircon",
   "block.mccourse.raw_zircon_block": "Block of Raw Zircon",
@@ -90,7 +93,7 @@
   "entity.mccourse.warturtle": "Warturtle",
   "entity.mccourse.dodo": "Dodo",
   "entity.mccourse.Penguin": "Penguin",
-
+  "entity.mccourse.ebony_chest_boat": "Ebony Boat",
 
   "painting.mccourse.shrimp.title": "Shrimp",
   "painting.mccourse.shrimp.author": "NanoAttack",

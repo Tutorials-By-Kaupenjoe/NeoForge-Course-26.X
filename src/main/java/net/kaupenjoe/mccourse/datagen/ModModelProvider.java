@@ -76,6 +76,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.NETHERITE_WARTURTLE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.ZIRCON_WARTURTLE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
+        itemModels.generateFlatItem(ModItems.EBONY_BOAT.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.EBONY_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
+
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());

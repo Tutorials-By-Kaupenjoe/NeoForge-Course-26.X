@@ -16,8 +16,10 @@ import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.particle.ZirconParticle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockTintSources;
+import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.block.FluidModel;
+import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.network.chat.Component;
@@ -58,6 +60,8 @@ public class MCCourseClient {
         EntityRenderers.register(ModEntities.WARTURTLE.get(), WarturtleRenderer::new);
         EntityRenderers.register(ModEntities.DODO.get(), DodoRenderer::new);
 
+        EntityRenderers.register(ModEntities.EBONY_BOAT.get(), context -> new BoatRenderer(context, ModModelLayerLocations.EBONY_BOAT));
+        EntityRenderers.register(ModEntities.EBONY_CHEST_BOAT.get(), context -> new BoatRenderer(context, ModModelLayerLocations.EBONY_CHEST_BOAT));
     }
 
     @SubscribeEvent
@@ -66,6 +70,9 @@ public class MCCourseClient {
         event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE, WarturtleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE_ARMOR, WarturtleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayerLocations.DODO, DodoModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayerLocations.EBONY_BOAT, BoatModel::createBoatModel);
+        event.registerLayerDefinition(ModModelLayerLocations.EBONY_CHEST_BOAT, BoatModel::createChestBoatModel);
     }
 
     @SubscribeEvent

@@ -102,6 +102,10 @@ public class ModItems {
     public static final DeferredItem<Item> ZIRCON_WARTURTLE_ARMOR = ITEMS.registerItem("zircon_warturtle_armor",
             properties -> new WarturtleArmorItem(properties.durability(1000)));
 
+    public static final DeferredItem<Item> EBONY_BOAT = ITEMS.registerItem("ebony_boat",
+            properties -> new BoatItem(ModEntities.EBONY_BOAT.get(), properties.stacksTo(1)));
+    public static final DeferredItem<Item> EBONY_CHEST_BOAT = ITEMS.registerItem("ebony_chest_boat",
+            properties -> new BoatItem(ModEntities.EBONY_CHEST_BOAT.get(), properties.stacksTo(1)));
 
 
     public static void register(IEventBus eventBus) {

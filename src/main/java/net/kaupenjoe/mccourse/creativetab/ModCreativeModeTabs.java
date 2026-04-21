@@ -61,6 +61,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NETHERITE_WARTURTLE_ARMOR);
                         output.accept(ModItems.ZIRCON_WARTURTLE_ARMOR);
 
+                        output.accept(ModItems.EBONY_BOAT);
+                        output.accept(ModItems.EBONY_CHEST_BOAT);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",
