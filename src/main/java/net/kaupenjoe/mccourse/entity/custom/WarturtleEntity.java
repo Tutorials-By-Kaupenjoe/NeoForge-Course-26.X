@@ -333,6 +333,12 @@ public class WarturtleEntity extends TamableAnimal implements ContainerListener,
 
     }
 
+    @Override
+    protected void dropEquipment(ServerLevel level) {
+        super.dropEquipment(level);
+        Containers.dropContents(level(), this.blockPosition().above(1), inventory);
+    }
+
     private void dropChestInventory(int slot) {
         if (slot == TIER_1_CHEST_SLOT) {
             Containers.dropItemStack(this.level(), this.getX(), this.getY() + 1, this.getZ(), inventory.removeItem(5, 64));
