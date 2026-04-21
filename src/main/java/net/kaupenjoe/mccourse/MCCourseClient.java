@@ -54,10 +54,9 @@ public class MCCourseClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntities.PENGUIN.get(), PenguinRenderer::new);
-
         EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
-
         EntityRenderers.register(ModEntities.WARTURTLE.get(), WarturtleRenderer::new);
+        EntityRenderers.register(ModEntities.DODO.get(), DodoRenderer::new);
 
     }
 
@@ -66,6 +65,7 @@ public class MCCourseClient {
         event.registerLayerDefinition(ModModelLayerLocations.PENGUIN, PenguinModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE, WarturtleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE_ARMOR, WarturtleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayerLocations.DODO, DodoModel::createBodyLayer);
     }
 
     @SubscribeEvent

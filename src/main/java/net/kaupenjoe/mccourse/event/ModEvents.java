@@ -6,6 +6,7 @@ import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
 import net.kaupenjoe.mccourse.command.ReturnHomeCommand;
 import net.kaupenjoe.mccourse.command.SetHomeCommand;
 import net.kaupenjoe.mccourse.entity.ModEntities;
+import net.kaupenjoe.mccourse.entity.custom.DodoEntity;
 import net.kaupenjoe.mccourse.entity.custom.PenguinEntity;
 import net.kaupenjoe.mccourse.entity.custom.WarturtleEntity;
 import net.kaupenjoe.mccourse.networking.ClientboundPackets;
@@ -104,6 +105,7 @@ public class ModEvents {
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.PENGUIN.get(), PenguinEntity.createPenguinAttributes().build());
         event.put(ModEntities.WARTURTLE.get(), WarturtleEntity.createAttributes().build());
+        event.put(ModEntities.DODO.get(), DodoEntity.createAttributes().build());
     }
 
     @SubscribeEvent

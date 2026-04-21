@@ -88,6 +88,8 @@ public class ModItems {
             properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.PENGUIN.get())));
     public static final DeferredItem<Item> WARTURTLE_SPAWN_EGG = ITEMS.registerItem("warturtle_spawn_egg",
             properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.WARTURTLE.get())));
+    public static final DeferredItem<Item> DODO_SPAWN_EGG = ITEMS.registerItem("dodo_spawn_egg",
+            properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.DODO.get())));
 
     public static final DeferredItem<Item> IRON_WARTURTLE_ARMOR = ITEMS.registerItem("iron_warturtle_armor",
             properties -> new WarturtleArmorItem(properties.durability(200)));

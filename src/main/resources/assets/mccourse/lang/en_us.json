@@ -35,6 +35,7 @@
 
   "item.mccourse.penguin_spawn_egg": "Penguin Spawn Egg",
   "item.mccourse.warturtle_spawn_egg": "Warturtle Spawn Egg",
+  "item.mccourse.dodo_spawn_egg": "Dodo Spawn Egg",
 
   "item.mccourse.iron_warturtle_armor": "Iron Warturtle Armor",
   "item.mccourse.gold_warturtle_armor": "Gold Warturtle Armor",
@@ -87,6 +88,8 @@
   "entity.minecraft.villager.mccourse.kaupenger": "Kaupenger",
 
   "entity.mccourse.warturtle": "Warturtle",
+  "entity.mccourse.dodo": "Dodo",
+  "entity.mccourse.Penguin": "Penguin",
 
 
   "painting.mccourse.shrimp.title": "Shrimp",

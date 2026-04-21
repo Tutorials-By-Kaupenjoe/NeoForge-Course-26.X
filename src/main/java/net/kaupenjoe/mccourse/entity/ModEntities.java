@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.entity;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.entity.custom.ChairEntity;
+import net.kaupenjoe.mccourse.entity.custom.DodoEntity;
 import net.kaupenjoe.mccourse.entity.custom.PenguinEntity;
 import net.kaupenjoe.mccourse.entity.custom.WarturtleEntity;
 import net.minecraft.core.registries.Registries;
@@ -24,6 +25,8 @@ public class ModEntities {
             Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "chair"));
     public static final ResourceKey<EntityType<?>> WARTURTLE_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
             Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "warturtle"));
+    public static final ResourceKey<EntityType<?>> DODO_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "dodo"));
 
 
     public static final Supplier<EntityType<PenguinEntity>> PENGUIN = ENTITY_TYPES.register("penguin",
@@ -34,6 +37,8 @@ public class ModEntities {
 
     public static final Supplier<EntityType<WarturtleEntity>> WARTURTLE = ENTITY_TYPES.register("warturtle",
             () -> EntityType.Builder.of(WarturtleEntity::new, MobCategory.CREATURE).sized(2.5f, 1.5f).build(WARTURTLE_KEY));
+    public static final Supplier<EntityType<DodoEntity>> DODO = ENTITY_TYPES.register("dodo",
+            () -> EntityType.Builder.of(DodoEntity::new, MobCategory.CREATURE).sized(1f, 2.5f).build(DODO_KEY));
 
 
     public static void register(IEventBus eventBus) {

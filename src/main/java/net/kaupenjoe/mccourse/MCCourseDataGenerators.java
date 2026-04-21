@@ -46,5 +46,6 @@ public class MCCourseDataGenerators {
 
         generator.addProvider(true, new ModAdvancements(packOutput, lookupProvider));
         generator.addProvider(true, new ModFluidTagsProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModEntityTypeTagProvider(packOutput, lookupProvider));
     }
 }

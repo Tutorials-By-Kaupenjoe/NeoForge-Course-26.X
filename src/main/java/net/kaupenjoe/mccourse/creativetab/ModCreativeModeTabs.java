@@ -53,6 +53,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.PENGUIN_SPAWN_EGG);
                         output.accept(ModItems.WARTURTLE_SPAWN_EGG);
+                        output.accept(ModItems.DODO_SPAWN_EGG);
 
                         output.accept(ModItems.IRON_WARTURTLE_ARMOR);
                         output.accept(ModItems.GOLD_WARTURTLE_ARMOR);

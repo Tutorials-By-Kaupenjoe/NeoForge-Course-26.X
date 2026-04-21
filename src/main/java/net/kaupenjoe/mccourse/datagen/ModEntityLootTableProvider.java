@@ -34,6 +34,7 @@ public class ModEntityLootTableProvider extends EntityLootSubProvider {
                         .when(LootItemKilledByPlayerCondition.killedByPlayer())));
 
         add(ModEntities.WARTURTLE.get(), LootTable.lootTable());
+        add(ModEntities.DODO.get(), LootTable.lootTable());
     }
 
     @Override
