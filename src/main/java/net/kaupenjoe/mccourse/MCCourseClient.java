@@ -4,10 +4,7 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.entity.ModEntities;
-import net.kaupenjoe.mccourse.entity.client.ChairRenderer;
-import net.kaupenjoe.mccourse.entity.client.ModModelLayerLocations;
-import net.kaupenjoe.mccourse.entity.client.PenguinModel;
-import net.kaupenjoe.mccourse.entity.client.PenguinRenderer;
+import net.kaupenjoe.mccourse.entity.client.*;
 import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
@@ -58,11 +55,14 @@ public class MCCourseClient {
 
         EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
 
+        EntityRenderers.register(ModEntities.WARTURTLE.get(), WarturtleRenderer::new);
+
     }
 
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayerLocations.PENGUIN, PenguinModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE, WarturtleModel::createBodyLayer);
     }
 
     @SubscribeEvent

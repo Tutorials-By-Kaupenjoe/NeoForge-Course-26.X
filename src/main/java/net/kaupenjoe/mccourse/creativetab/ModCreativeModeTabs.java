@@ -52,6 +52,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ZIRCON_WATER_BUCKET);
 
                         output.accept(ModItems.PENGUIN_SPAWN_EGG);
+                        output.accept(ModItems.WARTURTLE_SPAWN_EGG);
 
                     }).build());
 

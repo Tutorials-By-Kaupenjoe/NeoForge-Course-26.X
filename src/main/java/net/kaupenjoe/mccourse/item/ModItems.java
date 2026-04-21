@@ -89,6 +89,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> PENGUIN_SPAWN_EGG = ITEMS.registerItem("penguin_spawn_egg",
             properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.PENGUIN.get())));
+    public static final DeferredItem<Item> WARTURTLE_SPAWN_EGG = ITEMS.registerItem("warturtle_spawn_egg",
+            properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.WARTURTLE.get())));
 
 
 

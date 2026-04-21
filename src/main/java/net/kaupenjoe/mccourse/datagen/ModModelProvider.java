@@ -67,6 +67,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.ZIRCON_WATER_BUCKET.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.PENGUIN_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.WARTURTLE_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());

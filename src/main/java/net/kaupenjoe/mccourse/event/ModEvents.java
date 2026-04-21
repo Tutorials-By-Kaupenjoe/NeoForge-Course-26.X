@@ -7,6 +7,7 @@ import net.kaupenjoe.mccourse.command.ReturnHomeCommand;
 import net.kaupenjoe.mccourse.command.SetHomeCommand;
 import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.kaupenjoe.mccourse.entity.custom.PenguinEntity;
+import net.kaupenjoe.mccourse.entity.custom.WarturtleEntity;
 import net.kaupenjoe.mccourse.networking.ClientboundPackets;
 import net.kaupenjoe.mccourse.networking.ServerboundPackets;
 import net.kaupenjoe.mccourse.networking.packet.ManaPacketS2C;
@@ -102,6 +103,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.PENGUIN.get(), PenguinEntity.createPenguinAttributes().build());
+        event.put(ModEntities.WARTURTLE.get(), WarturtleEntity.createAttributes().build());
     }
 
     @SubscribeEvent

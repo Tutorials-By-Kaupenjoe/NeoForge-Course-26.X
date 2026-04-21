@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.entity;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.entity.custom.ChairEntity;
 import net.kaupenjoe.mccourse.entity.custom.PenguinEntity;
+import net.kaupenjoe.mccourse.entity.custom.WarturtleEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -21,6 +22,8 @@ public class ModEntities {
             Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "penguin"));
     public static final ResourceKey<EntityType<?>> CHAIR_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
             Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "chair"));
+    public static final ResourceKey<EntityType<?>> WARTURTLE_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "warturtle"));
 
 
     public static final Supplier<EntityType<PenguinEntity>> PENGUIN = ENTITY_TYPES.register("penguin",
@@ -29,6 +32,8 @@ public class ModEntities {
             () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).noLootTable()
                     .sized(0.5f, 0.5f).build(CHAIR_KEY));
 
+    public static final Supplier<EntityType<WarturtleEntity>> WARTURTLE = ENTITY_TYPES.register("warturtle",
+            () -> EntityType.Builder.of(WarturtleEntity::new, MobCategory.CREATURE).sized(2.5f, 1.5f).build(WARTURTLE_KEY));
 
 
     public static void register(IEventBus eventBus) {
