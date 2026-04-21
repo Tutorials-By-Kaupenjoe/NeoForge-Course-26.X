@@ -65,6 +65,7 @@ public class MCCourseClient {
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayerLocations.PENGUIN, PenguinModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE, WarturtleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayerLocations.WARTURTLE_ARMOR, WarturtleModel::createBodyLayer);
     }
 
     @SubscribeEvent

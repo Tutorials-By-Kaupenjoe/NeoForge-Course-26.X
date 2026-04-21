@@ -36,6 +36,11 @@
   "item.mccourse.penguin_spawn_egg": "Penguin Spawn Egg",
   "item.mccourse.warturtle_spawn_egg": "Warturtle Spawn Egg",
 
+  "item.mccourse.iron_warturtle_armor": "Iron Warturtle Armor",
+  "item.mccourse.gold_warturtle_armor": "Gold Warturtle Armor",
+  "item.mccourse.diamond_warturtle_armor": "Diamond Warturtle Armor",
+  "item.mccourse.netherite_warturtle_armor": "Netherite Warturtle Armor",
+  "item.mccourse.zircon_warturtle_armor": "Zircon Warturtle Armor",
 
 
   "block.mccourse.zircon_block": "Block of Zircon",

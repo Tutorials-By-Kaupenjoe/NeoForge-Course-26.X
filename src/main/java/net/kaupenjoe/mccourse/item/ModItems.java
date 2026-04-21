@@ -6,10 +6,7 @@ import net.kaupenjoe.mccourse.datagen.ModJukeboxSongs;
 import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.food.ModFoodProperties;
-import net.kaupenjoe.mccourse.item.custom.ChiselItem;
-import net.kaupenjoe.mccourse.item.custom.HammerItem;
-import net.kaupenjoe.mccourse.item.custom.ModArmorItem;
-import net.kaupenjoe.mccourse.item.custom.PaxelItem;
+import net.kaupenjoe.mccourse.item.custom.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
@@ -91,6 +88,17 @@ public class ModItems {
             properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.PENGUIN.get())));
     public static final DeferredItem<Item> WARTURTLE_SPAWN_EGG = ITEMS.registerItem("warturtle_spawn_egg",
             properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.WARTURTLE.get())));
+
+    public static final DeferredItem<Item> IRON_WARTURTLE_ARMOR = ITEMS.registerItem("iron_warturtle_armor",
+            properties -> new WarturtleArmorItem(properties.durability(200)));
+    public static final DeferredItem<Item> GOLD_WARTURTLE_ARMOR = ITEMS.registerItem("gold_warturtle_armor",
+            properties -> new WarturtleArmorItem(properties.durability(400)));
+    public static final DeferredItem<Item> DIAMOND_WARTURTLE_ARMOR = ITEMS.registerItem("diamond_warturtle_armor",
+            properties -> new WarturtleArmorItem(properties.durability(600)));
+    public static final DeferredItem<Item> NETHERITE_WARTURTLE_ARMOR = ITEMS.registerItem("netherite_warturtle_armor",
+            properties -> new WarturtleArmorItem(properties.durability(800)));
+    public static final DeferredItem<Item> ZIRCON_WARTURTLE_ARMOR = ITEMS.registerItem("zircon_warturtle_armor",
+            properties -> new WarturtleArmorItem(properties.durability(1000)));
 
 
 

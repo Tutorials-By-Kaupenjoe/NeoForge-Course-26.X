@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.menu.custom;
 
 import net.kaupenjoe.mccourse.entity.custom.WarturtleEntity;
+import net.kaupenjoe.mccourse.item.custom.WarturtleArmorItem;
 import net.kaupenjoe.mccourse.menu.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -39,7 +40,7 @@ public class WarturtleMenu extends AbstractContainerMenu {
         addSlot(new Slot(warturtleContainer, 0, 8, 63) {
             @Override
             public boolean mayPlace(ItemStack itemStack) {
-                return super.mayPlace(itemStack);
+                return itemStack.getItem() instanceof WarturtleArmorItem;
             }
         });
 

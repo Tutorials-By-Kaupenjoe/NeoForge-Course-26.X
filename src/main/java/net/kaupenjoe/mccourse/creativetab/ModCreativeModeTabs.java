@@ -54,6 +54,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PENGUIN_SPAWN_EGG);
                         output.accept(ModItems.WARTURTLE_SPAWN_EGG);
 
+                        output.accept(ModItems.IRON_WARTURTLE_ARMOR);
+                        output.accept(ModItems.GOLD_WARTURTLE_ARMOR);
+                        output.accept(ModItems.DIAMOND_WARTURTLE_ARMOR);
+                        output.accept(ModItems.NETHERITE_WARTURTLE_ARMOR);
+                        output.accept(ModItems.ZIRCON_WARTURTLE_ARMOR);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",
