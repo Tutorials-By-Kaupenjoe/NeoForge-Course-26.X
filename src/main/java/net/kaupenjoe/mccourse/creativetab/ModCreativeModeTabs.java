@@ -64,6 +64,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.EBONY_BOAT);
                         output.accept(ModItems.EBONY_CHEST_BOAT);
 
+                        output.accept(ModItems.TOMAHAWK);
+
                     }).build());
 
     public static final Supplier<CreativeModeTab> ZIRCON_BLOCKS_TAB = CREATIVE_MODE_TABS.register("zircon_blocks_tab",

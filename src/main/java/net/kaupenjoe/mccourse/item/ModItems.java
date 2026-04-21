@@ -107,6 +107,9 @@ public class ModItems {
     public static final DeferredItem<Item> EBONY_CHEST_BOAT = ITEMS.registerItem("ebony_chest_boat",
             properties -> new BoatItem(ModEntities.EBONY_CHEST_BOAT.get(), properties.stacksTo(1)));
 
+    public static final DeferredItem<Item> TOMAHAWK = ITEMS.registerItem("tomahawk",
+            properties -> new TomahawkItem(properties.stacksTo(16)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

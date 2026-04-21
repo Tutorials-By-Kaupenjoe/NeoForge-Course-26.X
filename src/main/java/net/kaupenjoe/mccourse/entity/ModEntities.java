@@ -1,10 +1,7 @@
 package net.kaupenjoe.mccourse.entity;
 
 import net.kaupenjoe.mccourse.MCCourse;
-import net.kaupenjoe.mccourse.entity.custom.ChairEntity;
-import net.kaupenjoe.mccourse.entity.custom.DodoEntity;
-import net.kaupenjoe.mccourse.entity.custom.PenguinEntity;
-import net.kaupenjoe.mccourse.entity.custom.WarturtleEntity;
+import net.kaupenjoe.mccourse.entity.custom.*;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -34,6 +31,8 @@ public class ModEntities {
             Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "ebony_boat"));
     public static final ResourceKey<EntityType<?>> EBONY_CHEST_BOAT_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
             Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "ebony_chest_boat"));
+    public static final ResourceKey<EntityType<?>> TOMAHAWK_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "tomahawk"));
 
 
     public static final Supplier<EntityType<PenguinEntity>> PENGUIN = ENTITY_TYPES.register("penguin",
@@ -56,6 +55,9 @@ public class ModEntities {
                     MobCategory.MISC).eyeHeight(0.5625f).clientTrackingRange(10).noLootTable()
                     .sized(1.375f, 0.5625f).build(EBONY_CHEST_BOAT_KEY));
 
+    public static final Supplier<EntityType<TomahawkProjectileEntity>> TOMAHAWK = ENTITY_TYPES.register("tomahawk",
+            () -> EntityType.Builder.<TomahawkProjectileEntity>of(TomahawkProjectileEntity::new, MobCategory.MISC).noLootTable()
+                    .sized(0.5f, 1.15f).build(TOMAHAWK_KEY));
 
 
 

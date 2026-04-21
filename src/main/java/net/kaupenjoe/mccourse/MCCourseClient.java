@@ -62,6 +62,8 @@ public class MCCourseClient {
 
         EntityRenderers.register(ModEntities.EBONY_BOAT.get(), context -> new BoatRenderer(context, ModModelLayerLocations.EBONY_BOAT));
         EntityRenderers.register(ModEntities.EBONY_CHEST_BOAT.get(), context -> new BoatRenderer(context, ModModelLayerLocations.EBONY_CHEST_BOAT));
+
+        EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkRenderer::new);
     }
 
     @SubscribeEvent
@@ -73,6 +75,8 @@ public class MCCourseClient {
 
         event.registerLayerDefinition(ModModelLayerLocations.EBONY_BOAT, BoatModel::createBoatModel);
         event.registerLayerDefinition(ModModelLayerLocations.EBONY_CHEST_BOAT, BoatModel::createChestBoatModel);
+
+        event.registerLayerDefinition(ModModelLayerLocations.TOMAHAWK, TomahawkModel::createBodyLayer);
     }
 
     @SubscribeEvent

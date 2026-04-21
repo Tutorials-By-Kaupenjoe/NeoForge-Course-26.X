@@ -79,6 +79,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.EBONY_BOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.EBONY_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
 
+        itemModels.declareCustomModelItem(ModItems.TOMAHAWK.get());
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.RAW_ZIRCON_BLOCK.get());

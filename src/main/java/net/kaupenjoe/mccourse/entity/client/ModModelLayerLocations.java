@@ -21,4 +21,7 @@ public class ModModelLayerLocations {
     public static final ModelLayerLocation EBONY_CHEST_BOAT =
             new ModelLayerLocation(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "chest_boat/ebony_boat"), "main");
 
+    public static final ModelLayerLocation TOMAHAWK =
+            new ModelLayerLocation(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "tomahawk"), "main");
+
 }
