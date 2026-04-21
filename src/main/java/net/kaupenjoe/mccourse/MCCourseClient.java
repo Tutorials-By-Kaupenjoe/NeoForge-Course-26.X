@@ -9,6 +9,8 @@ import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
+import net.kaupenjoe.mccourse.menu.ModMenuTypes;
+import net.kaupenjoe.mccourse.menu.custom.WarturtleScreen;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
 import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.particle.ZirconParticle;
@@ -136,5 +138,10 @@ public class MCCourseClient {
 
         event.register(zirconWaterModel, ModFluids.ZIRCON_WATER_SOURCE.get());
         event.register(zirconWaterModel, ModFluids.ZIRCON_WATER_FLOWING.get());
+    }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.WARTURTLE_MENU.get(), WarturtleScreen::new);
     }
 }

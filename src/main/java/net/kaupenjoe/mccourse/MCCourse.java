@@ -13,6 +13,7 @@ import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
 import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.loot.ModLootModifiers;
+import net.kaupenjoe.mccourse.menu.ModMenuTypes;
 import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.potion.ModPotions;
 import net.kaupenjoe.mccourse.sound.ModSounds;
@@ -80,6 +81,8 @@ public class MCCourse {
 
         ModFoliagePlacers.register(modEventBus);
         ModEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
