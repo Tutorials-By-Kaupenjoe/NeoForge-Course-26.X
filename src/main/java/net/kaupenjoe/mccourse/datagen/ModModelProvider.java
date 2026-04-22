@@ -128,5 +128,8 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createPlantWithDefaultItem(ModBlocks.EBONY_SAPLING.get(), ModBlocks.POTTED_EBONY_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
         blockModels.createTrivialCube(ModBlocks.KAUPEN_PORTAL.get());
+
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.MAIN_PEDESTAL.get(),
+                        BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/main_pedestal"))));
     }
 }

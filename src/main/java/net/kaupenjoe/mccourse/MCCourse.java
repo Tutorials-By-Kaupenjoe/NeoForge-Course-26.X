@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse;
 import com.mojang.logging.LogUtils;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.component.ModDataComponentTypes;
 import net.kaupenjoe.mccourse.consumeffect.ModConsumeEffects;
 import net.kaupenjoe.mccourse.creativetab.ModCreativeModeTabs;
@@ -83,6 +84,7 @@ public class MCCourse {
         ModEntities.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

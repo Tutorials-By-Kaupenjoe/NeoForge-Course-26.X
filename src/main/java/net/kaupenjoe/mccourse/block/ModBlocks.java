@@ -190,6 +190,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",
             properties -> new KaupenPortalBlock(properties.strength(2f)));
 
+    public static final DeferredBlock<Block> MAIN_PEDESTAL = registerBlock("main_pedestal",
+            properties -> new PedestalBlock(properties.strength(2f).noOcclusion()));
+
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {

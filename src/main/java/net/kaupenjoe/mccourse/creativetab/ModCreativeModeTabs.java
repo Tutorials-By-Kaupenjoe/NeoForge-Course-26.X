@@ -112,6 +112,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.EBONY_SAPLING);
 
                         output.accept(ModBlocks.KAUPEN_PORTAL);
+                        output.accept(ModBlocks.MAIN_PEDESTAL);
 
                     }).build());
 
