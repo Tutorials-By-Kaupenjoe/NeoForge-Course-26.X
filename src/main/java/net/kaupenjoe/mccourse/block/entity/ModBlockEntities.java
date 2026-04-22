@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block.entity;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.block.entity.custom.CrystallizerBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.PedestalBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,6 +18,10 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<PedestalBlockEntity>> MAIN_PEDESTAL_BE =
             BLOCK_ENTITIES.register("main_pedestal_be", () -> new BlockEntityType<>(
                     PedestalBlockEntity::new, ModBlocks.MAIN_PEDESTAL.get()));
+
+    public static final Supplier<BlockEntityType<CrystallizerBlockEntity>> CRYSTALLIZER_BE =
+            BLOCK_ENTITIES.register("crystallizer_be", () -> new BlockEntityType<>(
+                    CrystallizerBlockEntity::new, ModBlocks.CRYSTALLIZER.get()));
 
 
 

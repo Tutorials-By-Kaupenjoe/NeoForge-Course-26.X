@@ -12,6 +12,7 @@ import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.menu.ModMenuTypes;
+import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
 import net.kaupenjoe.mccourse.menu.custom.PedestalScreen;
 import net.kaupenjoe.mccourse.menu.custom.WarturtleScreen;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
@@ -159,6 +160,7 @@ public class MCCourseClient {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.WARTURTLE_MENU.get(), WarturtleScreen::new);
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+        event.register(ModMenuTypes.CRYSTALLIZER_MENU.get(), CrystallizerScreen::new);
     }
 
     @SubscribeEvent

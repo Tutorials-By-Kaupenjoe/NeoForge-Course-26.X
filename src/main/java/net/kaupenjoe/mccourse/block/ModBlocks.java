@@ -192,6 +192,8 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MAIN_PEDESTAL = registerBlock("main_pedestal",
             properties -> new PedestalBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> CRYSTALLIZER = registerBlock("crystallizer",
+            properties -> new CrystallizerBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
 
 

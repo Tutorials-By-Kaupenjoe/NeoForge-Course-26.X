@@ -15,6 +15,7 @@
     "mccourse:zircon_wall",
     "mccourse:zircon_door",
     "mccourse:zircon_trapdoor",
-    "mccourse:zircon_lamp"
+    "mccourse:zircon_lamp",
+    "mccourse:crystallizer"
   ]
 }

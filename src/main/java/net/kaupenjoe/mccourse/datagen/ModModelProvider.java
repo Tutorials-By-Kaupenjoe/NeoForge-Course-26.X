@@ -131,5 +131,7 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.MAIN_PEDESTAL.get(),
                         BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/main_pedestal"))));
+
+        blockModels.createHorizontallyRotatedBlock(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
     }
 }

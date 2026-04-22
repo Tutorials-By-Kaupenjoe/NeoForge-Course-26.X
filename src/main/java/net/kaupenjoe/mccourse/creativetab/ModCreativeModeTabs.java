@@ -113,6 +113,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.KAUPEN_PORTAL);
                         output.accept(ModBlocks.MAIN_PEDESTAL);
+                        output.accept(ModBlocks.CRYSTALLIZER);
 
                     }).build());
 
