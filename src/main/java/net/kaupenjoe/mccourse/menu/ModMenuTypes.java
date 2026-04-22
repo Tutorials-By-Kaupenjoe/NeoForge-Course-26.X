@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.menu;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.menu.custom.PedestalMenu;
 import net.kaupenjoe.mccourse.menu.custom.WarturtleMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -19,6 +20,10 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<WarturtleMenu>> WARTURTLE_MENU =
             registerMenuType("warturtle_menu", WarturtleMenu::create);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<PedestalMenu>> PEDESTAL_MENU =
+            registerMenuType("pedestal_menu", PedestalMenu::new);
+
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
                                                                                                               IContainerFactory<T> factory) {
