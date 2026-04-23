@@ -8,6 +8,7 @@ import net.kaupenjoe.mccourse.recipe.ModRecipes;
 import net.kaupenjoe.mccourse.recipe.custom.CrystallizerRecipe;
 import net.kaupenjoe.mccourse.recipe.custom.CrystallizerRecipeInput;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -27,8 +28,11 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.neoforge.transfer.RangedResourceHandler;
+import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.access.ItemAccess;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
@@ -45,6 +49,13 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
             CrystallizerBlockEntity.this.setChanged();
         }
     };
+
+    private final ResourceHandler<ItemResource> leftHandler = RangedResourceHandler.of(inventory, FLUID_ITEM_SLOT, FLUID_ITEM_SLOT + 1);
+    private final ResourceHandler<ItemResource> topHandler = RangedResourceHandler.of(inventory, INPUT_SLOT, INPUT_SLOT + 1);
+    private final ResourceHandler<ItemResource> bottomHandler = RangedResourceHandler.of(inventory, OUTPUT_SLOT, OUTPUT_SLOT + 1);
+    private final ResourceHandler<ItemResource> rightHandler = RangedResourceHandler.of(inventory, ENERGY_ITEM_SLOT, ENERGY_ITEM_SLOT + 1);
+
+    private final ResourceHandler<ItemResource> frontBackHandler = RangedResourceHandler.of(inventory, INPUT_SLOT, OUTPUT_SLOT + 1);
 
     private static final int FLUID_ITEM_SLOT = 0;
     private static final int INPUT_SLOT = 1;
@@ -117,6 +128,34 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
             inv.setItem(i, new ItemStack(itemAccess.getResource().getItem(), itemAccess.getAmount()));
         }
         Containers.dropContents(this.level, this.worldPosition, inv);
+    }
+
+    public ResourceHandler<ItemResource> getItemHandler(Direction direction) {
+        if (direction == null)
+            return inventory;
+
+        Direction facing = this.getBlockState().hasProperty(BlockStateProperties.HORIZONTAL_FACING)
+                ? this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING)
+                : Direction.NORTH;
+
+        return switch (getRelativeSide(facing, direction)) {
+            case UP -> topHandler;
+            case DOWN -> bottomHandler;
+            case WEST -> leftHandler;
+            case EAST -> rightHandler;
+            case NORTH, SOUTH -> frontBackHandler;
+        };
+    }
+
+    private Direction getRelativeSide(Direction facing, Direction absoluteSide) {
+        if (absoluteSide.getAxis().isVertical()) return absoluteSide;
+
+        if (absoluteSide == facing) return Direction.NORTH;
+        if (absoluteSide == facing.getOpposite()) return Direction.SOUTH;
+        if (absoluteSide == facing.getClockWise()) return Direction.WEST;
+        if (absoluteSide == facing.getCounterClockWise()) return Direction.EAST;
+
+        return absoluteSide;
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {

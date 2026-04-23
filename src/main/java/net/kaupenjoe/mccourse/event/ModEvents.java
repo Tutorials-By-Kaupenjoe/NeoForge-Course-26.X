@@ -3,6 +3,8 @@ package net.kaupenjoe.mccourse.event;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
+import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
+import net.kaupenjoe.mccourse.block.entity.custom.CrystallizerBlockEntity;
 import net.kaupenjoe.mccourse.command.ReturnHomeCommand;
 import net.kaupenjoe.mccourse.command.SetHomeCommand;
 import net.kaupenjoe.mccourse.entity.ModEntities;
@@ -28,6 +30,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -112,5 +116,10 @@ public class ModEvents {
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(ModEntities.PENGUIN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PathfinderMob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+    }
+
+    @SubscribeEvent
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(Capabilities.Item.BLOCK, ModBlockEntities.CRYSTALLIZER_BE.get(), CrystallizerBlockEntity::getItemHandler);
     }
 }
