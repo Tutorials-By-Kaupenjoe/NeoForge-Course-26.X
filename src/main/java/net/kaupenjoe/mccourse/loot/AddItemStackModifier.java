@@ -13,11 +13,12 @@ import net.neoforged.neoforge.common.loot.LootModifier;
 public class AddItemStackModifier extends LootModifier {
     public static final MapCodec<AddItemStackModifier> CODEC = RecordCodecBuilder.mapCodec(instance ->
             LootModifier.codecStart(instance).and(
-                    ItemStackTemplate.CODEC.fieldOf("stack").forGetter(inst -> inst.itemStack)).apply(instance, AddItemStackModifier::new));
+                    ItemStackTemplate.CODEC.fieldOf("stack").forGetter(inst -> inst.itemStack)).apply(instance,
+                    (lootItemConditions, integer, itemStackTemplate) -> new AddItemStackModifier(lootItemConditions, itemStackTemplate)));
     private final ItemStackTemplate itemStack;
 
     public AddItemStackModifier(LootItemCondition[] conditionsIn, ItemStackTemplate itemStackTemplate) {
-        super(conditionsIn);
+        super(conditionsIn, 1000);
         this.itemStack = itemStackTemplate;
     }
 
