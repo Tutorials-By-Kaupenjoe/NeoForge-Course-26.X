@@ -1,5 +1,6 @@
 package net.kaupenjoe.mccourse.block.entity.custom;
 
+import net.kaupenjoe.mccourse.block.custom.CrystallizerBlock;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.menu.custom.CrystallizerMenu;
@@ -95,6 +96,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         if(hasRecipe() && isOutputSlotEmptyOrReceivable()) { // isOutputSlotEmptyOrReceivable redundant?
             increaseCraftingProgress();
             setChanged(level, pos, state);
+            level.setBlockAndUpdate(pos, state.setValue(CrystallizerBlock.LIT, true));
 
             if(hasCraftingFinished()) {
                 craftItem();
@@ -102,6 +104,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
             }
         } else {
             resetProgress();
+            level.setBlockAndUpdate(pos, state.setValue(CrystallizerBlock.LIT, false));
         }
     }
 
