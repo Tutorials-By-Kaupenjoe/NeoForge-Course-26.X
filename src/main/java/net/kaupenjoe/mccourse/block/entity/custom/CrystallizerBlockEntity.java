@@ -22,6 +22,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.access.ItemAccess;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
@@ -81,6 +83,24 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     @Override
     public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
         return new CrystallizerMenu(containerId, inventory, this, this.inventory, this.data);
+    }
+
+    @Override
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("crystallizer.progress", progress);
+        output.putInt("crystallizer.max_progress", maxProgress);
+
+        output.putChild("inventory", inventory);
+    }
+
+    @Override
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        progress = input.getIntOr("crystallizer.progress", 0);
+        maxProgress = input.getIntOr("crystallizer.max_progress", 72);
+
+        input.child("inventory").ifPresent(inventory::deserialize);
     }
 
     public void drops() {
