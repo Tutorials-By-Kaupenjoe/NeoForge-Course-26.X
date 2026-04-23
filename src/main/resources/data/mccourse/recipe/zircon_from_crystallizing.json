@@ -1,0 +1,8 @@
+{
+  "type": "mccourse:crystallizing",
+  "ingredient": "mccourse:raw_zircon",
+  "result": {
+    "id": "mccourse:zircon",
+    "count": 3
+  }
+}

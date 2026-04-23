@@ -17,6 +17,7 @@ import net.kaupenjoe.mccourse.loot.ModLootModifiers;
 import net.kaupenjoe.mccourse.menu.ModMenuTypes;
 import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.potion.ModPotions;
+import net.kaupenjoe.mccourse.recipe.ModRecipes;
 import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.kaupenjoe.mccourse.stat.ModStats;
 import net.kaupenjoe.mccourse.villager.ModVillagers;
@@ -85,6 +86,9 @@ public class MCCourse {
 
         ModMenuTypes.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
+
 
         NeoForge.EVENT_BUS.register(this);
 
