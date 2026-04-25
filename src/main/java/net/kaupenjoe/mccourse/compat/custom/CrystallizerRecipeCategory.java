@@ -12,13 +12,17 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.compat.ModJEIRecipeTypes;
+import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
 import net.kaupenjoe.mccourse.recipe.custom.CrystallizerRecipe;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import org.jspecify.annotations.Nullable;
+
+import java.util.List;
 
 public class CrystallizerRecipeCategory implements IRecipeCategory<RecipeHolder<CrystallizerRecipe>> {
     public static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(MCCourse.MOD_ID,
@@ -67,5 +71,11 @@ public class CrystallizerRecipeCategory implements IRecipeCategory<RecipeHolder<
     @Override
     public void draw(RecipeHolder<CrystallizerRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX, double mouseY) {
         this.overlay.draw(guiGraphics, 0, 0);
+
+        guiGraphics.fillGradient(156, 50, 164, 56,0xffb51500, 0xff600b00);
+        if(CrystallizerScreen.isMouseAboveArea((int)mouseX, (int)mouseY, 0, 0, 156, 11, 8, 48)) {
+            guiGraphics.setComponentTooltipForNextFrame(Minecraft.getInstance().font, List.of(Component.literal(25 + "FE/T Needed. Total of 1800 FE.")),
+                    (int)mouseX, (int)mouseY + 110);
+        }
     }
 }

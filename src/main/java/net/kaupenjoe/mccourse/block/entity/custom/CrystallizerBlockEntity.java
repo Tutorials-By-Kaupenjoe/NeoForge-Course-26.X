@@ -34,6 +34,8 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.RangedResourceHandler;
 import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.access.ItemAccess;
+import net.neoforged.neoforge.transfer.energy.EnergyHandler;
+import net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
@@ -65,6 +67,16 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     private final ContainerData data;
     private int progress = 0;
     private int maxProgress = 72;
+
+    private static final int ENERGY_CRAFT_AMOUNT = 25;
+    private final SimpleEnergyHandler ENERGY_STORAGE = new SimpleEnergyHandler(64000, 320) {
+        @Override
+        protected void onEnergyChanged(int previousAmount) {
+            super.onEnergyChanged(previousAmount);
+            getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        }
+    };
+
 
     public CrystallizerBlockEntity(BlockPos worldPosition, BlockState blockState) {
         super(ModBlockEntities.CRYSTALLIZER_BE.get(), worldPosition, blockState);
@@ -110,6 +122,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         output.putInt("crystallizer.max_progress", maxProgress);
 
         output.putChild("inventory", inventory);
+
+        ENERGY_STORAGE.serialize(output);
     }
 
     @Override
@@ -119,6 +133,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         maxProgress = input.getIntOr("crystallizer.max_progress", 72);
 
         input.child("inventory").ifPresent(inventory::deserialize);
+
+        ENERGY_STORAGE.deserialize(input);
     }
 
     public void drops() {
@@ -161,6 +177,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     public void tick(Level level, BlockPos pos, BlockState state) {
         if(hasRecipe() && isOutputSlotEmptyOrReceivable()) { // isOutputSlotEmptyOrReceivable redundant?
             increaseCraftingProgress();
+            useEnergyForCrafting();
             setChanged(level, pos, state);
             level.setBlockAndUpdate(pos, state.setValue(CrystallizerBlock.LIT, true));
 
@@ -171,6 +188,11 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         } else {
             resetProgress();
             level.setBlockAndUpdate(pos, state.setValue(CrystallizerBlock.LIT, false));
+        }
+
+        // Debugging-ish Methods
+        if(hasItemInEnergySlot()) {
+            fillUpOnEnergy();
         }
     }
 
@@ -184,8 +206,9 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
 
         boolean outputSlotAmount = canInsertAmountIntoOutputSlot(output.getCount());
         boolean outputSlotItem = canInsertItemIntoOutputSlot(output);
+        boolean hasEnoughEnergy = hasEnoughEnergyToCraft();
 
-        return outputSlotItem && outputSlotAmount;
+        return outputSlotItem && outputSlotAmount && hasEnoughEnergy;
     }
 
     private Optional<RecipeHolder<CrystallizerRecipe>> getCurrentRecipe() {
@@ -237,6 +260,32 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         this.progress = 0;
     }
 
+    /* ENERGY */
+    public EnergyHandler getEnergyStorage(@Nullable Direction direction) {
+        return this.ENERGY_STORAGE;
+    }
+
+    private boolean hasEnoughEnergyToCraft() {
+        return this.ENERGY_STORAGE.getAmountAsInt() >= ENERGY_CRAFT_AMOUNT * maxProgress;
+    }
+
+    private void useEnergyForCrafting() {
+        try(Transaction transaction = Transaction.openRoot()) {
+            this.ENERGY_STORAGE.extract(ENERGY_CRAFT_AMOUNT, transaction);
+            transaction.commit();
+        }
+    }
+
+    private void fillUpOnEnergy() {
+        try(Transaction transaction = Transaction.openRoot()) {
+            this.ENERGY_STORAGE.insert(160, transaction);
+            transaction.commit();
+        }
+    }
+
+    private boolean hasItemInEnergySlot() {
+        return inventory.getResource(ENERGY_ITEM_SLOT).is(ModItems.RADISH.get());
+    }
 
     /* BLOCK ENTITY SYNC STUFF */
     @Override
