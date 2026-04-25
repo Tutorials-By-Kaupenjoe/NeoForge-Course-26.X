@@ -149,6 +149,10 @@
   "tooltip.mccourse.chisel.shift_down": "This Item can chisel Blocks into Bricks!",
   "tooltip.mccourse.chisel": "Press §eShift§r for more Information!",
 
+  "mccourse.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "mccourse.tooltip.liquid.amount": "%s mB",
+
+
   "creativetab.mccourse.zircon_items": "Zircon Course Items",
   "creativetab.mccourse.zircon_blocks": "Zircon Course Blocks"
 }

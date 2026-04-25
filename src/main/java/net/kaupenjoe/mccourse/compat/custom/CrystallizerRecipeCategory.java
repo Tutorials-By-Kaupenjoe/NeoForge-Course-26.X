@@ -13,6 +13,7 @@ import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.compat.ModJEIRecipeTypes;
 import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
+import net.kaupenjoe.mccourse.menu.renderer.FluidTankRenderer;
 import net.kaupenjoe.mccourse.recipe.custom.CrystallizerRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -20,6 +21,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
@@ -29,10 +32,13 @@ public class CrystallizerRecipeCategory implements IRecipeCategory<RecipeHolder<
             "textures/gui/crystallizer/crystallizer_gui.png");
     private final IDrawable icon;
     private final IDrawable overlay;
+    private final FluidTankRenderer fluidRenderer;
 
     public CrystallizerRecipeCategory(IGuiHelper helper) {
         this.overlay = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CRYSTALLIZER));
+
+        fluidRenderer = new FluidTankRenderer(16000, FluidTankRenderer.TooltipMode.SHOW_AMOUNT, 16, 50);
     }
 
     @Override
@@ -76,6 +82,12 @@ public class CrystallizerRecipeCategory implements IRecipeCategory<RecipeHolder<
         if(CrystallizerScreen.isMouseAboveArea((int)mouseX, (int)mouseY, 0, 0, 156, 11, 8, 48)) {
             guiGraphics.setComponentTooltipForNextFrame(Minecraft.getInstance().font, List.of(Component.literal(25 + "FE/T Needed. Total of 1800 FE.")),
                     (int)mouseX, (int)mouseY + 110);
+        }
+
+        fluidRenderer.render(guiGraphics, 8, 7, new FluidStack(Fluids.WATER, 1000));
+        if(CrystallizerScreen.isMouseAboveArea((int)mouseX, (int)mouseY, 0, 0, 9, 7, fluidRenderer)) {
+            guiGraphics.setComponentTooltipForNextFrame(Minecraft.getInstance().font, fluidRenderer.getTooltip(new FluidStack(Fluids.WATER, 1000)),
+                    (int)mouseX + 78, (int)mouseY + 110);
         }
     }
 }
