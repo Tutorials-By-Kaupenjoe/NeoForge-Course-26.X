@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.phys.Vec3;
 
-public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity, PedestalBlockEntityRenderState> {
+public abstract class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity, PedestalBlockEntityRenderState> {
     private final ItemModelResolver itemModelResolver;
 
     public PedestalBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
@@ -39,7 +39,7 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
 
     @Override
     public void submit(PedestalBlockEntityRenderState state, PoseStack poseStack,
-                       SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
+                            SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
         poseStack.pushPose();
 
         poseStack.translate(0.5f, 1.15f, 0.5f);
