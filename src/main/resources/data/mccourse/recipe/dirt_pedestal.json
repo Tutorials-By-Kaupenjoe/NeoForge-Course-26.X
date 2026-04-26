@@ -1,0 +1,19 @@
+{
+  "type": "mccourse:pedestal_crafting",
+  "ingredients": [
+    "mccourse:zircon",
+
+    "mccourse:frostfire_ice",
+    "mccourse:goji_berries",
+    "mccourse:frostfire_ice",
+    "mccourse:tomahawk",
+
+    "mccourse:frostfire_ice",
+    "mccourse:goji_berries",
+    "mccourse:frostfire_ice",
+    "mccourse:tomahawk"
+  ],
+  "result": {
+    "id": "minecraft:dirt"
+  }
+}

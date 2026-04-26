@@ -1,0 +1,17 @@
+{
+  "type": "mccourse:pedestal_crafting",
+  "ingredients": [
+    "minecraft:diamond",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block"
+  ],
+  "result": {
+    "id": "minecraft:nether_star"
+  }
+}

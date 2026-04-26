@@ -1,6 +1,5 @@
 package net.kaupenjoe.mccourse.block.entity.custom;
 
-import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.menu.custom.PedestalMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -16,7 +15,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -25,7 +26,7 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 
-public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
+public abstract class PedestalBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
         @Override
         protected void onContentsChanged(int index, ItemStack previousContents) {
@@ -42,8 +43,8 @@ public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
         }
     };
 
-    public PedestalBlockEntity(BlockPos worldPosition, BlockState blockState) {
-        super(ModBlockEntities.MAIN_PEDESTAL_BE.get(), worldPosition, blockState);
+    public PedestalBlockEntity(BlockEntityType<?> type, BlockPos worldPosition, BlockState blockState) {
+        super(type, worldPosition, blockState);
     }
 
     public void clearContents() {

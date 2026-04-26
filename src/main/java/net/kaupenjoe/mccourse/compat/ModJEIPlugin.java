@@ -9,6 +9,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.compat.custom.CrystallizerRecipeCategory;
+import net.kaupenjoe.mccourse.compat.custom.PedestalRecipeCategory;
 import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
 import net.kaupenjoe.mccourse.recipe.ModRecipes;
 import net.minecraft.resources.Identifier;
@@ -41,11 +42,13 @@ public class ModJEIPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new CrystallizerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new PedestalRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         registration.addRecipes(ModJEIRecipeTypes.CRYSTALLIZER, this.getRecipes(syncedRecipes, ModRecipes.CRYSTALLIZER_TYPE.get()));
+        registration.addRecipes(ModJEIRecipeTypes.PEDESTAL, this.getRecipes(syncedRecipes, ModRecipes.PEDESTAL_TYPE.get()));
     }
 
     @Override
@@ -57,6 +60,8 @@ public class ModJEIPlugin implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addCraftingStation(ModJEIRecipeTypes.CRYSTALLIZER, new ItemStack(ModBlocks.CRYSTALLIZER.asItem()));
+        registration.addCraftingStation(ModJEIRecipeTypes.PEDESTAL, new ItemStack(ModBlocks.MAIN_PEDESTAL.asItem()));
+        registration.addCraftingStation(ModJEIRecipeTypes.PEDESTAL, new ItemStack(ModBlocks.SIDE_PEDESTAL.asItem()));
     }
 
 
@@ -65,7 +70,8 @@ public class ModJEIPlugin implements IModPlugin {
         @SubscribeEvent
         public static void onDatapackSync(OnDatapackSyncEvent event) {
             event.sendRecipes(
-                    ModRecipes.CRYSTALLIZER_TYPE.get()
+                    ModRecipes.CRYSTALLIZER_TYPE.get(),
+                    ModRecipes.PEDESTAL_TYPE.get()
             );
         }
     }

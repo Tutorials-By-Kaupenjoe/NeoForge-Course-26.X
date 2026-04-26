@@ -191,7 +191,10 @@ public class ModBlocks {
             properties -> new KaupenPortalBlock(properties.strength(2f)));
 
     public static final DeferredBlock<Block> MAIN_PEDESTAL = registerBlock("main_pedestal",
-            properties -> new PedestalBlock(properties.strength(2f).noOcclusion()));
+            properties -> new MainPedestalBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> SIDE_PEDESTAL = registerBlock("side_pedestal",
+            properties -> new SidePedestalBlock(properties.strength(2f).noOcclusion()));
+
     public static final DeferredBlock<Block> CRYSTALLIZER = registerBlock("crystallizer",
             properties -> new CrystallizerBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 

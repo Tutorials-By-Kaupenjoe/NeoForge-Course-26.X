@@ -6,6 +6,7 @@ import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.block.entity.renderer.MainPedestalBlockEntityRenderer;
 import net.kaupenjoe.mccourse.block.entity.renderer.PedestalBlockEntityRenderer;
+import net.kaupenjoe.mccourse.block.entity.renderer.SidePedestalBlockEntityRenderer;
 import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.kaupenjoe.mccourse.entity.client.*;
 import net.kaupenjoe.mccourse.fluid.ModFluidTypes;
@@ -167,5 +168,6 @@ public class MCCourseClient {
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.MAIN_PEDESTAL_BE.get(), MainPedestalBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.SIDE_PEDESTAL_BE.get(), SidePedestalBlockEntityRenderer::new);
     }
 }

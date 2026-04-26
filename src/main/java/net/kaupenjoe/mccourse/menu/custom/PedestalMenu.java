@@ -92,7 +92,9 @@ public class PedestalMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.MAIN_PEDESTAL.get());
+                pPlayer, ModBlocks.MAIN_PEDESTAL.get()) ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.SIDE_PEDESTAL.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

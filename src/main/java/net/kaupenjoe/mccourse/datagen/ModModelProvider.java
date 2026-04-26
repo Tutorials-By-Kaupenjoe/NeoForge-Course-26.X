@@ -131,6 +131,8 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.MAIN_PEDESTAL.get(),
                         BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/main_pedestal"))));
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(ModBlocks.SIDE_PEDESTAL.get(),
+                        BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/side_pedestal"))));
 
         blockModels.createFurnace(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
     }
