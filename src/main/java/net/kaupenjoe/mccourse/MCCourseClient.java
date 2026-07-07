@@ -14,10 +14,7 @@ import net.kaupenjoe.mccourse.fluid.ModFluids;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.keymapping.ModKeyMappings;
 import net.kaupenjoe.mccourse.menu.ModMenuTypes;
-import net.kaupenjoe.mccourse.menu.custom.CoalGeneratorScreen;
-import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
-import net.kaupenjoe.mccourse.menu.custom.PedestalScreen;
-import net.kaupenjoe.mccourse.menu.custom.WarturtleScreen;
+import net.kaupenjoe.mccourse.menu.custom.*;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
 import net.kaupenjoe.mccourse.particle.ModParticles;
 import net.kaupenjoe.mccourse.particle.ZirconParticle;
@@ -165,6 +162,7 @@ public class MCCourseClient {
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
         event.register(ModMenuTypes.CRYSTALLIZER_MENU.get(), CrystallizerScreen::new);
         event.register(ModMenuTypes.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
+        event.register(ModMenuTypes.BATTERY_MENU.get(), BatteryScreen::new);
     }
 
     @SubscribeEvent

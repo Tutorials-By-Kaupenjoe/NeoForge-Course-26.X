@@ -35,7 +35,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ZIRCON_TRAPDOOR.getKey())
                 .add(ModBlocks.ZIRCON_LAMP.getKey())
                 .add(ModBlocks.CRYSTALLIZER.getKey())
-                .add(ModBlocks.COAL_GENERATOR.getKey());
+                .add(ModBlocks.COAL_GENERATOR.getKey())
+                .add(ModBlocks.BATTERY.getKey());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ZIRCON_DEEPSLATE_ORE.getKey());

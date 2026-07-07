@@ -28,6 +28,9 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<CoalGeneratorBlockEntity>> COAL_GENERATOR_BE =
             BLOCK_ENTITIES.register("coal_generator_be", () -> new BlockEntityType<>(
                     CoalGeneratorBlockEntity::new, ModBlocks.COAL_GENERATOR.get()));
+    public static final Supplier<BlockEntityType<BatteryBlockEntity>> BATTERY_BE =
+            BLOCK_ENTITIES.register("battery_be", () -> new BlockEntityType<>(
+                    BatteryBlockEntity::new, ModBlocks.BATTERY.get()));
 
 
 

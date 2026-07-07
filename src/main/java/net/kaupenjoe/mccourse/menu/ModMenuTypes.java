@@ -1,10 +1,7 @@
 package net.kaupenjoe.mccourse.menu;
 
 import net.kaupenjoe.mccourse.MCCourse;
-import net.kaupenjoe.mccourse.menu.custom.CoalGeneratorMenu;
-import net.kaupenjoe.mccourse.menu.custom.CrystallizerMenu;
-import net.kaupenjoe.mccourse.menu.custom.PedestalMenu;
-import net.kaupenjoe.mccourse.menu.custom.WarturtleMenu;
+import net.kaupenjoe.mccourse.menu.custom.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -31,6 +28,9 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<CoalGeneratorMenu>> COAL_GENERATOR_MENU =
             registerMenuType("coal_generator_menu", CoalGeneratorMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<BatteryMenu>> BATTERY_MENU =
+            registerMenuType("battery_menu", BatteryMenu::new);
 
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,

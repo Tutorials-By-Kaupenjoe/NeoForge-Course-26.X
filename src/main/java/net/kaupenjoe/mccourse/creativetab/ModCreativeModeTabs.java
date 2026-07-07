@@ -116,6 +116,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SIDE_PEDESTAL);
                         output.accept(ModBlocks.CRYSTALLIZER);
                         output.accept(ModBlocks.COAL_GENERATOR);
+                        output.accept(ModBlocks.BATTERY);
 
                     }).build());
 

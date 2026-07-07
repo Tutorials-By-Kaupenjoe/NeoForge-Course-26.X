@@ -5,6 +5,7 @@ import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
+import net.kaupenjoe.mccourse.block.entity.custom.BatteryBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.CoalGeneratorBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.CrystallizerBlockEntity;
 import net.kaupenjoe.mccourse.command.ReturnHomeCommand;
@@ -127,5 +128,6 @@ public class ModEvents {
         event.registerBlockEntity(Capabilities.Fluid.BLOCK, ModBlockEntities.CRYSTALLIZER_BE.get(), CrystallizerBlockEntity::getFluidTank);
 
         event.registerBlockEntity(Capabilities.Energy.BLOCK, ModBlockEntities.COAL_GENERATOR_BE.get(), CoalGeneratorBlockEntity::getEnergyStorage);
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, ModBlockEntities.BATTERY_BE.get(), BatteryBlockEntity::getEnergyStorage);
     }
 }
