@@ -17,6 +17,6 @@ public class ModEntityTypeTagProvider extends EntityTypeTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider registries) {
         tag(EntityTypeTags.CAN_EQUIP_SADDLE)
-                .add(ModEntities.DODO.get());
+                .add(ModEntities.DODO_KEY);
     }
 }

@@ -74,6 +74,6 @@ public class MainPedestalBlockEntityRenderer extends PedestalBlockEntityRenderer
 
     @Override
     public AABB getRenderBoundingBox(PedestalBlockEntity blockEntity) {
-        return AABB.unitCubeFromLowerCorner(blockEntity.getBlockPos().getCenter()).inflate(32f);
+        return AABB.unitCubeFromLowerCorner(Vec3.atCenterOf(blockEntity.getBlockPos())).inflate(32f);
     }
 }

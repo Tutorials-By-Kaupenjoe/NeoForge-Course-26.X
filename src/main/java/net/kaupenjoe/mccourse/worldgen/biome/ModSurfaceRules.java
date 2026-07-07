@@ -1,5 +1,7 @@
 package net.kaupenjoe.mccourse.worldgen.biome;
 
+import net.minecraft.core.HolderGetter;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -8,9 +10,9 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 public class ModSurfaceRules {
     private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
     private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource RED_TERRACOTTA = makeStateRule(Blocks.RED_TERRACOTTA);
-    private static final SurfaceRules.RuleSource BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
-    private static final SurfaceRules.RuleSource GREEN_TERRACOTTA = makeStateRule(Blocks.GREEN_TERRACOTTA);
+    private static final SurfaceRules.RuleSource RED_TERRACOTTA = makeStateRule(Blocks.DYED_TERRACOTTA.red());
+    private static final SurfaceRules.RuleSource BLUE_TERRACOTTA = makeStateRule(Blocks.DYED_TERRACOTTA.blue());
+    private static final SurfaceRules.RuleSource GREEN_TERRACOTTA = makeStateRule(Blocks.DYED_TERRACOTTA.green());
 
     private static final SurfaceRules.RuleSource OBSIDIAN = makeStateRule(Blocks.OBSIDIAN);
     private static final SurfaceRules.RuleSource END_STONE = makeStateRule(Blocks.END_STONE);
@@ -20,9 +22,9 @@ public class ModSurfaceRules {
     private static final SurfaceRules.RuleSource BEDROCK = makeStateRule(Blocks.BEDROCK);
 
 
-    public static SurfaceRules.RuleSource makeKaupenValleyRules() {
+    public static SurfaceRules.RuleSource makeKaupenValleyRules(HolderGetter<Biome> biomes) {
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.KAUPEN_VALLEY),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(biomes, ModBiomes.KAUPEN_VALLEY),
                         SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, RED_TERRACOTTA),
                                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, GREEN_TERRACOTTA), BLUE_TERRACOTTA)),
                 // Default to green terracotta
@@ -30,7 +32,7 @@ public class ModSurfaceRules {
         );
     }
 
-    public static SurfaceRules.RuleSource makeGlowstonePlainsRules() {
+    public static SurfaceRules.RuleSource makeGlowstonePlainsRules(HolderGetter<Biome> biomes) {
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.verticalGradient("bedrock_floor",
                         VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)), BEDROCK),
@@ -39,7 +41,7 @@ public class ModSurfaceRules {
 
                 // Then apply biome-specific rules
                 SurfaceRules.ifTrue(
-                        SurfaceRules.isBiome(ModBiomes.GLOWSTONE_PLAINS),
+                        SurfaceRules.isBiome(biomes, ModBiomes.GLOWSTONE_PLAINS),
                         SurfaceRules.sequence(
                                 // Obsidian on the undersides of ceilings
                                 SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, OBSIDIAN),
@@ -51,9 +53,9 @@ public class ModSurfaceRules {
         );
     }
 
-    public static SurfaceRules.RuleSource makeEndRotRules() {
+    public static SurfaceRules.RuleSource makeEndRotRules(HolderGetter<Biome> biomes) {
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.END_ROT), OBSIDIAN),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(biomes, ModBiomes.END_ROT), OBSIDIAN),
                 // Default to end stone
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, END_STONE)
         );

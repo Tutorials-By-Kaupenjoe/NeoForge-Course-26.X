@@ -4,7 +4,7 @@ import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.block.custom.RadishCropBlock;
 import net.kaupenjoe.mccourse.block.custom.RiceCropBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
-import net.minecraft.advancements.criterion.StatePropertiesPredicate;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;

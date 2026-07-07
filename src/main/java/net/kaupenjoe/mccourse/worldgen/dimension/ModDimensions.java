@@ -40,6 +40,7 @@ public class ModDimensions {
     public static void bootstrapType(BootstrapContext<DimensionType> context) {
         var timelines = context.lookup(Registries.TIMELINE);
         var clocks = context.lookup(Registries.WORLD_CLOCK);
+        var blocks = context.lookup(Registries.BLOCK);
 
         context.register(KAUPEN_DIM_TYPE_KEY, new DimensionType(
                 false,
@@ -50,7 +51,7 @@ public class ModDimensions {
                 0,
                 256,
                 256,
-                BlockTags.INFINIBURN_OVERWORLD,
+                blocks.getOrThrow(BlockTags.INFINIBURN_OVERWORLD),
                 1.0f,
                 new DimensionType.MonsterSettings(ConstantInt.of(0), 0),
                 DimensionType.Skybox.OVERWORLD,

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "mccourse:zircon_ore",
     "mccourse:raw_zircon_block"

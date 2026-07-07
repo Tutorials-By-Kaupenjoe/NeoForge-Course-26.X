@@ -17,7 +17,7 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider registries) {
         tag(FluidTags.WATER)
-                .add(ModFluids.ZIRCON_WATER_SOURCE.get())
-                .add(ModFluids.ZIRCON_WATER_FLOWING.get());
+                .add(ModFluids.getRK(ModFluids.ZIRCON_WATER_SOURCE.get()))
+                .add(ModFluids.getRK(ModFluids.ZIRCON_WATER_FLOWING.get()));
     }
 }

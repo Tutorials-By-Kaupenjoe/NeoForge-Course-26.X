@@ -4,6 +4,7 @@ import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
@@ -26,6 +27,10 @@ public class ModFluids {
             ModFluidTypes.ZIRCON_WATER_FLUID_TYPE, ZIRCON_WATER_SOURCE, ZIRCON_WATER_FLOWING)
             .slopeFindDistance(2).levelDecreasePerBlock(1)
             .block(ModBlocks.ZIRCON_WATER_LIQUID_BLOCK).bucket(ModItems.ZIRCON_WATER_BUCKET);
+
+    public static ResourceKey<Fluid> getRK(FlowingFluid fluid) {
+        return BuiltInRegistries.FLUID.getResourceKey(fluid).get();
+    }
 
     public static void register(IEventBus eventBus) {
         FLUIDS.register(eventBus);

@@ -53,7 +53,7 @@ public class KaupenPortalBlock extends Block implements Portal {
             return null;
         }
 
-        Vec3 exactSpawnPos = baseSpawnPos.getBottomCenter();
+        Vec3 exactSpawnPos = Vec3.atBottomCenterOf(baseSpawnPos);
         float yRot, xRot;
         Set<Relative> relatives;
 
@@ -63,7 +63,7 @@ public class KaupenPortalBlock extends Block implements Portal {
                 return serverPlayer.findRespawnPositionAndUseSpawnBlock(false, TeleportTransition.DO_NOTHING);
             }
 
-            exactSpawnPos = entity.adjustSpawnLocation(targetLevel, baseSpawnPos).getBottomCenter();
+            exactSpawnPos = Vec3.atBottomCenterOf(entity.adjustSpawnLocation(targetLevel, baseSpawnPos));
             yRot = respawnData.yaw();
             xRot = respawnData.pitch();
             relatives = Relative.union(Relative.DELTA, Relative.ROTATION);

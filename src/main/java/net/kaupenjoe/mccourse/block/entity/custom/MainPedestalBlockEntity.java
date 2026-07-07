@@ -11,6 +11,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
@@ -64,7 +65,7 @@ public class MainPedestalBlockEntity extends PedestalBlockEntity {
     }
 
     private void spawnVisualLightningBolt(ServerLevel level, BlockPos blockPos) {
-        EntityType.LIGHTNING_BOLT.spawn(level, blockPos, EntitySpawnReason.TRIGGERED).setVisualOnly(true);
+        EntityTypes.LIGHTNING_BOLT.spawn(level, blockPos, EntitySpawnReason.TRIGGERED).setVisualOnly(true);
     }
 
     public void setCount(int count) {

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "zircon",
   "key": {
     "#": "minecraft:stick",
