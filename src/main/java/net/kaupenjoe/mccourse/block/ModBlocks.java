@@ -197,6 +197,8 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CRYSTALLIZER = registerBlock("crystallizer",
             properties -> new CrystallizerBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> COAL_GENERATOR = registerBlock("coal_generator",
+            properties -> new CoalGeneratorBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
 
 

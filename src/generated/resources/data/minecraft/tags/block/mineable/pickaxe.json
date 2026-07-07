@@ -16,6 +16,7 @@
     "mccourse:zircon_door",
     "mccourse:zircon_trapdoor",
     "mccourse:zircon_lamp",
-    "mccourse:crystallizer"
+    "mccourse:crystallizer",
+    "mccourse:coal_generator"
   ]
 }

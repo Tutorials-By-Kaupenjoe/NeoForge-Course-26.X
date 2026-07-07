@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block.entity.custom;
 
 import net.kaupenjoe.mccourse.block.custom.CrystallizerBlock;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
+import net.kaupenjoe.mccourse.block.entity.sub.EnergyBlockEntity;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.menu.custom.CrystallizerMenu;
 import net.kaupenjoe.mccourse.recipe.ModRecipes;
@@ -49,7 +50,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider {
+public class CrystallizerBlockEntity extends EnergyBlockEntity implements MenuProvider {
     public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(4) {
         @Override
         protected void onContentsChanged(int index, ItemStack previousContents) {
@@ -77,13 +78,6 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     private static final int ENERGY_CRAFT_AMOUNT = 25;      // per tick
     private static final int FLUID_CRAFT_AMOUNT = 1000;     // per craft
 
-    private final SimpleEnergyHandler ENERGY_STORAGE = new SimpleEnergyHandler(64000, 320) {
-        @Override
-        protected void onEnergyChanged(int previousAmount) {
-            super.onEnergyChanged(previousAmount);
-            getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-        }
-    };
 
     private final FluidStacksResourceHandler FLUID_TANK = new FluidStacksResourceHandler(1, 16000) {
         @Override
@@ -129,6 +123,11 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     @Override
+    public void assignEnergyStorage() {
+        this.ENERGY_STORAGE = createEnergyStorage(64000, 320);
+    }
+
+    @Override
     public Component getDisplayName() {
         return Component.translatable("block.mccourse.crystallizer");
     }
@@ -146,7 +145,6 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
 
         output.putChild("inventory", inventory);
 
-        ENERGY_STORAGE.serialize(output);
         FLUID_TANK.serialize(output);
     }
 
@@ -158,7 +156,6 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
 
         input.child("inventory").ifPresent(inventory::deserialize);
 
-        ENERGY_STORAGE.deserialize(input);
         FLUID_TANK.deserialize(input);
     }
 
@@ -293,9 +290,6 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     /* ENERGY */
-    public EnergyHandler getEnergyStorage(@Nullable Direction direction) {
-        return this.ENERGY_STORAGE;
-    }
 
     private boolean hasEnoughEnergyToCraft() {
         return this.ENERGY_STORAGE.getAmountAsInt() >= ENERGY_CRAFT_AMOUNT * maxProgress;
@@ -357,16 +351,5 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
 
     private boolean hasEnoughFluidToCraft() {
         return FLUID_TANK.getAmountAsInt(0) >= FLUID_CRAFT_AMOUNT;
-    }
-
-    /* BLOCK ENTITY SYNC STUFF */
-    @Override
-    public @Nullable Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
     }
 }

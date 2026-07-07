@@ -135,5 +135,6 @@ public class ModModelProvider extends ModelProvider {
                         BlockModelGenerators.plainVariant(Identifier.fromNamespaceAndPath(MCCourse.MOD_ID, "block/side_pedestal"))));
 
         blockModels.createFurnace(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
+        blockModels.createTrivialCube(ModBlocks.COAL_GENERATOR.get());
     }
 }

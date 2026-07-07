@@ -2,10 +2,8 @@ package net.kaupenjoe.mccourse.block.entity;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
-import net.kaupenjoe.mccourse.block.entity.custom.CrystallizerBlockEntity;
-import net.kaupenjoe.mccourse.block.entity.custom.MainPedestalBlockEntity;
-import net.kaupenjoe.mccourse.block.entity.custom.PedestalBlockEntity;
-import net.kaupenjoe.mccourse.block.entity.custom.SidePedestalBlockEntity;
+import net.kaupenjoe.mccourse.block.custom.CoalGeneratorBlock;
+import net.kaupenjoe.mccourse.block.entity.custom.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -27,6 +25,9 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<CrystallizerBlockEntity>> CRYSTALLIZER_BE =
             BLOCK_ENTITIES.register("crystallizer_be", () -> new BlockEntityType<>(
                     CrystallizerBlockEntity::new, ModBlocks.CRYSTALLIZER.get()));
+    public static final Supplier<BlockEntityType<CoalGeneratorBlockEntity>> COAL_GENERATOR_BE =
+            BLOCK_ENTITIES.register("coal_generator_be", () -> new BlockEntityType<>(
+                    CoalGeneratorBlockEntity::new, ModBlocks.COAL_GENERATOR.get()));
 
 
 
