@@ -9,8 +9,10 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.compat.custom.CrystallizerRecipeCategory;
+import net.kaupenjoe.mccourse.compat.custom.GrowthChamberRecipeCategory;
 import net.kaupenjoe.mccourse.compat.custom.PedestalRecipeCategory;
 import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
+import net.kaupenjoe.mccourse.menu.custom.GrowthChamberScreen;
 import net.kaupenjoe.mccourse.recipe.ModRecipes;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
@@ -43,18 +45,25 @@ public class ModJEIPlugin implements IModPlugin {
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new CrystallizerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new PedestalRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+
+        registration.addRecipeCategories(new GrowthChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         registration.addRecipes(ModJEIRecipeTypes.CRYSTALLIZER, this.getRecipes(syncedRecipes, ModRecipes.CRYSTALLIZER_TYPE.get()));
         registration.addRecipes(ModJEIRecipeTypes.PEDESTAL, this.getRecipes(syncedRecipes, ModRecipes.PEDESTAL_TYPE.get()));
+
+        registration.addRecipes(ModJEIRecipeTypes.GROWTH_CHAMBER, this.getRecipes(syncedRecipes, ModRecipes.GROWTH_CHAMBER_TYPE.get()));
     }
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(CrystallizerScreen.class, 74, 30, 22, 20,
                 ModJEIRecipeTypes.CRYSTALLIZER);
+
+        registration.addRecipeClickArea(GrowthChamberScreen.class, 74, 30, 22, 20,
+                ModJEIRecipeTypes.GROWTH_CHAMBER);
     }
 
     @Override
@@ -62,6 +71,8 @@ public class ModJEIPlugin implements IModPlugin {
         registration.addCraftingStation(ModJEIRecipeTypes.CRYSTALLIZER, new ItemStack(ModBlocks.CRYSTALLIZER.asItem()));
         registration.addCraftingStation(ModJEIRecipeTypes.PEDESTAL, new ItemStack(ModBlocks.MAIN_PEDESTAL.asItem()));
         registration.addCraftingStation(ModJEIRecipeTypes.PEDESTAL, new ItemStack(ModBlocks.SIDE_PEDESTAL.asItem()));
+
+        registration.addCraftingStation(ModJEIRecipeTypes.GROWTH_CHAMBER, new ItemStack(ModBlocks.GROWTH_CHAMBER.asItem()));
     }
 
 
@@ -71,7 +82,8 @@ public class ModJEIPlugin implements IModPlugin {
         public static void onDatapackSync(OnDatapackSyncEvent event) {
             event.sendRecipes(
                     ModRecipes.CRYSTALLIZER_TYPE.get(),
-                    ModRecipes.PEDESTAL_TYPE.get()
+                    ModRecipes.PEDESTAL_TYPE.get(),
+                    ModRecipes.GROWTH_CHAMBER_TYPE.get()
             );
         }
     }

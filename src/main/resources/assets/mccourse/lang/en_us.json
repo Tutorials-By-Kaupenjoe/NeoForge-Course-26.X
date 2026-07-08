@@ -91,6 +91,7 @@
   "block.mccourse.crystallizer": "Crystallizer",
   "block.mccourse.coal_generator": "Coal Generator",
   "block.mccourse.battery": "Battery",
+  "block.mccourse.growth_chamber": "Growth Chamber",
 
 
   "fluid_type.mccourse.zircon_water_fluid_type": "Zircon Water",

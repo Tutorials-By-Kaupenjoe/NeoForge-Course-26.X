@@ -201,6 +201,8 @@ public class ModBlocks {
             properties -> new CoalGeneratorBlock(properties.strength(2f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> BATTERY = registerBlock("battery",
             properties -> new BatteryBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber",
+            properties -> new GrowthChamberBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
 
 

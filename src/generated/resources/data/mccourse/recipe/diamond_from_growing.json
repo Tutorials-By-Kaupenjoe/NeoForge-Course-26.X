@@ -1,0 +1,11 @@
+{
+  "type": "mccourse:growing",
+  "ingredients": [
+    "minecraft:redstone",
+    "minecraft:lapis_lazuli",
+    "minecraft:redstone"
+  ],
+  "result": {
+    "id": "minecraft:diamond"
+  }
+}

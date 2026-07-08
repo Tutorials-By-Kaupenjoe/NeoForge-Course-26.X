@@ -137,5 +137,6 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createFurnace(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
         blockModels.createTrivialCube(ModBlocks.COAL_GENERATOR.get());
         blockModels.createTrivialCube(ModBlocks.BATTERY.get());
+        blockModels.createFurnace(ModBlocks.GROWTH_CHAMBER.get(), TexturedModel.ORIENTABLE);
     }
 }

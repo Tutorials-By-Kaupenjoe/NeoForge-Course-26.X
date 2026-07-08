@@ -1,0 +1,11 @@
+{
+  "type": "mccourse:growing",
+  "ingredients": [
+    "minecraft:slime_ball",
+    "minecraft:slime_ball",
+    "minecraft:slime_ball"
+  ],
+  "result": {
+    "id": "minecraft:slime_block"
+  }
+}

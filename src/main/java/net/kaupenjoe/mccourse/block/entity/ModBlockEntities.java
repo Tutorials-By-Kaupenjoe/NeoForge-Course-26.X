@@ -32,6 +32,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("battery_be", () -> new BlockEntityType<>(
                     BatteryBlockEntity::new, ModBlocks.BATTERY.get()));
 
+    public static final Supplier<BlockEntityType<GrowthChamberBlockEntity>> GROWTH_CHAMBER_BE =
+            BLOCK_ENTITIES.register("growth_chamber_be", () -> new BlockEntityType<>(
+                    GrowthChamberBlockEntity::new, ModBlocks.GROWTH_CHAMBER.get()));
+
 
 
     public static void register(IEventBus eventBus) {

@@ -18,6 +18,7 @@
     "mccourse:zircon_lamp",
     "mccourse:crystallizer",
     "mccourse:coal_generator",
-    "mccourse:battery"
+    "mccourse:battery",
+    "mccourse:growth_chamber"
   ]
 }

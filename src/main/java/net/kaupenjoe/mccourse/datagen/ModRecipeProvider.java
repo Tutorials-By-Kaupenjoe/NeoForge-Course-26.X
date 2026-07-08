@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse.datagen;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.datagen.recipe.CrystallizerRecipeBuilder;
+import net.kaupenjoe.mccourse.datagen.recipe.GrowthChamberRecipeBuilder;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -243,6 +244,23 @@ public class ModRecipeProvider extends RecipeProvider {
         CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(ModItems.GOJI_BERRIES), ModItems.FROSTFIRE_ICE, 4)
                 .unlockedBy(getHasName(ModItems.GOJI_BERRIES), has(ModItems.GOJI_BERRIES))
                 .save(output, "mccourse:frostfire_ice_from_crystallizing");
+
+        GrowthChamberRecipeBuilder.growthChamber(RecipeCategory.MISC, List.of(
+                        Ingredient.of(Items.SLIME_BALL),
+                        Ingredient.of(Items.SLIME_BALL),
+                        Ingredient.of(Items.SLIME_BALL)),
+                        Items.SLIME_BLOCK)
+                .unlockedBy("has_slime_ball", has(Items.SLIME_BALL))
+                .save(output, "mccourse:slime_block_from_growing");
+
+        GrowthChamberRecipeBuilder.growthChamber(RecipeCategory.MISC, List.of(
+                        Ingredient.of(Items.REDSTONE),
+                        Ingredient.of(Items.LAPIS_LAZULI),
+                        Ingredient.of(Items.REDSTONE)),
+                        Items.DIAMOND)
+                .unlockedBy("has_redstone", has(Items.REDSTONE))
+                .unlockedBy("has_lapis_lazuli", has(Items.LAPIS_LAZULI))
+                .save(output, "mccourse:diamond_from_growing");
 
 
     }

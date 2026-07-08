@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "mccourse:block/growth_chamber_bottom",
+    "front": "mccourse:block/growth_chamber_front",
+    "side": "mccourse:block/growth_chamber_side",
+    "top": "mccourse:block/growth_chamber_top"
+  }
+}

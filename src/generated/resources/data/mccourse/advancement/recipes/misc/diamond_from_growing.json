@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lapis_lazuli": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:lapis_lazuli"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_redstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:redstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mccourse:diamond_from_growing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_redstone",
+      "has_lapis_lazuli"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mccourse:diamond_from_growing"
+    ]
+  }
+}
