@@ -1,0 +1,8 @@
+{
+  "type": "mccourse:crystallizing",
+  "ingredient": "mccourse:goji_berries",
+  "result": {
+    "count": 4,
+    "id": "mccourse:frostfire_ice"
+  }
+}

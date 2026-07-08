@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.datagen.recipe.CrystallizerRecipeBuilder;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -227,6 +229,21 @@ public class ModRecipeProvider extends RecipeProvider {
         woodFromLogs(ModBlocks.EBONY_WOOD, ModBlocks.EBONY_LOG);
         woodFromLogs(ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG);
         planksFromLogs(ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOGS, 4);
+
+        CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(Items.STICK), Items.END_ROD, 2)
+                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                .save(output, "mccourse:end_rod_from_crystallizing");
+        CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(Blocks.DIRT), Items.NETHER_STAR)
+                .unlockedBy(getHasName(Blocks.DIRT), has(Blocks.DIRT))
+                .save(output, "mccourse:nether_star_from_crystallizing");
+        CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(ModItems.RAW_ZIRCON), ModItems.ZIRCON, 3)
+                .unlockedBy(getHasName(ModItems.RAW_ZIRCON), has(ModItems.RAW_ZIRCON))
+                .save(output, "mccourse:zircon_from_crystallizing");
+
+        CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(ModItems.GOJI_BERRIES), ModItems.FROSTFIRE_ICE, 4)
+                .unlockedBy(getHasName(ModItems.GOJI_BERRIES), has(ModItems.GOJI_BERRIES))
+                .save(output, "mccourse:frostfire_ice_from_crystallizing");
+
 
     }
 
