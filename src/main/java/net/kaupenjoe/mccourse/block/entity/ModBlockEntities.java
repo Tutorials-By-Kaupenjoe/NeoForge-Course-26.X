@@ -36,6 +36,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("growth_chamber_be", () -> new BlockEntityType<>(
                     GrowthChamberBlockEntity::new, ModBlocks.GROWTH_CHAMBER.get()));
 
+    public static final Supplier<BlockEntityType<AtomicSeparatorBlockEntity>> ATOMIC_SEPARATOR_BE =
+            BLOCK_ENTITIES.register("atomic_separator_be", () -> new BlockEntityType<>(
+                    AtomicSeparatorBlockEntity::new, ModBlocks.ATOMIC_SEPARATOR.get()));
+
 
 
     public static void register(IEventBus eventBus) {

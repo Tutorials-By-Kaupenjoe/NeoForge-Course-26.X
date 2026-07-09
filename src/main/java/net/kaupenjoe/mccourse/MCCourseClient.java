@@ -164,6 +164,7 @@ public class MCCourseClient {
         event.register(ModMenuTypes.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
         event.register(ModMenuTypes.BATTERY_MENU.get(), BatteryScreen::new);
         event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+        event.register(ModMenuTypes.ATOMIC_SEPARATOR_MENU.get(), AtomicSeparatorScreen::new);
     }
 
     @SubscribeEvent

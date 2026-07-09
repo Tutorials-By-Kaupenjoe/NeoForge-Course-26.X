@@ -1,0 +1,15 @@
+{
+  "type": "mccourse:atomic_separation",
+  "ingredients": "minecraft:nether_star",
+  "results": [
+    {
+      "id": "minecraft:slime_ball"
+    },
+    {
+      "id": "minecraft:slime_ball"
+    },
+    {
+      "id": "minecraft:slime_ball"
+    }
+  ]
+}

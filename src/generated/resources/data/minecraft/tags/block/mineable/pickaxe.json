@@ -19,6 +19,7 @@
     "mccourse:crystallizer",
     "mccourse:coal_generator",
     "mccourse:battery",
-    "mccourse:growth_chamber"
+    "mccourse:growth_chamber",
+    "mccourse:atomic_separator"
   ]
 }

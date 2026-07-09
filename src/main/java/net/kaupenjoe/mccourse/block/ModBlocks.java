@@ -203,6 +203,8 @@ public class ModBlocks {
             properties -> new BatteryBlock(properties.strength(2f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber",
             properties -> new GrowthChamberBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> ATOMIC_SEPARATOR = registerBlock("atomic_separator",
+            properties -> new AtomicSeparatorBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
 
 

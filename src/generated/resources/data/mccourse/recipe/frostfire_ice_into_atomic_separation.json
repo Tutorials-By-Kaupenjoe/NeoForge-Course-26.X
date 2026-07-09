@@ -1,0 +1,15 @@
+{
+  "type": "mccourse:atomic_separation",
+  "ingredients": "mccourse:frostfire_ice",
+  "results": [
+    {
+      "id": "minecraft:snowball"
+    },
+    {
+      "id": "minecraft:snowball"
+    },
+    {
+      "id": "minecraft:snowball"
+    }
+  ]
+}

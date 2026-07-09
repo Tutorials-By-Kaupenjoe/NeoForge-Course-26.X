@@ -37,7 +37,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CRYSTALLIZER.getKey())
                 .add(ModBlocks.COAL_GENERATOR.getKey())
                 .add(ModBlocks.BATTERY.getKey())
-                .add(ModBlocks.GROWTH_CHAMBER.getKey());
+                .add(ModBlocks.GROWTH_CHAMBER.getKey())
+                .add(ModBlocks.ATOMIC_SEPARATOR.getKey());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ZIRCON_DEEPSLATE_ORE.getKey());

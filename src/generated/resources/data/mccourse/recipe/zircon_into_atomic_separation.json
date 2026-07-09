@@ -1,0 +1,18 @@
+{
+  "type": "mccourse:atomic_separation",
+  "ingredients": "mccourse:zircon",
+  "results": [
+    {
+      "count": 3,
+      "id": "minecraft:iron_ingot"
+    },
+    {
+      "count": 16,
+      "id": "minecraft:clay"
+    },
+    {
+      "count": 2,
+      "id": "minecraft:feather"
+    }
+  ]
+}

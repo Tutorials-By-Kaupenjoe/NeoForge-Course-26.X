@@ -8,9 +8,11 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.compat.custom.AtomicSeparatorRecipeCategory;
 import net.kaupenjoe.mccourse.compat.custom.CrystallizerRecipeCategory;
 import net.kaupenjoe.mccourse.compat.custom.GrowthChamberRecipeCategory;
 import net.kaupenjoe.mccourse.compat.custom.PedestalRecipeCategory;
+import net.kaupenjoe.mccourse.menu.custom.AtomicSeparatorScreen;
 import net.kaupenjoe.mccourse.menu.custom.CrystallizerScreen;
 import net.kaupenjoe.mccourse.menu.custom.GrowthChamberScreen;
 import net.kaupenjoe.mccourse.recipe.ModRecipes;
@@ -47,6 +49,7 @@ public class ModJEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new PedestalRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 
         registration.addRecipeCategories(new GrowthChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new AtomicSeparatorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -55,6 +58,7 @@ public class ModJEIPlugin implements IModPlugin {
         registration.addRecipes(ModJEIRecipeTypes.PEDESTAL, this.getRecipes(syncedRecipes, ModRecipes.PEDESTAL_TYPE.get()));
 
         registration.addRecipes(ModJEIRecipeTypes.GROWTH_CHAMBER, this.getRecipes(syncedRecipes, ModRecipes.GROWTH_CHAMBER_TYPE.get()));
+        registration.addRecipes(ModJEIRecipeTypes.ATOMIC_SEPARATOR, this.getRecipes(syncedRecipes, ModRecipes.ATOMIC_SEPARATOR_TYPE.get()));
     }
 
     @Override
@@ -64,6 +68,9 @@ public class ModJEIPlugin implements IModPlugin {
 
         registration.addRecipeClickArea(GrowthChamberScreen.class, 74, 30, 22, 20,
                 ModJEIRecipeTypes.GROWTH_CHAMBER);
+
+        registration.addRecipeClickArea(AtomicSeparatorScreen.class, 74, 30, 22, 20,
+                ModJEIRecipeTypes.ATOMIC_SEPARATOR);
     }
 
     @Override
@@ -73,6 +80,7 @@ public class ModJEIPlugin implements IModPlugin {
         registration.addCraftingStation(ModJEIRecipeTypes.PEDESTAL, new ItemStack(ModBlocks.SIDE_PEDESTAL.asItem()));
 
         registration.addCraftingStation(ModJEIRecipeTypes.GROWTH_CHAMBER, new ItemStack(ModBlocks.GROWTH_CHAMBER.asItem()));
+        registration.addCraftingStation(ModJEIRecipeTypes.ATOMIC_SEPARATOR, new ItemStack(ModBlocks.ATOMIC_SEPARATOR.asItem()));
     }
 
 
@@ -83,7 +91,8 @@ public class ModJEIPlugin implements IModPlugin {
             event.sendRecipes(
                     ModRecipes.CRYSTALLIZER_TYPE.get(),
                     ModRecipes.PEDESTAL_TYPE.get(),
-                    ModRecipes.GROWTH_CHAMBER_TYPE.get()
+                    ModRecipes.GROWTH_CHAMBER_TYPE.get(),
+                    ModRecipes.ATOMIC_SEPARATOR_TYPE.get()
             );
         }
     }

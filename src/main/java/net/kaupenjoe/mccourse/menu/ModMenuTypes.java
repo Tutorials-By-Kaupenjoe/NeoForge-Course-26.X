@@ -35,6 +35,9 @@ public class ModMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<GrowthChamberMenu>> GROWTH_CHAMBER_MENU =
             registerMenuType("growth_chamber_menu", GrowthChamberMenu::new);
 
+    public static final DeferredHolder<MenuType<?>, MenuType<AtomicSeparatorMenu>> ATOMIC_SEPARATOR_MENU =
+            registerMenuType("atomic_separator_menu", AtomicSeparatorMenu::new);
+
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
                                                                                                               IContainerFactory<T> factory) {

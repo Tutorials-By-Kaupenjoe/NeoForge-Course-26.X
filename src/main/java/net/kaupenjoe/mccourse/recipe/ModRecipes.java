@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.recipe;
 
 import net.kaupenjoe.mccourse.MCCourse;
+import net.kaupenjoe.mccourse.recipe.custom.AtomicSeparatorRecipe;
 import net.kaupenjoe.mccourse.recipe.custom.CrystallizerRecipe;
 import net.kaupenjoe.mccourse.recipe.custom.GrowthChamberRecipe;
 import net.kaupenjoe.mccourse.recipe.custom.PedestalRecipe;
@@ -44,6 +45,16 @@ public class ModRecipes {
                 @Override
                 public String toString() {
                     return "growing";
+                }
+            });
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<AtomicSeparatorRecipe>> ATOMIC_SEPARATOR_SERIALIZER =
+            SERIALIZERS.register("atomic_separation", () -> new RecipeSerializer<>(AtomicSeparatorRecipe.CODEC, AtomicSeparatorRecipe.STREAM_CODEC));
+    public static final DeferredHolder<RecipeType<?>, RecipeType<AtomicSeparatorRecipe>> ATOMIC_SEPARATOR_TYPE =
+            TYPES.register("atomic_separation", () -> new RecipeType<AtomicSeparatorRecipe>() {
+                @Override
+                public String toString() {
+                    return "atomic_separation";
                 }
             });
 

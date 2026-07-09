@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.datagen.recipe.AtomicSeparatorRecipeBuilder;
 import net.kaupenjoe.mccourse.datagen.recipe.CrystallizerRecipeBuilder;
 import net.kaupenjoe.mccourse.datagen.recipe.GrowthChamberRecipeBuilder;
 import net.kaupenjoe.mccourse.item.ModItems;
@@ -12,6 +13,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
@@ -261,6 +263,28 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_redstone", has(Items.REDSTONE))
                 .unlockedBy("has_lapis_lazuli", has(Items.LAPIS_LAZULI))
                 .save(output, "mccourse:diamond_from_growing");
+
+
+        AtomicSeparatorRecipeBuilder.atomicSeparator(RecipeCategory.MISC, Ingredient.of(Items.NETHER_STAR), List.of(
+                        new ItemStackTemplate(Items.SLIME_BALL),
+                        new ItemStackTemplate(Items.SLIME_BALL),
+                        new ItemStackTemplate(Items.SLIME_BALL)))
+                .unlockedBy("has_nether_star", has(Items.NETHER_STAR))
+                .save(output, "mccourse:nether_star_into_atomic_separation");
+
+        AtomicSeparatorRecipeBuilder.atomicSeparator(RecipeCategory.MISC, Ingredient.of(ModItems.FROSTFIRE_ICE), List.of(
+                        new ItemStackTemplate(Items.SNOWBALL),
+                        new ItemStackTemplate(Items.SNOWBALL),
+                        new ItemStackTemplate(Items.SNOWBALL)))
+                .unlockedBy("has_frost_fire_ice", has(ModItems.FROSTFIRE_ICE))
+                .save(output, "mccourse:frostfire_ice_into_atomic_separation");
+
+        AtomicSeparatorRecipeBuilder.atomicSeparator(RecipeCategory.MISC, Ingredient.of(ModItems.ZIRCON), List.of(
+                        new ItemStackTemplate(Items.IRON_INGOT, 3),
+                        new ItemStackTemplate(Items.CLAY, 16),
+                        new ItemStackTemplate(Items.FEATHER, 2)))
+                .unlockedBy("has_zircon", has(ModItems.ZIRCON))
+                .save(output, "mccourse:zircon_into_atomic_separation");
 
 
     }

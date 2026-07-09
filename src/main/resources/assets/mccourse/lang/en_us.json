@@ -92,6 +92,7 @@
   "block.mccourse.coal_generator": "Coal Generator",
   "block.mccourse.battery": "Battery",
   "block.mccourse.growth_chamber": "Growth Chamber",
+  "block.mccourse.atomic_separator": "Atomic Separator",
 
 
   "fluid_type.mccourse.zircon_water_fluid_type": "Zircon Water",

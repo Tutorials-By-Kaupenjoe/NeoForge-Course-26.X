@@ -138,5 +138,6 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.COAL_GENERATOR.get());
         blockModels.createTrivialCube(ModBlocks.BATTERY.get());
         blockModels.createFurnace(ModBlocks.GROWTH_CHAMBER.get(), TexturedModel.ORIENTABLE);
+        blockModels.createFurnace(ModBlocks.ATOMIC_SEPARATOR.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
     }
 }
