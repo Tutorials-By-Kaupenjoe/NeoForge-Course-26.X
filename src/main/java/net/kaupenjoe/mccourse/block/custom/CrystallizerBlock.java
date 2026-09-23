@@ -34,7 +34,6 @@ import org.jspecify.annotations.Nullable;
 public class CrystallizerBlock extends BaseEntityBlock {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
-    public static final MapCodec<CrystallizerBlock> CODEC = simpleCodec(CrystallizerBlock::new);
 
     public CrystallizerBlock(Properties properties) {
         super(properties);
@@ -52,11 +51,6 @@ public class CrystallizerBlock extends BaseEntityBlock {
     }
 
     /* BLOCK ENTITY */
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
-
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos worldPosition, BlockState blockState) {
         return new CrystallizerBlockEntity(worldPosition, blockState);

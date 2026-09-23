@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:geode",
+  "blocks": {
+    "alternate_inner_layer_provider": {
+      "id": "mccourse:raw_zircon_block"
+    },
+    "cannot_replace": "#minecraft:features_cannot_replace",
+    "filling_provider": {
+      "id": "minecraft:air"
+    },
+    "inner_layer_provider": {
+      "id": "minecraft:deepslate",
+      "properties": {
+        "axis": "y"
+      }
+    },
+    "inner_placements": [
+      "mccourse:zircon_block",
+      "mccourse:zircon_ore",
+      "mccourse:magic_block"
+    ],
+    "invalid_blocks": "#minecraft:geode_invalid_blocks",
+    "middle_layer_provider": {
+      "id": "minecraft:emerald_block"
+    },
+    "outer_layer_provider": {
+      "id": "minecraft:dirt"
+    }
+  },
+  "crack": {
+    "generate_crack_chance": 0.95
+  },
+  "invalid_blocks_threshold": 1,
+  "layers": {},
+  "outer_wall_distance": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 6,
+    "min_inclusive": 4
+  },
+  "use_alternate_layer0_chance": 0.083
+}

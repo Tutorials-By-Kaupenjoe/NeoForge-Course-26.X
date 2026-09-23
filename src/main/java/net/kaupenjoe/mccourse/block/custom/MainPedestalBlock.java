@@ -14,18 +14,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
 public class MainPedestalBlock extends PedestalBlock {
-    public static final MapCodec<MainPedestalBlock> CODEC = simpleCodec(MainPedestalBlock::new);
 
     public MainPedestalBlock(Properties properties) {
         super(properties);
     }
 
     /* BLOCK ENTITY */
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
-
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos worldPosition, BlockState blockState) {
         return new MainPedestalBlockEntity(worldPosition, blockState);

@@ -1,0 +1,46 @@
+{
+  "values": {
+    "minecraft:axe": [
+      {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "mccourse:ebony_log"
+              },
+              "then": {
+                "id": "mccourse:stripped_ebony_log",
+                "properties": {
+                  "axis": "y"
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1
+      },
+      {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "mccourse:ebony_wood"
+              },
+              "then": {
+                "id": "mccourse:stripped_ebony_wood",
+                "properties": {
+                  "axis": "y"
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1
+      }
+    ]
+  }
+}

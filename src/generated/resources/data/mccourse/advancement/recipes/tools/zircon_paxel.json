@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_paxel"
+        "recipes": "mccourse:zircon_paxel"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

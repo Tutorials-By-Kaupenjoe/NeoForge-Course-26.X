@@ -32,18 +32,11 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jspecify.annotations.Nullable;
 
 public class CoalGeneratorBlock extends BaseEntityBlock {
-    public static final MapCodec<CoalGeneratorBlock> CODEC = simpleCodec(CoalGeneratorBlock::new);
-
     public CoalGeneratorBlock(Properties properties) {
         super(properties);
     }
 
     /* BLOCK ENTITY */
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
-
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos worldPosition, BlockState blockState) {
         return new CoalGeneratorBlockEntity(worldPosition, blockState);

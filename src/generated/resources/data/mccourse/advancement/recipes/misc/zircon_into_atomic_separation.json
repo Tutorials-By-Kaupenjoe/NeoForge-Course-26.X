@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_into_atomic_separation"
+        "recipes": "mccourse:zircon_into_atomic_separation"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

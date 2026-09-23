@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_chestplate"
+        "recipes": "mccourse:zircon_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

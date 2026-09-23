@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_lamp"
+        "recipes": "mccourse:zircon_lamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -18,9 +18,12 @@
       "spawns": [
         {
           "type": "minecraft:wandering_trader",
-          "weight": 1,
-          "minCount": 1,
-          "maxCount": 1
+          "count": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 1,
+            "min_inclusive": 1
+          },
+          "weight": 1
         }
       ]
     },
@@ -29,9 +32,12 @@
       "spawns": [
         {
           "type": "minecraft:parrot",
-          "weight": 1,
-          "minCount": 1,
-          "maxCount": 4
+          "count": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 1,
+            "min_inclusive": 1
+          },
+          "weight": 1
         }
       ]
     }

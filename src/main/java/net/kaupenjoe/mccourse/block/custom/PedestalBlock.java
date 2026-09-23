@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
@@ -67,7 +68,7 @@ public abstract class PedestalBlock extends BaseEntityBlock {
                 pedestalBlockEntity.clearContents();
 
                 if(!player.getInventory().add(stackOnPedestal)) {
-                    player.drop(stackOnPedestal, false);
+                    player.drop(stackOnPedestal, false, Prediction.SERVER_ONLY);
                 }
 
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);

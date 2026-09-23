@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:diamond_from_growing"
+        "recipes": "mccourse:diamond_from_growing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

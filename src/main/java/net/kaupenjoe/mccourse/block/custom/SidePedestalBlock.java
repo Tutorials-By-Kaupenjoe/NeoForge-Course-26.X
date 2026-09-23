@@ -26,18 +26,11 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.jspecify.annotations.Nullable;
 
 public class SidePedestalBlock extends PedestalBlock {
-    public static final MapCodec<SidePedestalBlock> CODEC = simpleCodec(SidePedestalBlock::new);
-
     public SidePedestalBlock(Properties properties) {
         super(properties);
     }
 
     /* BLOCK ENTITY */
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
-
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos worldPosition, BlockState blockState) {
         return new SidePedestalBlockEntity(worldPosition, blockState);

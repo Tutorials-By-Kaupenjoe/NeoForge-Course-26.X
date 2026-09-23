@@ -3,7 +3,6 @@ package net.kaupenjoe.mccourse.event;
 import net.kaupenjoe.mccourse.MCCourse;
 import net.kaupenjoe.mccourse.attachmenttype.ModAttachmentTypes;
 import net.kaupenjoe.mccourse.attachmenttype.handler.ManaHandler;
-import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.block.entity.custom.BatteryBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.CoalGeneratorBlockEntity;
@@ -18,7 +17,6 @@ import net.kaupenjoe.mccourse.networking.ClientboundPackets;
 import net.kaupenjoe.mccourse.networking.ServerboundPackets;
 import net.kaupenjoe.mccourse.networking.packet.ManaPacketS2C;
 import net.kaupenjoe.mccourse.networking.packet.TestPacketC2S;
-import net.kaupenjoe.mccourse.potion.ModPotions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -28,22 +26,18 @@ import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.neoforged.neoforge.server.command.ConfigCommand;
 
 @EventBusSubscriber(modid = MCCourse.MOD_ID)
 public class ModEvents {
@@ -87,6 +81,12 @@ public class ModEvents {
     }
 
     @SubscribeEvent
+    public static void setPlayersManaOnRespawn(RegisterSpawnPlacementsEvent event) {
+        event.register(ModEntities.DODO.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                PathfinderMob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+    }
+
+    @SubscribeEvent
     public static void livingDamage(LivingDamageEvent.Pre event) {
         if(event.getEntity() instanceof Sheep sheep && event.getSource().getDirectEntity() instanceof Player player) {
             if(player.getMainHandItem().getItem() == Items.END_ROD) {
@@ -101,11 +101,6 @@ public class ModEvents {
     public static void onCommandsRegister(RegisterCommandsEvent event) {
         SetHomeCommand.register(event.getDispatcher());
         ReturnHomeCommand.register(event.getDispatcher());
-    }
-
-    @SubscribeEvent
-    public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
-        event.getBuilder().addMix(Potions.AWKWARD, Blocks.DIRT.asItem(), ModPotions.STINKY_POTION);
     }
 
     @SubscribeEvent

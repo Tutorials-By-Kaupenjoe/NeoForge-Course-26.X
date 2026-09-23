@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:chair"
+        "recipes": "mccourse:chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

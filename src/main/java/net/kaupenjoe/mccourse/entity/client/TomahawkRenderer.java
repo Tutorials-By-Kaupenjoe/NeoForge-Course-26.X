@@ -46,17 +46,17 @@ public class TomahawkRenderer extends EntityRenderer<TomahawkProjectileEntity, T
         poseStack.pushPose();
 
         if (!state.isGrounded) {
-            poseStack.mulPose(Axis.YP.rotationDegrees(state.yaw));
-            poseStack.mulPose(Axis.XP.rotationDegrees(state.spinRotation));
+            poseStack.rotate(Axis.YP.rotationDegrees(state.yaw));
+            poseStack.rotate(Axis.XP.rotationDegrees(state.spinRotation));
             poseStack.translate(0, -1.0f, 0);
         } else {
-            poseStack.mulPose(Axis.YP.rotationDegrees(state.groundedOffset.y));
-            poseStack.mulPose(Axis.XP.rotationDegrees(state.groundedOffset.x));
+            poseStack.rotate(Axis.YP.rotationDegrees(state.groundedOffset.y));
+            poseStack.rotate(Axis.XP.rotationDegrees(state.groundedOffset.x));
             poseStack.translate(0, -1.0f, 0);
         }
 
         submitNodeCollector.order(1).submitModel(this.model, state, poseStack, RenderTypes.entitySolid(getTextureLocation()),
-                state.lightCoords, OverlayTexture.NO_OVERLAY, -1,null, state.outlineColor, null);
+                state.lightCoords, OverlayTexture.NO_OVERLAY, -1, null, state.outlineColor);
         poseStack.popPose();
     }
 

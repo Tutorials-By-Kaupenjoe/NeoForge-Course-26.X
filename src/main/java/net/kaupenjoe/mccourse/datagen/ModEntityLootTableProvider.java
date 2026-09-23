@@ -2,8 +2,8 @@ package net.kaupenjoe.mccourse.datagen;
 
 import net.kaupenjoe.mccourse.entity.ModEntities;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.EntityLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
@@ -13,24 +13,24 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import java.util.stream.Stream;
 
 public class ModEntityLootTableProvider extends EntityLootSubProvider {
-    public ModEntityLootTableProvider(HolderLookup.Provider registries) {
-        super(FeatureFlags.REGISTRY.allFlags(), registries);
+    public ModEntityLootTableProvider(LootTableSubProvider.Context output) {
+        super(FeatureFlags.REGISTRY.allFlags(), output);
     }
 
     @Override
     public void generate() {
         add(ModEntities.PENGUIN.get(),
                 LootTable.lootTable().withPool(LootPool.lootPool()
-                        .setRolls(ConstantValue.exactly(1f))
+                        .setRolls(ContextIntProviders.exactly(1))
                         .add(LootItem.lootTableItem(Items.COD)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))
-                                .apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0, 1))))
+                                .apply(SetItemCountFunction.setCount(ContextIntProviders.between(0, 1)))
+                                .apply(EnchantedCountIncreaseFunction.lootingMultiplier(enchantments, ContextFloatProviders.between(0, 1))))
                         .when(LootItemKilledByPlayerCondition.killedByPlayer())));
 
         add(ModEntities.WARTURTLE.get(), LootTable.lootTable());

@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -29,25 +30,26 @@ public class ModItems {
             properties -> new ChiselItem(properties.durability(32)));
 
     public static final DeferredItem<Item> RADISH = ITEMS.registerItem("radish",
-            properties -> new Item(properties.food(ModFoodProperties.RADISH, ModFoodProperties.RADISH_EFFECT)) {
+            properties -> new Item(properties.food(ModFoodProperties.RADISH, ModFoodProperties.RADISH_EFFECT).compostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH)) {
                 @Override
                 public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
                     builder.accept(Component.translatable("tooltip.mccourse.radish"));
                     super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
                 }
             });
-    public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice", Item::new);
+    public static final DeferredItem<Item> FROSTFIRE_ICE = ITEMS.registerItem("frostfire_ice", properties ->
+            new Item(properties.cookingFuel(ContextIntProviders.COOKING_TIME_COAL_BLOCK)));
 
     public static final DeferredItem<Item> ZIRCON_SWORD = ITEMS.registerItem("zircon_sword",
             properties -> new Item(properties.sword(ModToolMaterials.ZIRCON, 3f, -2.4f)));
     public static final DeferredItem<Item> ZIRCON_PICKAXE = ITEMS.registerItem("zircon_pickaxe",
             properties -> new Item(properties.pickaxe(ModToolMaterials.ZIRCON, 1f, -2.8f)));
     public static final DeferredItem<Item> ZIRCON_SHOVEL = ITEMS.registerItem("zircon_shovel",
-            properties -> new ShovelItem(ModToolMaterials.ZIRCON, 1.5f, -3f, properties));
+            properties -> new Item(properties.shovel(ModToolMaterials.ZIRCON, 1.5f, -3f)));
     public static final DeferredItem<Item> ZIRCON_AXE = ITEMS.registerItem("zircon_axe",
-            properties -> new AxeItem(ModToolMaterials.ZIRCON, 6f, -3.2f, properties));
+            properties -> new Item(properties.axe(ModToolMaterials.ZIRCON, 6f, -3.2f)));
     public static final DeferredItem<Item> ZIRCON_HOE = ITEMS.registerItem("zircon_hoe",
-            properties -> new HoeItem(ModToolMaterials.ZIRCON, 0f, -3f, properties));
+            properties -> new Item(properties.hoe(ModToolMaterials.ZIRCON, 0f, -3f)));
 
     public static final DeferredItem<Item> ZIRCON_PAXEL = ITEMS.registerItem("zircon_paxel",
             properties -> new PaxelItem(ModToolMaterials.ZIRCON, 4f, -2.6f, properties));
@@ -70,7 +72,7 @@ public class ModItems {
             properties -> new BowItem(properties.durability(500)));
 
     public static final DeferredItem<Item> RADISH_SEEDS = ITEMS.registerItem("radish_seeds",
-            properties -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties.useItemDescriptionPrefix()));
+            properties -> new BlockItem(ModBlocks.RADISH_CROP.get(), properties.useItemDescriptionPrefix().compostable(ContextIntProviders.COMPOSTABLE_LOW)));
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
             properties -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(), properties.useItemDescriptionPrefix().food(ModFoodProperties.GOJI_BERRIES)));
     public static final DeferredItem<Item> RICE_SHOOT = ITEMS.registerItem("rice_shoot",

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_pickaxe"
+        "recipes": "mccourse:zircon_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

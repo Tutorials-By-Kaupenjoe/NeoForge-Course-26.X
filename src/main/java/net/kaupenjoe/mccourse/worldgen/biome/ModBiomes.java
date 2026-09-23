@@ -24,7 +24,7 @@ public class ModBiomes {
     }
 
     public static void bootstrap(BootstrapContext<Biome> context) {
-        var carver = context.lookup(Registries.CONFIGURED_CARVER);
+        var carver = context.lookup(Registries.CARVER);
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 
         register(context, KAUPEN_VALLEY, ModOverworldBiomes.kaupenValley(placedFeatures, carver));

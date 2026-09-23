@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.147'
     id 'idea'
 }
 
@@ -131,7 +131,7 @@ dependencies {
     // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
-    implementation 'com.github.glitchfiend:TerraBlender-neoforge:26.2-26.2.0.0.1'
+    implementation 'com.github.glitchfiend:TerraBlender-neoforge:26.3-26.3.0.0.7'
 
     // compile against the JEI API but do not include it at runtime
     compileOnly("mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}")

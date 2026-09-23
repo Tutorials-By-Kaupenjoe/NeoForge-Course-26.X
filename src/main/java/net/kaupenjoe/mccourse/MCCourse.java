@@ -22,14 +22,11 @@ import net.kaupenjoe.mccourse.sound.ModSounds;
 import net.kaupenjoe.mccourse.stat.ModStats;
 import net.kaupenjoe.mccourse.villager.ModVillagers;
 import net.kaupenjoe.mccourse.worldgen.biome.ModBiomes;
-import net.kaupenjoe.mccourse.worldgen.biome.ModEndBiomes;
-import net.kaupenjoe.mccourse.worldgen.biome.ModSurfaceRules;
+import net.kaupenjoe.mccourse.worldgen.biome.ModMaterialRules;
 import net.kaupenjoe.mccourse.worldgen.tree.ModFoliagePlacers;
 import net.kaupenjoe.mccourse.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -40,7 +37,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
-import terrablender.api.SurfaceRuleManager;
+import terrablender.api.MaterialRuleManager;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 // Very important comment!
@@ -101,16 +98,16 @@ public class MCCourse {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.EBONY_SAPLING.getId(), ModBlocks.POTTED_EBONY_SAPLING);
+            // ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
+            // ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.EBONY_SAPLING.getId(), ModBlocks.POTTED_EBONY_SAPLING);
 
             Stats.CUSTOM.get(ModStats.MANA_USED_TOTAL_STAT.get(), value -> value + " Mana");
 
             ModBiomes.registerBiomes();
 
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules::makeKaupenValleyRules);
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, MOD_ID, ModSurfaceRules::makeGlowstonePlainsRules);
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, MOD_ID, ModSurfaceRules::makeEndRotRules);
+            MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules::makeKaupenValleyRules);
+            MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.NETHER, MOD_ID, ModMaterialRules::makeGlowstonePlainsRules);
+            MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.END, MOD_ID, ModMaterialRules::makeEndRotRules);
         });
     }
 

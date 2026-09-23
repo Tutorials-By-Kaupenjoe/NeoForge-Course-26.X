@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_from_smelting_zircon_end_ore"
+        "recipes": "mccourse:zircon_from_smelting_zircon_end_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

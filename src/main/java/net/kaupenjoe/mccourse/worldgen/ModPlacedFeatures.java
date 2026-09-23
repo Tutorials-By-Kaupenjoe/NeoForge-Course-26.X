@@ -10,7 +10,7 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
@@ -28,29 +28,29 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ZIRCON_GEODE_PLACED_KEY = registerKey("zircon_geode_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
-        var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+        var configuredFeatures = context.lookup(Registries.FEATURE);
 
-        register(context, ZIRCON_OVERWORLD_ORES_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ZIRCON_OVERWORLD_ORES_KEY),
+        register(context, ZIRCON_OVERWORLD_ORES_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.ZIRCON_OVERWORLD_ORES_KEY),
                 ModOrePlacements.commonOrePlacement(12,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
-        register(context, ZIRCON_NETHER_ORES_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ZIRCON_NETHER_ORES_KEY),
+        register(context, ZIRCON_NETHER_ORES_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.ZIRCON_NETHER_ORES_KEY),
                 ModOrePlacements.commonOrePlacement(12,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
-        register(context, ZIRCON_END_ORES_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ZIRCON_END_ORES_KEY),
+        register(context, ZIRCON_END_ORES_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.ZIRCON_END_ORES_KEY),
                 ModOrePlacements.commonOrePlacement(12,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
 
-        register(context, EBONY_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.EBONY_TREE_KEY),
+        register(context, EBONY_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.EBONY_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
                         ModBlocks.EBONY_SAPLING.get()));
 
-        register(context, CATMINT_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CATMINT_FLOWER_KEY),
+        register(context, CATMINT_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.CATMINT_FLOWER_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
-        register(context, GOJI_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.GOJI_BERRY_BUSH_KEY),
+        register(context, GOJI_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.GOJI_BERRY_BUSH_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
-        register(context, ZIRCON_GEODE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ZIRCON_GEODE_KEY),
+        register(context, ZIRCON_GEODE_PLACED_KEY, configuredFeatures.getOrThrow(ModFeatures.ZIRCON_GEODE_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(50), InSquarePlacement.spread(),
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(5), VerticalAnchor.absolute(50)), BiomeFilter.biome()));
 
@@ -62,7 +62,7 @@ public class ModPlacedFeatures {
     }
 
     private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key,
-                                 Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
+                                 Holder<Feature> configuration, List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
 }

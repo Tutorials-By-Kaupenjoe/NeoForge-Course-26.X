@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_door"
+        "recipes": "mccourse:zircon_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

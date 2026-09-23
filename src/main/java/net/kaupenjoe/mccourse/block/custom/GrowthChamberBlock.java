@@ -30,15 +30,9 @@ import org.jetbrains.annotations.Nullable;
 public class GrowthChamberBlock extends BaseEntityBlock {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
-    public static final MapCodec<GrowthChamberBlock> CODEC = simpleCodec(GrowthChamberBlock::new);
 
     public GrowthChamberBlock(Properties pProperties) {
         super(pProperties);
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     /* FACING */

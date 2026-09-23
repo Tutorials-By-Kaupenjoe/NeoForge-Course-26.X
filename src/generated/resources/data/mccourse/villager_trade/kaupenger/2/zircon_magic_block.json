@@ -2,11 +2,11 @@
   "gives": {
     "id": "mccourse:magic_block"
   },
-  "max_uses": 3.0,
-  "reputation_discount": 0.07,
+  "max_uses": 12,
+  "reputation_discount": 0.05,
   "wants": {
-    "count": 3.0,
+    "count": 3,
     "id": "mccourse:zircon"
   },
-  "xp": 15.0
+  "xp": 12
 }

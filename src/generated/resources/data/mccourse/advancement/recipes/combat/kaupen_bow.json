@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:kaupen_bow"
+        "recipes": "mccourse:kaupen_bow"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

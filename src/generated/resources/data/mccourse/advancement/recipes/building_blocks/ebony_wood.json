@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:ebony_wood"
+        "recipes": "mccourse:ebony_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

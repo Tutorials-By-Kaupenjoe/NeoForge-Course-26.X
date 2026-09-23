@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_from_ore_and_raw_block"
+        "recipes": "mccourse:zircon_from_ore_and_raw_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

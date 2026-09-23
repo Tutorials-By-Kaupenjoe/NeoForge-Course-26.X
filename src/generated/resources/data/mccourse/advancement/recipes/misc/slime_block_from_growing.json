@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:slime_block_from_growing"
+        "recipes": "mccourse:slime_block_from_growing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

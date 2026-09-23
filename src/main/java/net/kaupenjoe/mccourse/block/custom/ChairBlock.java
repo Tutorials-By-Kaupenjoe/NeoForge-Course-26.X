@@ -25,7 +25,6 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 
 public class ChairBlock extends HorizontalDirectionalBlock {
-    public static final MapCodec<ChairBlock> CODEC = simpleCodec(ChairBlock::new);
     private static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 16, 13);
 
     public ChairBlock(Properties properties) {
@@ -47,11 +46,6 @@ public class ChairBlock extends HorizontalDirectionalBlock {
         }
 
         return InteractionResult.SUCCESS;
-    }
-
-    @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return CODEC;
     }
 
     @Override

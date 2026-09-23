@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_helmet"
+        "recipes": "mccourse:zircon_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

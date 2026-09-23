@@ -14,6 +14,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.sounds.AmbientLeavesBlockSoundPlayer;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -63,10 +64,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ZIRCON_PRESSURE_PLATE = registerBlock("zircon_pressure_plate",
             properties -> new PressurePlateBlock(BlockSetType.IRON,
-                    properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn().noCollision().pushReaction(PushReaction.DESTROY)));
+                    properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn().noCollision().pushReaction(PushReaction.POPPED)));
     public static final DeferredBlock<Block> ZIRCON_BUTTON = registerBlock("zircon_button",
             properties -> new ButtonBlock(BlockSetType.IRON, 20,
-                    properties.strength(2f).requiresCorrectToolForDrops().noCollision().pushReaction(PushReaction.DESTROY)));
+                    properties.strength(2f).requiresCorrectToolForDrops().noCollision().pushReaction(PushReaction.POPPED)));
 
     public static final DeferredBlock<Block> ZIRCON_FENCE = registerBlock("zircon_fence",
             properties -> new FenceBlock(properties.strength(2f).requiresCorrectToolForDrops()));
@@ -77,7 +78,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ZIRCON_DOOR = registerBlock("zircon_door",
             properties -> new DoorBlock(BlockSetType.IRON, properties.strength(2f)
-                    .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.DESTROY)));
+                    .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.POPPED)));
     public static final DeferredBlock<Block> ZIRCON_TRAPDOOR = registerBlock("zircon_trapdoor",
             properties -> new TrapDoorBlock(BlockSetType.IRON, properties.strength(2f)
                     .requiresCorrectToolForDrops().noOcclusion().isValidSpawn(Blocks::never)));
@@ -88,39 +89,38 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.registerBlock("radish_crop",
             properties -> new RadishCropBlock(properties.mapColor(MapColor.PLANT)
-                    .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+                    .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.POPPED)));
 
     public static final DeferredBlock<Block> CATMINT = registerBlock("catmint",
             properties -> new FlowerBlock(MobEffects.SLOW_FALLING, 10,
                     properties.mapColor(MapColor.PLANT).noCollision().instabreak()
-                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+                    .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.POPPED)));
     public static final DeferredBlock<Block> POTTED_CATMINT = BLOCKS.registerBlock("potted_catmint",
             properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CATMINT, properties.noOcclusion()
-                    .instabreak().pushReaction(PushReaction.DESTROY)));
+                    .instabreak().pushReaction(PushReaction.POPPED)));
 
     public static final DeferredBlock<Block> COLORED_LEAVES = registerBlock("colored_leaves",
             properties -> new TintedParticleLeavesBlock(0.1f, properties.mapColor(MapColor.PLANT)
                     .strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion()
                     .isValidSpawn(Blocks::ocelotOrParrot).isSuffocating((_, _, _) -> false)
-                    .isViewBlocking((_, _, _) -> false)
-                    .ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((_, _, _) -> false)));
+                    .ignitedByLava().pushReaction(PushReaction.POPPED).isRedstoneConductor((_, _, _) -> false)));
 
     public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.registerBlock("goji_berry_bush",
             properties -> new GojiBerryBushBlock(properties.mapColor(MapColor.PLANT).randomTicks()
-                    .noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
+                    .noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.POPPED)));
 
     public static final DeferredBlock<Block> RICE_CROP = BLOCKS.registerBlock("rice_crop",
             properties -> new RiceCropBlock(properties.mapColor(MapColor.PLANT)
-                    .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+                    .noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.POPPED)));
 
     public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
             properties -> new ChairBlock(properties.sound(SoundType.WOOD).strength(1.25f)
-                    .pushReaction(PushReaction.DESTROY)));
+                    .pushReaction(PushReaction.POPPED)));
 
     public static final DeferredBlock<LiquidBlock> ZIRCON_WATER_LIQUID_BLOCK = BLOCKS.registerBlock("zircon_water_liquid_block",
             properties -> new LiquidBlock(ModFluids.ZIRCON_WATER_SOURCE.get(), properties
                     .mapColor(MapColor.WATER).replaceable().noCollision().strength(100.0F)
-                    .pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
+                    .pushReaction(PushReaction.POPPED).noLootTable().liquid().sound(SoundType.EMPTY)));
 
 
     public static final DeferredBlock<Block> EBONY_LOG = registerBlock("ebony_log",
@@ -155,13 +155,12 @@ public class ModBlocks {
             });
 
     public static final DeferredBlock<Block> EBONY_LEAVES = registerBlock("ebony_leaves",
-            properties -> new UntintedParticleLeavesBlock(0f, ParticleTypes.CHERRY_LEAVES,
+            properties -> new UntintedParticleLeavesBlock(0f, ParticleTypes.CHERRY_LEAVES, AmbientLeavesBlockSoundPlayer.noAmbientSound(),
                     properties.mapColor(MapColor.PLANT).strength(0.2F)
                             .randomTicks().sound(SoundType.CHERRY_LEAVES)
                             .noOcclusion().isValidSpawn(Blocks::ocelotOrParrot)
                             .isSuffocating((state, level, pos) -> false)
-                            .isViewBlocking((state, level, pos) -> false)
-                            .ignitedByLava().pushReaction(PushReaction.DESTROY)
+                            .ignitedByLava().pushReaction(PushReaction.POPPED)
                             .isRedstoneConductor((state, level, pos) -> false)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -181,10 +180,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> EBONY_SAPLING = registerBlock("ebony_sapling",
             properties -> new ModSaplingBlock(ModTreeGrowers.EBONY, properties.mapColor(MapColor.PLANT).noCollision()
-                    .randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY), () -> Blocks.STONE));
+                    .randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.POPPED), () -> Blocks.STONE));
     public static final DeferredBlock<Block> POTTED_EBONY_SAPLING = BLOCKS.registerBlock("potted_ebony_sapling",
             properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EBONY_SAPLING,
-                    properties.noOcclusion().instabreak().pushReaction(PushReaction.DESTROY)));
+                    properties.noOcclusion().instabreak().pushReaction(PushReaction.POPPED)));
 
 
     public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",

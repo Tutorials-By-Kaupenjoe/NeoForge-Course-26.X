@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:nether_star_into_atomic_separation"
+        "recipes": "mccourse:nether_star_into_atomic_separation"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

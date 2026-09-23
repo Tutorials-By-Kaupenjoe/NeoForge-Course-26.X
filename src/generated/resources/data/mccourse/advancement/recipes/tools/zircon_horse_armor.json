@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_horse_armor"
+        "recipes": "mccourse:zircon_horse_armor"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

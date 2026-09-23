@@ -1,13 +1,13 @@
 {
-  "given_item_modifiers": [
+  "given_item_modifier": [
     {
+      "type": "minecraft:set_enchantments",
       "enchantments": {
-        "minecraft:sharpness": 1.0
-      },
-      "function": "minecraft:set_enchantments"
+        "minecraft:sharpness": 1
+      }
     },
     {
-      "function": "minecraft:filtered",
+      "type": "minecraft:filtered",
       "item_filter": {
         "items": "mccourse:zircon_sword",
         "predicates": {
@@ -19,18 +19,18 @@
         }
       },
       "on_fail": {
-        "function": "minecraft:discard"
+        "type": "minecraft:discard"
       }
     }
   ],
   "gives": {
     "id": "mccourse:zircon_sword"
   },
-  "max_uses": 3.0,
+  "max_uses": 3,
   "reputation_discount": 0.07,
   "wants": {
-    "count": 64.0,
+    "count": 64,
     "id": "mccourse:zircon"
   },
-  "xp": 15.0
+  "xp": 15
 }

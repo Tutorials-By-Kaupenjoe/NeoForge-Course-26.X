@@ -57,13 +57,13 @@ public class WarturtleArmorRenderLayer extends RenderLayer<WarturtleRenderState,
 
             this.model.setupAnim(state);
             submitNodeCollector.order(1).submitModel(this.model, state, poseStack, RenderTypes.entityCutout(ARMOR_MAP.get(itemStack.getItem())),
-                    lightCoords, OverlayTexture.NO_OVERLAY, -1, null, state.outlineColor, null);
+                    lightCoords, OverlayTexture.NO_OVERLAY, -1, null, state.outlineColor);
 
             if(state.dyeColor != null) {
                 DyeColor dyeColor = state.dyeColor;
                 Identifier identifier = DYE_LOCATION[dyeColor.getId()];
                 submitNodeCollector.order(2).submitModel(this.model, state, poseStack, RenderTypes.entityCutout(identifier),
-                        lightCoords, OverlayTexture.NO_OVERLAY, 0, null);
+                        lightCoords, OverlayTexture.NO_OVERLAY, 0);
             }
         }
     }

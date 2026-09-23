@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_pressure_plate"
+        "recipes": "mccourse:zircon_pressure_plate"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

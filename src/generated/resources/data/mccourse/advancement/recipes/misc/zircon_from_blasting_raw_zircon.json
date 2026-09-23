@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mccourse:zircon_from_blasting_raw_zircon"
+        "recipes": "mccourse:zircon_from_blasting_raw_zircon"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

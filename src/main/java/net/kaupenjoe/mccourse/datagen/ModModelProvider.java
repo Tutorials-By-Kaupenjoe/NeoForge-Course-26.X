@@ -21,6 +21,7 @@ import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class ModModelProvider extends ModelProvider {
@@ -45,10 +46,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.ZIRCON_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.ZIRCON_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-        itemModels.generateTrimmableItem(ModItems.ZIRCON_HELMET.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
-        itemModels.generateTrimmableItem(ModItems.ZIRCON_CHESTPLATE.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
-        itemModels.generateTrimmableItem(ModItems.ZIRCON_LEGGINGS.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
-        itemModels.generateTrimmableItem(ModItems.ZIRCON_BOOTS.get(), ModArmorMaterials.ZIRCON_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+        itemModels.generateTrimmableArmorSet(ModItems.ZIRCON_HELMET.get(), ModItems.ZIRCON_CHESTPLATE.get(), ModItems.ZIRCON_LEGGINGS.get(), ModItems.ZIRCON_BOOTS.get(),
+                false, Map.of());
 
         itemModels.generateFlatItem(ModItems.ZIRCON_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
