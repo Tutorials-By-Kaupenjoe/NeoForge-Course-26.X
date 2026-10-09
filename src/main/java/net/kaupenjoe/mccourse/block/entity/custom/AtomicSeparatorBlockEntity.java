@@ -120,7 +120,7 @@ public class AtomicSeparatorBlockEntity extends BlockEntity implements MenuProvi
     public void drops() {
         SimpleContainer inv = new SimpleContainer(itemStacksResourceHandler.size());
         for (int i = 0; i < itemStacksResourceHandler.size(); i++) {
-            ItemAccess itemAccess = ItemAccess.forHandlerIndex(itemStacksResourceHandler, 0);
+            ItemAccess itemAccess = ItemAccess.forHandlerIndex(itemStacksResourceHandler, i);
             inv.setItem(i, new ItemStack(itemAccess.getResource().getItem(), itemAccess.getAmount()));
         }
 
