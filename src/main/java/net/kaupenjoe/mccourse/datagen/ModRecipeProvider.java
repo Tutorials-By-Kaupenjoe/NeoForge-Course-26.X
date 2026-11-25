@@ -9,10 +9,11 @@ import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.potion.ModPotions;
 import net.kaupenjoe.mccourse.tag.ModTags;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.MultiRegistryBootstrap;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.BrewingRecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -26,7 +27,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+
 
 public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
@@ -40,264 +41,264 @@ public class ModRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
         List<ItemLike> ZIRCON_SMELTABLES = List.of(ModItems.RAW_ZIRCON,
-                ModBlocks.ZIRCON_ORE, ModBlocks.ZIRCON_DEEPSLATE_ORE, ModBlocks.ZIRCON_NETHER_ORE, ModBlocks.ZIRCON_END_ORE);
+            ModBlocks.ZIRCON_ORE, ModBlocks.ZIRCON_DEEPSLATE_ORE, ModBlocks.ZIRCON_NETHER_ORE, ModBlocks.ZIRCON_END_ORE);
 
         oreSmelting(ZIRCON_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.ZIRCON.get(), 0.25f, 200, "zircon");
         oreBlasting(ZIRCON_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.ZIRCON.get(), 0.25f, 100, "zircon");
 
         shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_BLOCK.get())
-                .pattern("ZZZ")
-                .pattern("ZZZ")
-                .pattern("ZZZ")
-                .define('Z', ModItems.ZIRCON.get())
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZZ")
+            .pattern("ZZZ")
+            .pattern("ZZZ")
+            .define('Z', ModItems.ZIRCON.get())
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
 
         shapeless(RecipeCategory.MISC, ModItems.ZIRCON.get(), 9)
-                .requires(ModBlocks.ZIRCON_BLOCK)
-                .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
-                .save(output);
+            .requires(ModBlocks.ZIRCON_BLOCK)
+            .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
+            .save(output);
 
         shapeless(RecipeCategory.MISC, ModItems.ZIRCON.get(), 18)
-                .requires(ModBlocks.ZIRCON_ORE)
-                .requires(ModBlocks.RAW_ZIRCON_BLOCK)
-                .unlockedBy(getHasName(ModBlocks.ZIRCON_ORE.get()), has(ModBlocks.ZIRCON_ORE.get()))
-                .unlockedBy(getHasName(ModBlocks.RAW_ZIRCON_BLOCK.get()), has(ModBlocks.RAW_ZIRCON_BLOCK.get()))
-                .save(output, MCCourse.MOD_ID + ":" + "zircon_from_ore_and_raw_block");
+            .requires(ModBlocks.ZIRCON_ORE)
+            .requires(ModBlocks.RAW_ZIRCON_BLOCK)
+            .unlockedBy(getHasName(ModBlocks.ZIRCON_ORE.get()), has(ModBlocks.ZIRCON_ORE.get()))
+            .unlockedBy(getHasName(ModBlocks.RAW_ZIRCON_BLOCK.get()), has(ModBlocks.RAW_ZIRCON_BLOCK.get()))
+            .save(output, MCCourse.MOD_ID + ":" + "zircon_from_ore_and_raw_block");
 
         stairBuilder(ModBlocks.ZIRCON_STAIRS.get(), Ingredient.of(ModBlocks.ZIRCON_BLOCK.get()))
-                .group("zircon")
-                .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
-                .save(output);
+            .group("zircon")
+            .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
+            .save(output);
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_SLAB.get(), ModItems.ZIRCON.get());
 
         buttonBuilder(ModBlocks.ZIRCON_BUTTON.get(), Ingredient.of(ModItems.ZIRCON))
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         pressurePlate(ModBlocks.ZIRCON_PRESSURE_PLATE.get(), ModItems.ZIRCON.get());
 
         fenceBuilder(ModBlocks.ZIRCON_FENCE.get(), Ingredient.of(ModItems.ZIRCON.get()))
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         fenceGateBuilder(ModBlocks.ZIRCON_FENCE_GATE.get(), Ingredient.of(ModItems.ZIRCON.get()))
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ZIRCON_WALL.get(), ModItems.ZIRCON.get());
 
         doorBuilder(ModBlocks.ZIRCON_DOOR.get(), Ingredient.of(ModItems.ZIRCON.get()))
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         trapdoorBuilder(ModBlocks.ZIRCON_TRAPDOOR.get(), Ingredient.of(ModBlocks.ZIRCON_BLOCK.get()))
-                .group("zircon")
-                .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
-                .save(output);
+            .group("zircon")
+            .unlockedBy(getHasName(ModBlocks.ZIRCON_BLOCK.get()), has(ModBlocks.ZIRCON_BLOCK.get()))
+            .save(output);
 
         shaped(RecipeCategory.COMBAT, ModItems.ZIRCON_SWORD.get())
-                .pattern("Z")
-                .pattern("Z")
-                .pattern("S")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('S', Items.STICK)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("Z")
+            .pattern("Z")
+            .pattern("S")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('S', Items.STICK)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_PICKAXE.get())
-                .pattern("ZZZ")
-                .pattern(" S ")
-                .pattern(" S ")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('S', Items.STICK)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZZ")
+            .pattern(" S ")
+            .pattern(" S ")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('S', Items.STICK)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_SHOVEL.get())
-                .pattern("Z")
-                .pattern("S")
-                .pattern("S")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('S', Items.STICK)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("Z")
+            .pattern("S")
+            .pattern("S")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('S', Items.STICK)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_AXE.get())
-                .pattern("ZZ")
-                .pattern("ZS")
-                .pattern(" S")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('S', Items.STICK)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZ")
+            .pattern("ZS")
+            .pattern(" S")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('S', Items.STICK)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HOE.get())
-                .pattern("ZZ")
-                .pattern(" S")
-                .pattern(" S")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('S', Items.STICK)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZ")
+            .pattern(" S")
+            .pattern(" S")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('S', Items.STICK)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_PAXEL.get())
-                .pattern("PAS")
-                .define('P', ModItems.ZIRCON_PICKAXE.get())
-                .define('A', ModItems.ZIRCON_AXE.get())
-                .define('S', ModItems.ZIRCON_SHOVEL.get())
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON_PICKAXE.get()), has(ModItems.ZIRCON_PICKAXE.get()))
-                .unlockedBy(getHasName(ModItems.ZIRCON_AXE.get()), has(ModItems.ZIRCON_AXE.get()))
-                .unlockedBy(getHasName(ModItems.ZIRCON_SHOVEL.get()), has(ModItems.ZIRCON_SHOVEL.get()))
-                .save(output);
+            .pattern("PAS")
+            .define('P', ModItems.ZIRCON_PICKAXE.get())
+            .define('A', ModItems.ZIRCON_AXE.get())
+            .define('S', ModItems.ZIRCON_SHOVEL.get())
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON_PICKAXE.get()), has(ModItems.ZIRCON_PICKAXE.get()))
+            .unlockedBy(getHasName(ModItems.ZIRCON_AXE.get()), has(ModItems.ZIRCON_AXE.get()))
+            .unlockedBy(getHasName(ModItems.ZIRCON_SHOVEL.get()), has(ModItems.ZIRCON_SHOVEL.get()))
+            .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HAMMER.get())
-                .pattern("ZZZ")
-                .pattern("ZSZ")
-                .pattern(" S ")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('S', Items.STICK)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZZ")
+            .pattern("ZSZ")
+            .pattern(" S ")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('S', Items.STICK)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HELMET.get())
-                .pattern("ZZZ")
-                .pattern("Z Z")
-                .define('Z', ModItems.ZIRCON.get())
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZZ")
+            .pattern("Z Z")
+            .define('Z', ModItems.ZIRCON.get())
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_CHESTPLATE.get())
-                .pattern(" Z ")
-                .pattern("ZZZ")
-                .pattern("ZZZ")
-                .define('Z', ModItems.ZIRCON.get())
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern(" Z ")
+            .pattern("ZZZ")
+            .pattern("ZZZ")
+            .define('Z', ModItems.ZIRCON.get())
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_LEGGINGS.get())
-                .pattern("ZZZ")
-                .pattern("Z Z")
-                .pattern("Z Z")
-                .define('Z', ModItems.ZIRCON.get())
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZZZ")
+            .pattern("Z Z")
+            .pattern("Z Z")
+            .define('Z', ModItems.ZIRCON.get())
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_BOOTS.get())
-                .pattern("Z Z")
-                .pattern("Z Z")
-                .define('Z', ModItems.ZIRCON.get())
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("Z Z")
+            .pattern("Z Z")
+            .define('Z', ModItems.ZIRCON.get())
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.ZIRCON_HORSE_ARMOR.get())
-                .pattern("ZLZ")
-                .pattern("Z Z")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('L', Items.LEATHER)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .save(output);
+            .pattern("ZLZ")
+            .pattern("Z Z")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('L', Items.LEATHER)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.ZIRCON_LAMP.get())
-                .pattern("ZZZ")
-                .pattern("ZRZ")
-                .pattern("ZZZ")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('R', Items.REDSTONE)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
-                .save(output);
+            .pattern("ZZZ")
+            .pattern("ZRZ")
+            .pattern("ZZZ")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('R', Items.REDSTONE)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
+            .save(output);
 
         shaped(RecipeCategory.COMBAT, ModItems.KAUPEN_BOW.get())
-                .pattern("S# ")
-                .pattern("S Z")
-                .pattern("S# ")
-                .define('Z', ModItems.ZIRCON.get())
-                .define('#', Items.STICK)
-                .define('S', Items.STRING)
-                .group("zircon")
-                .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
-                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
-                .save(output);
+            .pattern("S# ")
+            .pattern("S Z")
+            .pattern("S# ")
+            .define('Z', ModItems.ZIRCON.get())
+            .define('#', Items.STICK)
+            .define('S', Items.STRING)
+            .group("zircon")
+            .unlockedBy(getHasName(ModItems.ZIRCON.get()), has(ModItems.ZIRCON.get()))
+            .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+            .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+            .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CHAIR.get())
-                .pattern("PPP")
-                .pattern("# #")
-                .pattern("# #")
-                .define('#', Items.STICK)
-                .define('P', Items.OAK_PLANKS)
-                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.OAK_PLANKS))
-                .save(output);
+            .pattern("PPP")
+            .pattern("# #")
+            .pattern("# #")
+            .define('#', Items.STICK)
+            .define('P', Items.OAK_PLANKS)
+            .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+            .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.OAK_PLANKS))
+            .save(output);
 
         woodFromLogs(ModBlocks.EBONY_WOOD, ModBlocks.EBONY_LOG);
         woodFromLogs(ModBlocks.STRIPPED_EBONY_WOOD, ModBlocks.STRIPPED_EBONY_LOG);
         planksFromLogs(ModBlocks.EBONY_PLANKS, ModTags.Items.EBONY_LOGS, 4);
 
         CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(Items.STICK), Items.END_ROD, 2)
-                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-                .save(output, "mccourse:end_rod_from_crystallizing");
+            .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+            .save(output, "mccourse:end_rod_from_crystallizing");
         CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(Blocks.DIRT), Items.NETHER_STAR)
-                .unlockedBy(getHasName(Blocks.DIRT), has(Blocks.DIRT))
-                .save(output, "mccourse:nether_star_from_crystallizing");
+            .unlockedBy(getHasName(Blocks.DIRT), has(Blocks.DIRT))
+            .save(output, "mccourse:nether_star_from_crystallizing");
         CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(ModItems.RAW_ZIRCON), ModItems.ZIRCON, 3)
-                .unlockedBy(getHasName(ModItems.RAW_ZIRCON), has(ModItems.RAW_ZIRCON))
-                .save(output, "mccourse:zircon_from_crystallizing");
+            .unlockedBy(getHasName(ModItems.RAW_ZIRCON), has(ModItems.RAW_ZIRCON))
+            .save(output, "mccourse:zircon_from_crystallizing");
 
         CrystallizerRecipeBuilder.crystallizerRecipe(RecipeCategory.MISC, Ingredient.of(ModItems.GOJI_BERRIES), ModItems.FROSTFIRE_ICE, 4)
-                .unlockedBy(getHasName(ModItems.GOJI_BERRIES), has(ModItems.GOJI_BERRIES))
-                .save(output, "mccourse:frostfire_ice_from_crystallizing");
+            .unlockedBy(getHasName(ModItems.GOJI_BERRIES), has(ModItems.GOJI_BERRIES))
+            .save(output, "mccourse:frostfire_ice_from_crystallizing");
 
         GrowthChamberRecipeBuilder.growthChamber(RecipeCategory.MISC, List.of(
-                        Ingredient.of(Items.SLIME_BALL),
-                        Ingredient.of(Items.SLIME_BALL),
-                        Ingredient.of(Items.SLIME_BALL)),
-                        Items.SLIME_BLOCK)
-                .unlockedBy("has_slime_ball", has(Items.SLIME_BALL))
-                .save(output, "mccourse:slime_block_from_growing");
+                    Ingredient.of(Items.SLIME_BALL),
+                    Ingredient.of(Items.SLIME_BALL),
+                    Ingredient.of(Items.SLIME_BALL)),
+                Items.SLIME_BLOCK)
+            .unlockedBy("has_slime_ball", has(Items.SLIME_BALL))
+            .save(output, "mccourse:slime_block_from_growing");
 
         GrowthChamberRecipeBuilder.growthChamber(RecipeCategory.MISC, List.of(
-                        Ingredient.of(Items.REDSTONE),
-                        Ingredient.of(Items.LAPIS_LAZULI),
-                        Ingredient.of(Items.REDSTONE)),
-                        Items.DIAMOND)
-                .unlockedBy("has_redstone", has(Items.REDSTONE))
-                .unlockedBy("has_lapis_lazuli", has(Items.LAPIS_LAZULI))
-                .save(output, "mccourse:diamond_from_growing");
+                    Ingredient.of(Items.REDSTONE),
+                    Ingredient.of(Items.LAPIS_LAZULI),
+                    Ingredient.of(Items.REDSTONE)),
+                Items.DIAMOND)
+            .unlockedBy("has_redstone", has(Items.REDSTONE))
+            .unlockedBy("has_lapis_lazuli", has(Items.LAPIS_LAZULI))
+            .save(output, "mccourse:diamond_from_growing");
 
 
         AtomicSeparatorRecipeBuilder.atomicSeparator(RecipeCategory.MISC, Ingredient.of(Items.NETHER_STAR), List.of(
-                        new ItemStackTemplate(Items.SLIME_BALL),
-                        new ItemStackTemplate(Items.SLIME_BALL),
-                        new ItemStackTemplate(Items.SLIME_BALL)))
-                .unlockedBy("has_nether_star", has(Items.NETHER_STAR))
-                .save(output, "mccourse:nether_star_into_atomic_separation");
+                new ItemStackTemplate(Items.SLIME_BALL),
+                new ItemStackTemplate(Items.SLIME_BALL),
+                new ItemStackTemplate(Items.SLIME_BALL)))
+            .unlockedBy("has_nether_star", has(Items.NETHER_STAR))
+            .save(output, "mccourse:nether_star_into_atomic_separation");
 
         AtomicSeparatorRecipeBuilder.atomicSeparator(RecipeCategory.MISC, Ingredient.of(ModItems.FROSTFIRE_ICE), List.of(
-                        new ItemStackTemplate(Items.SNOWBALL),
-                        new ItemStackTemplate(Items.SNOWBALL),
-                        new ItemStackTemplate(Items.SNOWBALL)))
-                .unlockedBy("has_frost_fire_ice", has(ModItems.FROSTFIRE_ICE))
-                .save(output, "mccourse:frostfire_ice_into_atomic_separation");
+                new ItemStackTemplate(Items.SNOWBALL),
+                new ItemStackTemplate(Items.SNOWBALL),
+                new ItemStackTemplate(Items.SNOWBALL)))
+            .unlockedBy("has_frost_fire_ice", has(ModItems.FROSTFIRE_ICE))
+            .save(output, "mccourse:frostfire_ice_into_atomic_separation");
 
         AtomicSeparatorRecipeBuilder.atomicSeparator(RecipeCategory.MISC, Ingredient.of(ModItems.ZIRCON), List.of(
-                        new ItemStackTemplate(Items.IRON_INGOT, 3),
-                        new ItemStackTemplate(Items.CLAY, 16),
-                        new ItemStackTemplate(Items.FEATHER, 2)))
-                .unlockedBy("has_zircon", has(ModItems.ZIRCON))
-                .save(output, "mccourse:zircon_into_atomic_separation");
+                new ItemStackTemplate(Items.IRON_INGOT, 3),
+                new ItemStackTemplate(Items.CLAY, 16),
+                new ItemStackTemplate(Items.FEATHER, 2)))
+            .unlockedBy("has_zircon", has(ModItems.ZIRCON))
+            .save(output, "mccourse:zircon_into_atomic_separation");
 
 
         for (Item potion : List.of(Items.POTION, Items.SPLASH_POTION, Items.LINGERING_POTION)) {
             BrewingRecipeBuilder.brewingMix(potion, Potions.AWKWARD, Blocks.DIRT.asItem(), ModPotions.STINKY_POTION)
-                    .save(output, MCCourse.MOD_ID + ":brewing/" + getItemName(potion) + "_awkward_dirt");
+                .save(output, MCCourse.MOD_ID + ":brewing/" + getItemName(potion) + "_awkward_dirt");
         }
 
 
@@ -309,9 +310,9 @@ public class ModRecipeProvider extends RecipeProvider {
                                                                 ItemLike result, float experience, int cookingTime, String group, String fromDesc) {
         for (ItemLike item : smeltables) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(item), craftingCategory, cookingCategory, result, experience, cookingTime, factory)
-                    .group(group)
-                    .unlockedBy(getHasName(item), this.has(item))
-                    .save(this.output, MCCourse.MOD_ID + ":" + getItemName(result) + fromDesc + "_" + getItemName(item));
+                .group(group)
+                .unlockedBy(getHasName(item), this.has(item))
+                .save(this.output, MCCourse.MOD_ID + ":" + getItemName(result) + fromDesc + "_" + getItemName(item));
         }
     }
 }

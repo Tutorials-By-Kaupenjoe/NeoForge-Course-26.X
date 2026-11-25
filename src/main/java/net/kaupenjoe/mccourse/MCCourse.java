@@ -93,7 +93,7 @@ public class MCCourse {
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, MCConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.LOCAL, MCConfig.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
